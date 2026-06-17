@@ -1,0 +1,369 @@
+\documentclass[prl,aps,10pt,superscriptaddress, floatfix]{revtex4-2}
+\usepackage[LGR,T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm, mathtools, bbm, physics}
+\usepackage{dsfont}
+\usepackage{subcaption}
+% REVTeX defaults to centered caption, while subcaption assumes justified is the default, so we need to redefine the justified command.
+\usepackage{ragged2e} % for the \justifying macro
+\DeclareCaptionJustification{justified}{\justifying}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage[page,title, titletoc]{appendix}
+\usepackage[colorlinks=true, pdfborder={0 0 0}]{hyperref}
+\definecolor{googleblue}{RGB}{34, 0, 204}
+\definecolor{panblue}{RGB}{0,24,150}
+\definecolor{carmine}{RGB}{150, 0, 24}
+\hypersetup{
+unicode=true,
+bookmarksnumbered=false,
+bookmarksopen=false,
+breaklinks=false,
+colorlinks=true,
+linkcolor=carmine,
+citecolor=googleblue,
+urlcolor=panblue,
+anchorcolor=OliveGreen}
+
+\newcommand{\tmp}[1]{\textcolor{red}{#1}}
+\newcommand{\pedro}[1]{{\color{purple} #1}}
+\newcommand{\bereket}[1]{{\color{blue} #1}}
+\newcommand{\elie}[1]{{\color{RawSienna} #1}}
+
+\usepackage{newtxtext}
+
+%\usepackage{microtype}
+%\microtypecontext{spacing=nonfrench}
+%\microtypesetup{
+%expansion=false,
+%protrusion={true,nocompatibility},
+%activate={true,nocompatibility},
+%tracking=false,
+%kerning=true,
+%spacing={true}
+%}
+
+\usepackage[all=normal,floats=tight,mathspacing=tight,wordspacing=tight,paragraphs=normal,tracking=tight,charwidths=tight,mathdisplays=normal,sections=normal,margins=normal]{savetrees}
+
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{main.bib}
+
+\usepackage{tikz} % TikZ
+\usetikzlibrary{calc, arrows, patterns, shapes, decorations, arrows.meta, fit, positioning}
+\tikzset{
+    auto, node distance =1 cm and 1 cm,semithick,
+    var/.style ={circle, draw, minimum width = 1cm, ultra thick},
+    latent/.style ={regular polygon, regular polygon sides=3, inner sep=1pt, draw, minimum width = 1.2cm, ultra thick},
+    point/.style = {circle, draw, inner sep=0.06cm, fill, node contents={}},
+    triangle/.style = {regular polygon, regular polygon sides=3, draw, inner sep=0.06cm, fill, node contents={}},
+    bidir/.style={Latex-Latex,dashed},
+    dir/.style={-Latex, thick},
+    el/.style = {inner sep=2pt, align=left, sloped}
+}
+\tikzstyle{vertex}=[circle, fill=black!10, draw=black]
+\tikzstyle{edge}=[thick]
+\tikzstyle{clique}=[line width=4, draw=black!70]
+
+% Theorem environments
+\newtheorem{theo}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{coro}{Corollary}
+\newtheorem*{defi}{Definition}
+\newtheorem{obs}{Observation}
+
+% Useful math shortcuts
+\newcommand{\eye}{\mathbbm{1}}
+\newcommand{\mO}{\mathcal{O}}
+\newcommand{\mL}{\mathcal{L}}
+\newcommand{\mH}{\mathcal{H}}
+\newcommand{\Cset}{\mathcal{C}}
+\newcommand{\Qset}{\mathcal{Q}}
+\newcommand{\Nset}{\mathcal{N}}
+\newcommand{\NBset}{\mathcal{N}_\mathrm{B}}
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\Nat}{\mathbb{N}}
+\graphicspath{{imgs/}}
+
+\DeclareMathOperator{\Pa}{Pa}
+
+\DeclareMathOperator{\pa}{pa}
+\DeclareMathOperator{\Ch}{Ch}
+\DeclareMathOperator{\opa}{opa}
+\DeclareMathOperator{\OPa}{OPa}
+\DeclareMathOperator{\LPa}{LPa}
+
+\usepackage{tikz}
+% drawing parameters
+\newcommand{\circdist}{1}  % distance from origin to center of circles
+\newcommand{\circrad}{6/4} % radius of the circles
+\newcommand{\circlethickness}{2.5mm} % uh, thickness of the circles
+
+% distance from the origin to the three "interior" intersections
+\pgfmathsetmacro{\intrad}{sqrt((\circrad)^2 - 3*(\circdist)^2/4) - \circdist/2}
+
+% distance from the origin to the three "exterior" intersections
+\pgfmathsetmacro{\extrad}{sqrt((\circrad)^2 - 3*(\circdist)^2/4) + \circdist/2}
+
+% so we can just specify an angle and get the correct color for the circle
+\colorlet{180}{blue!60}
+\colorlet{60}{red!50}
+\colorlet{300}{green!40}
+
+% draws one of our circles
+\newcommand{\mycircle}[1]{%
+  \draw[thick, double distance=\circlethickness, double=#1]
+  (#1:\circdist) circle (\circrad);}
+
+
+%%% Adrian Commands %%%%%
+\usepackage{xcolor}
+\definecolor{pansypurple}{rgb}{0.47, 0.09, 0.29}
+
+\newcommand\al[1]{\textcolor{pansypurple}{ [A:\,#1]}}
+\newcommand\p[1]{\textcolor{blue}{ [P:\,#1]}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\title{Generalized Probabilistic Topological Field Theories: Notes}
+\author{Pedro Lauand}
+\email{plauand@perimeterinstitute.ca}
+\affiliation{Perimeter Institute for Theoretical Physics, Waterloo, Ontario, Canada, N2L 2Y5}
+
+\maketitle
+%\onecolumn
+\section{Introduction} 
+
+\al{Eventually, I think the main theme of the introduction of an eventual paper should be around the notion of locality. At some point high-energy theorists realized that QFTs are things you ``mount" on mafilods, or ``live" on them. Locality comes when you study the compatibility of gluing: if you have two processes labelled by two manifolds, the process associated to the gluing (when admissible in the sense that output mfld of one equals input one of the other), is assigned the process of the composition. This compatibility of composition, means that there is no non-local nature to time evolution, in the sense that combining processes would require some new notion of composition that would need to somehow know more about everything that happened in the joint process. Sorry for the convoluted sentence, I can explain it better in person. In any case, there should be similar statements about spatial locality and extended TFTs.}
+\\
+\al{Another important theme might be what exists beyond QFTs}
+
+In the functorial approach, an $n$-dimensional topological quantum field theory (TQFT) is specified by a symmetric monoidal functor
+\[
+Z: \mathbf{Bord}_n \rightarrow \mathcal{C},
+\]
+where $\mathbf{Bord}_n$ is the $n$-dimensional bordism category and $\mathcal{C}$ is typically a symmetric monoidal category such as $\mathbf{Vec}$ or $\mathbf{Hilb}$ \al{Idk if people actually make it valued in \textbf{Hilb}}. The category $\mathbf{Bord}_n$ has closed $(n-1)$-manifolds as objects and $n$-dimensional bordisms as morphisms; composition is given by gluing, while disjoint union defines the monoidal product. In this formulation, the choice of $\mathcal{C}$ is part of the structure of the theory itself: it determines the nature of the objects assigned to hypersurfaces and of the processes assigned to bordisms. From this perspective, one may regard a TQFT as providing a rule by which topological spacetime data are organized \al{Idk how I feel about this perspective just yet}.  
+
+The traditional choice of target category in functorial TQFT is motivated by quantum theory itself.  Indeed, taking $\mathcal {C}$ to be \textbf{Vec}, or \textbf{Hilb} , reflects the idea that a hypersurface \al{time slice might be clearer} should determine a space of states and that a bordism should determine an evolution between such spaces. In this way, the functorial formalism extracts from quantum theory the linear structures attached to states and processes, and packages them in a purely topological setting. From the empirical point of view, however, quantum theory is a theory of probabilities: its physical content is accessed through the probabilities it assigns to possible measurement outcomes. Accordingly, while TQFTs capture the linear structures underlying quantum theory, it does not by itself provide a direct probabilistic interpretation of the associated spacetime data.  To achieve this, one must instead consider a choice of target category whose structure encodes operational probabilistic meaning \al{It's more subtle than this. TFTs are usually Euclidean QFTs, in which case the notion of uintarity (and therefore of probablity) is encoded in a property called \textit{reflexion positivity}.}.
+
+In recent decades, the study of the foundations of quantum theory has led to the development of broader operational frameworks aimed at isolating its essential physical features. Among these, generalized probabilistic theories (GPTs) provide a setting that captures the minimal structure required to describe physical theories in probabilistic terms. Within this framework, both classical probability theory and quantum theory arise as particular cases, while more general  probabilistic models are also permitted. As such, GPTs offer a unified language in which the probabilistic content of physical theories can be formulated.
+
+Any GPT admits a natural categorical formulation, in which physical systems are regarded as objects and allowed physical transformations as morphisms, with composition corresponding to sequential processes and a monoidal structure encoding parallel composition \al{Something that cliked for me in our conversations, is that the monoidal structure is just how you describe a joint system; you need a notion of what happens when you have system A \textit{and} system B}. In this way, GPTs give rise to symmetric monoidal categories of physical processes. Motivated by this observation, we will refer to topological quantum field theories valued in such categories as generalized probabilistic topological field theories, or GPTFTs.
+
+\section{Category of GPTs} 
+
+A generalized probabilistic theory seeks to capture the minimal ingredients of a physical theory from an operational point of view. In this setting, physical systems and their allowed transformations are organized into a symmetric monoidal category, subject to additional requirements reflecting the probabilistic nature of the theory. 
+
+{\color{blue}Concretely, we consider a collection of physical systems $A,B,\dots$. To each system $A$, we associate a positive state cone $V_A^+$, a positive effect cone $W_A^+$, a distinguished unit effect $u_A\in W_A^+$, and a probability rule}
+\[
+{\color{blue}B_A:V_A^+\times W_A^+\to \mathbb{R}^{\ge 0},}
+\]
+{\color{blue}which assigns a nonnegative weight to each pair of a positive state and a positive effect. The ambient state and effect spaces are then obtained by linearization,}
+\[
+{\color{blue}V_A:=\operatorname{span}(V_A^+),}
+\qquad
+{\color{blue}W_A:=\operatorname{span}(W_A^+).}
+\]
+
+{\color{blue}Operationally, normalized states are picked out by the unit effect:}
+\[
+{\color{blue}\Omega_A:=\{\omega\in V_A^+: B_A(\omega,u_A)=1\}.}
+\]
+{\color{blue}Likewise, the allowed effects are those positive effects bounded by the unit,}
+\[
+{\color{blue}\mathcal E_A:=\{e\in W_A^+: e\le u_A\}.}
+\]
+{\color{blue}The probability assigned to a normalized state $\omega\in\Omega_A$ and an allowed effect $e\in\mathcal E_A$ is then $B_A(\omega,e)\in[0,1]$. We assume that $\Omega_A$ is convex and compact. Operationally, this means that if a sequence of preparations $(\omega_n)$ converges in the sense that $B_A(\omega_n,e)$ converges for every effect $e\in\mathcal E_A$, then the limiting probability assignment is again realized by some state $\omega\in\Omega_A$.}
+
+{\color{blue}Starting from a normalized preparation $\omega\in\Omega_A$, a preparation that succeeds only with probability $p$ is naturally represented by the positive state $p\,\omega\in V_A^+$. In this way, the state cone already contains both normalized and subnormalized states, while the interval $\mathcal E_A=[0,u_A]\subseteq W_A^+$ contains the allowed effects. Operationally, $u_A$ represents the trivial question that always returns a positive answer, independently of the preparation.}\\
+
+\al{it might be useful to introduce these definitions as they are needed. Or at least give some motivation about why they are uesful.}\\
+
+{\color{blue}Furthermore, the probability rule $B_A$ is required to be compatible with the convex structure on normalized states and allowed effects. Operationally, this reflects the fact that randomization of preparation procedures or measurement procedures should be faithfully represented at the level of probabilities. Thus, if $\omega_1,\omega_2 \in \Omega_A, e \in \mathcal{E}_A,$ and $p \in [0,1]$, one requires}
+$$B_A(p\omega_1 + (1-p)\omega_2, e)
+=
+p\,B_A(\omega_1,e) + (1-p)\,B_A(\omega_2,e),$$
+and similarly, for $\omega \in \Omega_A, e_1,e_2 \in \mathcal{E}_A,$ and $q \in [0,1]$,
+$$B_A(\omega, q e_1 + (1-q)e_2)
+=
+q\,B_A(\omega,e_1) + (1-q)\,B_A(\omega,e_2).$$
+
+{\color{blue}In other words, the map $B_A$ is affine on the normalized slices and hence extends uniquely to a bilinear pairing}
+\[
+{\color{blue}B_A : V_A \times W_A \to \mathbb{R}.}
+\]
+{\color{blue}The probabilistic interpretation of $B_A$ is retained on the positive cones, in the sense that}
+$$B_A(v,w) \geq 0
+\qquad
+\text{for all } v \in V_A^+, \; w \in W_A^+,$$
+so that positivity of states and effects continues to encode the physically allowed configurations. One further requires that the bilinear pairing $B_A$ separate states and effects. Operationally, this means that two states are identified whenever they assign the same probabilities to all effects, and similarly two effects are identified whenever they agree on all states. In the linearized setting, this amounts to requiring that if $B_A(v,w)=B_A(v',w) \quad \forall w\in W_A$, then $v=v'$, and similarly if $B_A(v,w)=B_A(v,w') \quad \forall v\in V_A$, then $w=w'$, i.e. that $B_A$ is injective for each argument. This condition ensures that the spaces $V_A$ and $W_A$ carry no redundant degrees of freedom beyond those that are operationally accessible through the probability rule.
+
+A \textit{measurement} on the system $A$ is described by a finite collection of effects $(e_i)_i$ whose sum is the unit effect, i.e.
+$$\sum_i e_i =u_A.$$
+In this way, each $e_i$ represents a possible outcome, while the normalization condition expresses that exactly one of these outcomes occurs. For a state $\omega$, the corresponding probabilities are given by $ P_A(i) \equiv B_A(\omega,e_i)$, and their sum is $B_A(\omega,u_A)=1$ whenever $\omega$ is normalized.
+
+Transformations describe the physical processes that can take one system into another.  Operationally, a transformation from a system $A$ to a system $B$ should map preparation procedures of $A$ to preparation procedures of $B$, and also relate measurement results on $B$ to those on $A$, so that the probability rule is preserved.  Therefore, a transformation $\Gamma: A \to B$ is described by a pair of linear maps
+$\Gamma_{\Omega} : V_A \to V_B$, $\Gamma^{\mathcal{E}} : W_B \to W_A,$
+such that
+$$B_B(\Gamma_{\Omega}(v), w) = B_A(v, \Gamma^{\mathcal{E}}(w))
+\quad \forall (v,w) \in V_A \times  W_B.$$
+
+These maps must satisfy natural operational conditions. First, a transformation should send valid states to valid states, and similarly preserve valid effects. This is expressed by the positivity conditions
+$\Gamma_{\Omega}(V_A^+) \subseteq V_B^+$,
+$\Gamma^{\mathcal{E}}(W_B^+) \subseteq W_A^+.$
+Second, a transformation may be probabilistic: applying it to a normalized state may yield a subnormalized state. This is captured by the requirement that the total probability assigned to the unit effect does not increase, namely
+$$B_B(\Gamma_{\Omega}(\omega), u_B) \leq B_A(\omega, u_A)
+\qquad
+\forall \omega \in \Omega_A.$$
+Equivalently, this condition can be written as
+$$\Gamma^{\mathcal{E}}(u_B) \leq u_A.$$
+
+{\color{blue}For the purposes of GPTFTs, it is convenient to also consider the larger cone-linear category obtained by retaining only the pairing and positivity conditions. In that setting, morphisms are positive linear maps preserving the bilinear rule, while the subunital maps form the distinguished operational subclass.}
+
+Operationally, if a system undergoes a transformation $\Gamma: A \to B$ followed by a transformation $\Delta: B \to C$, the resulting process defines a transformation from A to C, their composition $\Delta \circ \Gamma : A \to C$ is defined by
+$$(\Delta \circ \Gamma)_{\Omega} := \Delta_{\Omega} \circ \Gamma_{\Omega},
+\qquad
+(\Delta \circ \Gamma)^{\mathcal{E}} := \Gamma^{\mathcal{E}} \circ \Delta^{\mathcal{E}}.$$
+
+Then, the identity transformation on a system $A$ is given by the identity maps on $V_A$ and $W_A$, which will satisfy the compatibility condition with the pairing $B_A$.
+
+To describe composite systems, we introduce a monoidal product, denoted by $\,\square\,$. Operationally, the system $C\equiv A \square B$ represents the joint system obtained by considering $A$ and $B$ as independent subsystems. This composition is required to be compatible with the probabilistic structure, in the sense that one can form product states and product effects whose joint probabilities factorize. More precisely, the composite rule $\square$ defines bilinear maps 
+
+$$\square : V_A \times V_B \to V_{A \square B},
+\qquad
+\square : W_A \times W_B \to W_{A \square B},$$
+such that
+$$B_{A \square B}(v \square v',\, w \square w') = B_A(v,w)\, B_B(v',w')$$
+for all $v \in V_A, v' \in V_B, w \in W_A,$ and $w' \in W_B.$
+In addition, there exists a distinguished system $\mathbf{1}$, called the monoidal unit, representing the trivial system. It is characterized by the property that
+$A \square \mathbf{1} \cong A \cong \mathbf{1} \square A$. At the cone level, one has
+$$V_{\mathbf{1}}^+ \cong \mathbb{R}^{\ge 0},
+\qquad
+W_{\mathbf{1}}^+ \cong \mathbb{R}^{\ge 0},$$
+and hence
+$$V_{\mathbf{1}} \cong \mathbb{R},
+\qquad
+W_{\mathbf{1}} \cong \mathbb{R}.$$
+
+Furthermore, we can establish a generic identification of the composite ambient space $V_{A\square B}$, and $W_{A\square B}$.We begin with the bilinear product maps for states and effects. For states, the map $\square:V_A\times V_B\to V_{A\square B}$, the universal property of the tensor product yields a unique linear map $\phi_\square:V_A\otimes V_B\to V_{A\square B}$ such that $\phi_\square(v\otimes w)=v\square w$. We now show that the operational requirements imposed on the composite probability rule force $\phi_{\square}$ to be injective.
+
+Indeed, we introduce a bilinear map $\widetilde B_{A\otimes B}:(V_A\otimes V_B)\times (W_A\otimes W_B)\to\mathbb R$ defined by $$\widetilde B_{A\otimes B}(v\otimes w,e\otimes f)=B_A(v,e)B_B(w,f).$$
+Note that, $\widetilde B_{A\otimes B}(.,.)$ is injective in each argument by virtue of the injectivity of $B_A$ and $B_B$. Truly, let $x\in V_A\otimes V_B$ satisfy
+\[
+\widetilde B_{A \otimes B}(x,e\otimes f)=0
+\qquad
+\forall e\in W_A,\; f\in W_B.
+\]
+
+And, $x=\sum_i v_i\otimes w_i$, where $v_i\otimes w_i$ is some basis. We consider $\forall e,f$
+\begin{align}
+    \widetilde B_{A\otimes B}(x,e\otimes f)&=\sum_i B_A(v_i,e)B_B(w_i,f)= \\
+    &=B_A\left(\sum_iB_B(w_i,f)v_i,e\right)=0\implies \sum_iB_B(w_i,f)v_i=0\\
+    &\implies B_B(w_i,f)=0 \quad \forall i\implies w_i =0 \quad \forall i. 
+\end{align}
+Therefore, $x=0$. From the operational requirements, 
+
+$$B_{A\square B}(\phi_{\square}(v\otimes w),e\square f)=\widetilde B_{A\otimes B}(v\otimes w,e\otimes f),$$ 
+
+and, hence, by linearity  $$B_{A\square B}(\phi_\square(x),e\square f)=\widetilde B_{A\otimes B}(x,e\otimes f)$$ 
+
+for all $x\in V_A\otimes V_B$. Now, if $\phi_{\square}(x)=0$, then
+\begin{align}
+    B_{A\square B}(\phi_{\square}(x),e\otimes f)=0=\widetilde B_{A\otimes B}(x,e\otimes f) \quad \forall e \,,f \implies x=0. 
+\end{align}
+Therefore, $\phi_{\square}(x)$ is injective, i.e.  one may identify $\operatorname{Im}(\phi_{\square})$ with $V_A\otimes V_B$, so that the composite ambient state space admits a decomposition
+\[
+V_{A \square B}\simeq (V_A\otimes V_B)\oplus C,
+\]
+for some real vector space $C$ complementary to $\operatorname{Im}(\phi_{\square})$. The subspace $C$ accounts for possible additional degrees of freedom not already accessible locally by the single systems $A$, or $B$. An entirely analogous construction applies on the effect side, with $W_{A\square B}\simeq W_A\otimes W_B\oplus D$.
+
+{\color{blue}In summary, after imposing the operational probabilistic structure and passing to the linearized setting, the category of GPTs is specified as follows: an object is a physical system $A$ given by finite real vector spaces $V_A$ and $W_A$, equipped with positive cones $V_A^{+}\subseteq V_A$ and $W_A^{+}\subseteq W_A$, a distinguished unit effect $u_A\in W_A^{+}$, and a bilinear pairing $B_A:V_A\times W_A\to\mathbb{R}$ that is positive on the cones and injective in each argument. The normalized states and allowed effects are recovered as}
+\[
+{\color{blue}\Omega_A=\{\omega\in V_A^+:B_A(\omega,u_A)=1\},}
+\qquad
+{\color{blue}\mathcal E_A=\{e\in W_A^+: e\le u_A\}.}
+\]
+{\color{blue}A morphism $\Gamma:A\to B$ is a pair of linear maps $(\Gamma_{\Omega},\Gamma^{\mathcal E})$, where $\Gamma_{\Omega}:V_A\to V_B$ and $\Gamma^{\mathcal E}:W_B\to W_A$, preserving the probabilistic structure in the sense that $B_B(\Gamma_{\Omega}(v),w)=B_A(v,\Gamma^{\mathcal E}(w))$, with $\Gamma_{\Omega}(V_A^{+})\subseteq V_B^{+}$ and $\Gamma^{\mathcal E}(W_B^{+})\subseteq W_A^{+}$. The operationally allowed physical transformations are the subclass additionally satisfying $\Gamma^{\mathcal E}(u_B)\leq u_A$. The category is further endowed with a symmetric monoidal product $\square$, with monoidal unit $\mathbf{1}$, describing composite systems: for $A\square B$, one has bilinear product maps on states and effects, the pairing factorizes on simple products, and the composite ambient spaces admit decompositions $V_{A\square B}\cong (V_A\otimes V_B)\oplus C$ and $W_{A\square B}\cong (W_A\otimes W_B)\oplus D$, where $C$ and $D$ account for additional degrees of freedom beyond the locally generated tensor-product sector.}
+
+\textcolor{red}{[Examples : 1) The classical GPT. 2) The quantum GPT . 3) Fermionic Quantum GPT.  ]}
+
+\section{1-d GPTFTs}
+For a 1-dimensional TQFT, the starting point is the symmetric monoidal functor
+$$Z:\mathrm{Bord}_1\to \mathcal C,$$
+where $\mathrm{Bord}_1$ is the 1-dimensional bordism category and $\mathcal C$ is the chosen symmetric monoidal target category.
+
+The basic categorical data in $\mathrm{Bord}_1$ are very small. The objects are closed 0-manifolds, i.e. finite disjoint unions of points, where the basic generating objects are the positively oriented point $+$ and the negatively oriented point $-$, and every object is a disjoint union of these. The morphisms are compact 1-dimensional bordisms between such 0-manifolds, taken up to diffeomorphism relative to the boundary. These are generated by the \textit{interval}, viewed as the identity bordism, together with the \textit{cup} and \textit{cap} bordisms that create or annihilate a pair of boundary points. The monoidal structure is given by disjoint union, and the monoidal unit is the empty manifold $\varnothing$.
+
+Applying the functor $Z$, one assigns:
+{\color{blue}$Z(+)=X,\, Z(-)=Y$ for $X,Y\in\mathcal C$, while $Z(\varnothing)=\mathbf 1$ is the monoidal unit of $\mathcal C$. The interval gives the identity morphism on $X$, and the cup and cap give morphisms}
+\[
+{\color{blue}\mathrm{coev}:\mathbf 1\to X\square Y,\qquad
+\mathrm{ev}:Y\square X\to \mathbf1,}
+\]
+satisfying the "snake identities". {\color{blue}More explicitly, after inserting the standard associativity and unit isomorphisms of $\mathcal C$, these maps obey}
+{\color{blue}
+\[
+(\operatorname{id}_X\square \mathrm{ev})\circ (\mathrm{coev}\square \operatorname{id}_X)=\operatorname{id}_X,
+\]
+\[
+(\mathrm{ev}\square \operatorname{id}_Y)\circ (\operatorname{id}_Y\square \mathrm{coev})=\operatorname{id}_Y.
+\]
+}
+{\color{blue}Thus, the essential categorical data of a 1d TQFT is a \textit{dualizable} object in the target symmetric monoidal category. In other words, classifying 1d TQFTs reduces to specifying an object $X$ together with its dual $Y\equiv X^\vee$, evaluation, and coevaluation maps.}
+
+{\color{blue}One may also evaluate closed $1$-manifolds. In particular, the duality data induce the standard identification}
+\[
+{\color{blue}\operatorname{Hom}_{\mathcal C}(\mathbf 1,X\square X^\vee)\cong \operatorname{End}_{\mathcal C}(X),\qquad \alpha\mapsto (\operatorname{id}_X\square \mathrm{ev})\circ(\alpha\square \operatorname{id}_X).}
+\]
+{\color{blue}By the first snake identity, the coevaluation morphism $\mathrm{coev}$ corresponds precisely to $\operatorname{id}_X$. On the other hand, for any endomorphism $f:X\to X$, its categorical trace is}
+\[
+{\color{blue}\operatorname{tr}_{\mathcal C}(f):=\mathrm{ev}\circ \sigma_{X,X^\vee}\circ(f\square \operatorname{id}_{X^\vee})\circ \mathrm{coev}.}
+\]
+{\color{blue}Taking $f=\operatorname{id}_X$, one finds}
+\[
+{\color{blue}Z(S^1)=\mathrm{ev}\circ \sigma_{X,X^\vee}\circ \mathrm{coev}=\operatorname{tr}_{\mathcal C}(\operatorname{id}_X)=:\dim_{\mathcal C}(X)\in \operatorname{End}_{\mathcal C}(\mathbf 1).}
+\]
+{\color{blue}Thus, the value of the theory on the circle is the categorical dimension of the object assigned to the positively oriented point. As familiar examples, when $\mathcal C=\mathbf{Vec}$ this scalar is the ordinary dimension of the vector space assigned to the point, while for $\mathcal C=\mathbf{SupVec}$ it gives the corresponding superdimension.}
+
+{\color{blue}In the cone-linear GPT category defined above, the unit object $\mathbf 1$ is the trivial system, with positive cones $V_{\mathbf 1}^+\cong \mathbb R^{\ge 0}$ and $W_{\mathbf 1}^+\cong \mathbb R^{\ge 0}$. A morphism $\eta:\mathbf 1\to X\square X^\vee$ therefore determines a positive bipartite state $\eta(1)\in V^+_{X\square X^\vee}$, while a morphism $\epsilon:X^\vee\square X\to\mathbf 1$ determines a positive bipartite effect $\epsilon(u_{\mathbf 1})\in W^+_{X^\vee\square X}$. These define a transformation}
+\[
+{\color{blue}\mathcal T_X:=(\operatorname{id}_X\square\epsilon)\circ(\eta\square\operatorname{id}_X):X\to X}
+\]
+{\color{blue}whose state-side component acts on the cone $V_X^+$. The first snake identity states that $\mathcal T_X=\operatorname{id}_X$, and hence $(\mathcal T_X)_{\Omega}(v)=v$ for every $v\in V_X^+$. Since $V_X^+$ spans the ambient vector space $V_X$, this determines uniquely the identity linear map on $V_X$, represented in any chosen basis by the identity matrix.}
+
+{\color{blue}Now let us consider two physicists, Alice and Bob, who can each hold GPT systems. Suppose they share in advance the bipartite state $\eta(1)$, with Bob holding the $X$-system and Alice holding the $X^\vee$-system. Let Alice also receive a positive input state $v\in V_X^+$, so that she now holds two systems, namely the input $X$ and her share $X^\vee$ of the resource state. Writing $e:=\epsilon(u_{\mathbf1})$, Alice may then contract these two systems against the bipartite effect $e$.}
+
+{\color{blue}Bob is thereby left with the state $(\mathcal T_X)_{\Omega}(v)$ on his system $X$. By definition, this is the state obtained by composing the shared state $\eta(1)$, the input state $v$, and the effect $e$. The first snake identity then states that $(\mathcal T_X)_{\Omega}(v)=v$.}
+
+{\color{blue}Thus, any $1$d GPTFT valued in the cone-linear GPT category canonically furnishes a teleportation-like transfer protocol for the GPT system $X$: the shared state $\eta(1)$ and the bipartite effect $e=\epsilon(u_{\mathbf1})$ together realize the identity transformation on $X$. Analogously, the second snake identity gives the same protocol with the roles of $X$ and $X^\vee$ exchanged, so that states on the dual system $X^\vee$ are also teleported exactly.}
+
+{\color{blue}The corresponding closed process is obtained by removing the external input and output from this protocol. Its value is precisely}
+\[
+{\color{blue}Z(S^1)=\mathrm{ev}\circ \sigma_{X,X^\vee}\circ \mathrm{coev}=\operatorname{tr}_{\mathcal C}(\operatorname{id}_X).}
+\]
+{\color{blue}Thus, the value of the theory on the circle is the categorical trace of the identity on $X$, or equivalently the categorical dimension of $X$.}
+
+{\color{blue}Summarizing, a $1$d GPTFT is specified by a dualizable GPT system together with positive bipartite state-effect data implementing the identity on the corresponding cone, while the value on the circle is the categorical trace of this identity.}
+\section{2-d GPTFTs}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

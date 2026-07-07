@@ -1,0 +1,326 @@
+\documentclass[prl,aps,10pt,superscriptaddress, floatfix]{revtex4-2}
+\usepackage[LGR,T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm, mathtools, bbm, physics}
+\usepackage{dsfont}
+\usepackage{subcaption}
+% REVTeX defaults to centered caption, while subcaption assumes justified is the default, so we need to redefine the justified command.
+\usepackage{ragged2e} % for the \justifying macro
+\DeclareCaptionJustification{justified}{\justifying}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage[page,title, titletoc]{appendix}
+\usepackage[colorlinks=true, pdfborder={0 0 0}]{hyperref}
+\definecolor{googleblue}{RGB}{34, 0, 204}
+\definecolor{panblue}{RGB}{0,24,150}
+\definecolor{carmine}{RGB}{150, 0, 24}
+\hypersetup{
+unicode=true,
+bookmarksnumbered=false,
+bookmarksopen=false,
+breaklinks=false,
+colorlinks=true,
+linkcolor=carmine,
+citecolor=googleblue,
+urlcolor=panblue,
+anchorcolor=OliveGreen}
+
+\newcommand{\tmp}[1]{\textcolor{red}{#1}}
+\newcommand{\pedro}[1]{{\color{purple} #1}}
+\newcommand{\bereket}[1]{{\color{blue} #1}}
+\newcommand{\elie}[1]{{\color{RawSienna} #1}}
+
+\usepackage{newtxtext}
+
+%\usepackage{microtype}
+%\microtypecontext{spacing=nonfrench}
+%\microtypesetup{
+%expansion=false,
+%protrusion={true,nocompatibility},
+%activate={true,nocompatibility},
+%tracking=false,
+%kerning=true,
+%spacing={true}
+%}
+
+\usepackage[all=normal,floats=tight,mathspacing=tight,wordspacing=tight,paragraphs=normal,tracking=tight,charwidths=tight,mathdisplays=normal,sections=normal,margins=normal]{savetrees}
+
+%\usepackage[backend=biber]{biblatex}
+%\addbibresource{main.bib}
+
+\usepackage{tikz} % TikZ
+\usetikzlibrary{calc, arrows, patterns, shapes, decorations, arrows.meta, fit, positioning}
+\tikzset{
+    auto, node distance =1 cm and 1 cm,semithick,
+    var/.style ={circle, draw, minimum width = 1cm, ultra thick},
+    latent/.style ={regular polygon, regular polygon sides=3, inner sep=1pt, draw, minimum width = 1.2cm, ultra thick},
+    point/.style = {circle, draw, inner sep=0.06cm, fill, node contents={}},
+    triangle/.style = {regular polygon, regular polygon sides=3, draw, inner sep=0.06cm, fill, node contents={}},
+    bidir/.style={Latex-Latex,dashed},
+    dir/.style={-Latex, thick},
+    el/.style = {inner sep=2pt, align=left, sloped}
+}
+\tikzstyle{vertex}=[circle, fill=black!10, draw=black]
+\tikzstyle{edge}=[thick]
+\tikzstyle{clique}=[line width=4, draw=black!70]
+
+% Theorem environments
+\newtheorem{theo}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{coro}{Corollary}
+\newtheorem*{defi}{Definition}
+\newtheorem{obs}{Observation}
+
+% Useful math shortcuts
+\newcommand{\eye}{\mathbbm{1}}
+\newcommand{\mO}{\mathcal{O}}
+\newcommand{\mL}{\mathcal{L}}
+\newcommand{\mH}{\mathcal{H}}
+\newcommand{\Cset}{\mathcal{C}}
+\newcommand{\Qset}{\mathcal{Q}}
+\newcommand{\Nset}{\mathcal{N}}
+\newcommand{\NBset}{\mathcal{N}_\mathrm{B}}
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\Nat}{\mathbb{N}}
+\graphicspath{{imgs/}}
+
+\DeclareMathOperator{\Pa}{Pa}
+
+\DeclareMathOperator{\pa}{pa}
+\DeclareMathOperator{\Ch}{Ch}
+\DeclareMathOperator{\opa}{opa}
+\DeclareMathOperator{\OPa}{OPa}
+\DeclareMathOperator{\LPa}{LPa}
+
+\usepackage{tikz}
+% drawing parameters
+\newcommand{\circdist}{1}  % distance from origin to center of circles
+\newcommand{\circrad}{6/4} % radius of the circles
+\newcommand{\circlethickness}{2.5mm} % uh, thickness of the circles
+
+% distance from the origin to the three "interior" intersections
+\pgfmathsetmacro{\intrad}{sqrt((\circrad)^2 - 3*(\circdist)^2/4) - \circdist/2}
+
+% distance from the origin to the three "exterior" intersections
+\pgfmathsetmacro{\extrad}{sqrt((\circrad)^2 - 3*(\circdist)^2/4) + \circdist/2}
+
+% so we can just specify an angle and get the correct color for the circle
+\colorlet{180}{blue!60}
+\colorlet{60}{red!50}
+\colorlet{300}{green!40}
+
+% draws one of our circles
+\newcommand{\mycircle}[1]{%
+  \draw[thick, double distance=\circlethickness, double=#1]
+  (#1:\circdist) circle (\circrad);}
+
+
+%%% Adrian Commands %%%%%
+\usepackage{xcolor}
+\definecolor{pansypurple}{rgb}{0.47, 0.09, 0.29}
+
+\newcommand\al[1]{\textcolor{pansypurple}{ [A:\,#1]}}
+\newcommand\p[1]{\textcolor{blue}{ [P:\,#1]}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\title{Generalized Probabilistic Topological Field Theories: Notes}
+\author{Pedro Lauand}
+\email{plauand@perimeterinstitute.ca}
+\affiliation{Perimeter Institute for Theoretical Physics, Waterloo, Ontario, Canada, N2L 2Y5}
+
+\maketitle
+%\onecolumn
+\section{Introduction}
+
+\section{The category of GPTs}
+
+Generalized probabilistic theories (GPTs) capture the minimal structure a physical theory needs to make probabilistic predictions \cite{Hardy2001,Barrett2007,Mueller2021,Plavala2023}; classical probability and quantum theory are special cases. The theme of this section: that structure is linear algebra plus positivity. A system is a real vector space with a cone and a normalization functional, a transformation is a linear map preserving them, and composites are built on the tensor product. Every definition below is a $\mathbf{Vec}$ datum plus a positivity condition. We follow M\"uller \cite{Mueller2021} and Pl\'avala \cite{Plavala2023}; for the categorical viewpoint see \cite{ChiribellaDArianoPerinotti2010,GogiosoScandolo2018}.
+
+\subsection{Objects: systems}
+
+A \emph{state} is an equivalence class of preparation procedures: two preparations are identified when no measurement distinguishes their statistics \cite{Mueller2021}. Mixing makes the set of states convex, hence embeddable in a real vector space on which outcome probabilities are linear functionals; closure under limits and boundedness of probabilities make it compact; filtering (success probability $\lambda\le1$) closes it under nonnegative rescaling. The primitive carrier is thus the cone of \emph{unnormalized} states; normalization survives as a single functional. Throughout, vector spaces are finite-dimensional, real, and spanned by the states they carry.
+
+A \emph{proper cone} $C\subseteq V$ is closed, convex, stable under nonnegative scaling, pointed ($C\cap(-C)=\{0\}$), and generating ($\operatorname{span}C=V$): in order, closure of the state space, mixing and filtering, no vector physical together with its negative, no directions unrelated to physics.
+
+\begin{defi}[System]
+A \emph{system} is a triple $A=(V_A,V_A^+,u_A)$: a finite-dimensional real vector space $V_A$, a proper cone $V_A^+\subseteq V_A$ of \emph{unnormalized states}, and a \emph{unit} $u_A\in V_A^*$ with $u_A(v)>0$ for all $v\in V_A^+\setminus\{0\}$.
+\end{defi}
+
+The unit grades the cone by total weight: $u_A(v)$ is the probability that the preparation $v$ succeeds. Normalization is therefore implicit --- the \emph{subnormalized} states are $\{v\in V_A^+:u_A(v)\le1\}$, the \emph{normalized} ones the slice
+\[
+\Omega_A:=\{\omega\in V_A^+:\,u_A(\omega)=1\},
+\]
+a compact convex base of the cone: every $v\in V_A^+\setminus\{0\}$ is uniquely $u_A(v)\,\omega$ with $\omega\in\Omega_A$, strict positivity of $u_A$ being exactly what lets every unnormalized state be normalized. \emph{Pure} states are the extreme points of $\Omega_A$. Alternatively, take $(V_A,\Omega_A)$ as primitive and recover cone and unit \cite{Mueller2021}.
+
+\paragraph{Effects.}
+Measurement outcomes need no new data: outcome probabilities are linear in the state, so outcomes are elements of $V_A^*$ and the probability rule is the evaluation pairing of $\mathbf{Vec}$. The \emph{effect cone} is the dual cone
+\[
+(V_A^+)^*:=\{e\in V_A^*:\,e(v)\ge0\ \forall v\in V_A^+\},
+\]
+the \emph{allowed effects} are $\mathcal E_A:=[0,u_A]$, so that $e(\omega)\in[0,1]$ on $\Omega_A$, and a \emph{measurement} is a finite family $(e_i)\subset\mathcal E_A$ with $\sum_ie_i=u_A$: outcome probabilities $e_i(\omega)$ are nonnegative and sum to one. By the bipolar theorem $((V_A^+)^*)^*=V_A^+$: states are exactly the vectors nonnegative against all effects. Presentations treating states and effects as co-equal primitives coupled by an abstract pairing reduce to this one once effects are required to separate states and conversely.
+
+\paragraph{No-restriction.}
+Setting $\mathcal E_A=[0,u_A]$ declares every admissible effect physical: the \emph{no-restriction hypothesis} \cite{ChiribellaDArianoPerinotti2010}, our default. Dropping it \cite{JanottaLal2013} adds one datum, an effect cone $W_A^+\subseteq(V_A^+)^*$ spanning $V_A^*$ and containing $u_A$; everything below goes through with $(V_A^+)^*$ replaced by $W_A^+$.
+
+\paragraph{Examples.}
+\begin{itemize}
+\item \emph{Classical}: $V=\mathbb{R}^N$, $V^+=\mathbb{R}^N_{\ge0}$, $u(p)=\sum_ip_i$. $\Omega$ is the probability simplex, its $N$ vertices the deterministic distributions; effects are the vectors in $[0,1]^N$. The orthant is self-dual.
+\item \emph{Quantum}: $V=\mathrm{H}_N(\mathbb{C})$, the Hermitian matrices --- a \emph{real} vector space of dimension $N^2$ --- with the PSD cone and $u=\operatorname{tr}$. $\Omega$ is the set of density matrices and, via the Hilbert--Schmidt pairing, $\mathcal E_A$ the POVM elements $0\le E\le\mathds{1}$. The PSD cone is self-dual.
+\item \emph{Boxworld (gbit)}: $V=\mathbb{R}^3$, $V^+$ the cone over a square \cite{Barrett2007}. The dual cone is the cone over the \emph{rotated} square, and no linear map aligns the two: not self-dual \cite{Mueller2021,BarnumWilce2016}.
+\end{itemize}
+Self-duality of the state cone will decide the $1$d GPTFT problem.
+
+\subsection{Morphisms: transformations}
+
+Mixing forces transformations to be linear \cite{Mueller2021}; the rest is preservation of the decorations.
+
+\begin{defi}[Transformation]
+A \emph{morphism} $f:A\to B$ is a linear map $f:V_A\to V_B$ with $f(V_A^+)\subseteq V_B^+$. It is \emph{allowed} if $u_B\circ f\le u_A$ on $V_A^+$ --- equivalently, $f$ sends subnormalized states to subnormalized states, the deficit being the failure probability --- and a \emph{channel} if equality holds. Composition and identities are those of $\mathbf{Vec}$.
+\end{defi}
+
+The effect side takes care of itself: the transpose of a positive map is positive for the dual cones, since $(f^*e)(v)=e(f(v))\ge0$. With restricted effects, $f^*(W_B^+)\subseteq W_A^+$ is an independent condition and part of the definition.
+
+$\operatorname{Hom}(A,B)$ is closed under conic combinations but not subtraction: a cone inside the vector space $\operatorname{Hom}_{\mathbf{Vec}}(V_A,V_B)$. GPT thus sits over $\mathbf{Vec}$ as a \emph{wide, non-full} subcategory: all objects, only the positive maps.
+
+The trivial system is $\mathbf 1=(\mathbb{R},\mathbb{R}_{\ge0},\operatorname{id})$. A morphism $\mathbf 1\to A$ is an element of $V_A^+$, allowed iff subnormalized; a morphism $A\to\mathbf 1$ is an element of $(V_A^+)^*$, allowed iff in $\mathcal E_A$. States and effects are ordinary arrows into and out of the unit. In particular $u_A$ is itself a morphism $A\to\mathbf 1$, and channels are exactly the morphisms over $\mathbf 1$: $u_B\circ f=u_A$.
+
+\subsection{Composites: the monoidal structure}
+
+Independent local preparations and measurements must combine into joint ones with factorizing statistics,
+\begin{equation}\label{eq:factorizing}
+(e_A\otimes e_B)(\omega_A\otimes\omega_B)=e_A(\omega_A)\,e_B(\omega_B).
+\end{equation}
+Mixing makes both products bilinear, so the joint space contains $V_A\otimes V_B$, with product states and effects the ordinary tensors \cite{Mueller2021}. Whether it is exactly $V_A\otimes V_B$ is a postulate:
+
+\begin{defi}[Tomographic locality]
+Joint states are determined by the joint statistics of local measurements \cite{Hardy2001,Barrett2007}; equivalently, $V_{AB}=V_A\otimes V_B$.
+\end{defi}
+
+We assume it by default. The local data bound the composite cone without fixing it: the \emph{minimal tensor cone}
+\[
+V_A^+\otimes_{\min}V_B^+:=\operatorname{cone}\{v\otimes v'\,:\,v\in V_A^+,\ v'\in V_B^+\}
+\]
+is generated by the product states, while the \emph{maximal tensor cone}
+\[
+V_A^+\otimes_{\max}V_B^+:=\{g\,:\,(e\otimes e')(g)\ge0\ \ \forall\,e\in(V_A^+)^*,\,e'\in(V_B^+)^*\}
+\]
+contains everything consistent with product measurements. Both are proper, and duality exchanges them:
+
+\begin{lemma}[Min--max duality \cite{ALPP2021,Plavala2023}]\label{lem:minmax}
+Under $(V_A\otimes V_B)^*\cong V_A^*\otimes V_B^*$,
+$(C_A\otimes_{\min}C_B)^*=C_A^*\otimes_{\max}C_B^*$ and
+$(C_A\otimes_{\max}C_B)^*=C_A^*\otimes_{\min}C_B^*$.
+\end{lemma}
+
+\begin{defi}[Composite]
+A \emph{composite} of $A$ and $B$ is a system $AB=(V_A\otimes V_B,\;V_{AB}^+,\;u_A\otimes u_B)$ with
+\begin{equation}\label{eq:cone-underdet}
+V_A^+\otimes_{\min}V_B^+\;\subseteq\;V_{AB}^+\;\subseteq\;V_A^+\otimes_{\max}V_B^+ .
+\end{equation}
+\end{defi}
+
+Any intermediate proper cone is admissible: a GPT includes a coherent (associative, symmetric) choice of composites, and any such choice makes $(\mathrm{GPT},\otimes,\mathbf 1)$ symmetric monoidal. The freedom in \eqref{eq:cone-underdet} is generic:
+
+\begin{theo}[Entangleability of cones \cite{ALPP2021}]\label{theo:alpp}
+$C_A\otimes_{\min}C_B=C_A\otimes_{\max}C_B$ iff $C_A$ or $C_B$ is simplicial (classical).
+\end{theo}
+
+Any two nonclassical systems therefore admit entangled states or effects. For quantum systems the three cones in \eqref{eq:cone-underdet} all differ: separable $\subsetneq$ PSD $\subsetneq$ entanglement witnesses. The quantum tensor product is an additional input --- a choice strictly between the bounds \cite{Mueller2021}.
+
+No-signalling holds automatically: local effects sum to the local unit, so marginals on $A$ do not depend on the measurement chosen on $B$; the \emph{reduced state} is $\omega_A:=(\operatorname{id}_A\otimes u_B)(\omega_{AB})$ \cite{Mueller2021}.
+
+\paragraph{Beyond tomographic locality.}
+Without the postulate, the tensor product still embeds: $V_{AB}\cong(V_A\otimes V_B)\oplus C$, with a \emph{global sector} $C$ invisible to local tomography; $C=0$ iff the composite is tomographically local. Real-vector-space quantum theory \cite{HardyWootters2012} and fermionic systems (parity superselection) have $C\neq0$. The GPTFT constructions below do not require $C=0$.
+
+\subsection{GPT versus Vec}
+
+\paragraph{$\mathbf{Vec}$.}
+An object is a finite-dimensional real vector space $V$; a morphism is any linear map, so $\operatorname{Hom}(V_A,V_B)$ is itself a vector space; the monoidal product is $\otimes$, with unit $\mathbb{R}$. The category is compact closed: every object has a dual $V^*$, the evaluation $\operatorname{ev}(\varphi\otimes v)=\varphi(v)$ and coevaluation $\operatorname{coev}(1)=\sum_af_a\otimes f^a$ (dual bases) are canonical, and the snake identities hold for every $V$ --- there is never anything to check.
+
+\paragraph{GPT.}
+The same three layers, each carrying one positivity constraint (forgetting them is a functor back to $\mathbf{Vec}$):
+\[
+\begin{aligned}
+V\ &\rightsquigarrow\ (V,\,V^+,\,u),\\
+f\ &\rightsquigarrow\ f\ \ \text{with}\ \ f(V_A^+)\subseteq V_B^+,\\
+V_A\otimes V_B\ &\rightsquigarrow\ V_{AB}^+\in[\otimes_{\min},\otimes_{\max}],\quad u_A\otimes u_B.
+\end{aligned}
+\]
+Each constraint changes the linear-algebraic character of its layer. The hom-set
+\[
+\operatorname{Hom}_{\mathrm{GPT}}(A,B)=\{f\in\operatorname{Hom}_{\mathbf{Vec}}(V_A,V_B):\,f(V_A^+)\subseteq V_B^+\}
+\]
+is a cone, not a subspace: positivity of $f$ does not give positivity of $-f$. The monoidal product is no longer a single functor but a family, the underlying space and unit fixed, the composite cone a choice in \eqref{eq:cone-underdet}. Duals survive at the level of objects --- swapping the state cone with the effect cone gives a dual system on $V^*$ --- but $\operatorname{ev}$ and $\operatorname{coev}$ are morphisms only if \emph{positive}: the element $\sum_af_a\otimes f^a$ must lie in the chosen composite cone, and in the dual of the cone chosen for the swapped pair. In $\mathbf{Vec}$ dualizability is automatic; in GPT it is a contingent property of the cones. Which GPTs pass is the subject of the next section.
+
+\section{1D TFTs}
+
+\subsection{1D TQFTs}
+
+\subsection{1D GPTFTs}
+
+\begin{thebibliography}{99}
+
+\bibitem{Hardy2001}
+L.~Hardy,
+\emph{Quantum theory from five reasonable axioms},
+arXiv:quant-ph/0101012.
+
+\bibitem{Barrett2007}
+J.~Barrett,
+\emph{Information processing in generalized probabilistic theories},
+Phys.\ Rev.\ A \textbf{75}, 032304 (2007),
+arXiv:quant-ph/0508211.
+
+\bibitem{Mueller2021}
+M.~P.~M\"uller,
+\emph{Probabilistic theories and reconstructions of quantum theory},
+SciPost Phys.\ Lect.\ Notes \textbf{28} (2021),
+arXiv:2011.01286.
+
+\bibitem{Plavala2023}
+M.~Pl\'avala,
+\emph{General probabilistic theories: An introduction},
+Phys.\ Rep.\ \textbf{1033}, 1 (2023),
+arXiv:2103.07469.
+
+\bibitem{ChiribellaDArianoPerinotti2010}
+G.~Chiribella, G.~M.~D'Ariano, and P.~Perinotti,
+\emph{Probabilistic theories with purification},
+Phys.\ Rev.\ A \textbf{81}, 062348 (2010),
+arXiv:0908.1583.
+
+\bibitem{JanottaLal2013}
+P.~Janotta and R.~Lal,
+\emph{Generalized probabilistic theories without the no-restriction hypothesis},
+Phys.\ Rev.\ A \textbf{87}, 052131 (2013),
+arXiv:1302.2632.
+
+\bibitem{ALPP2021}
+G.~Aubrun, L.~Lami, C.~Palazuelos, and M.~Pl\'avala,
+\emph{Entangleability of cones},
+Geom.\ Funct.\ Anal.\ \textbf{31}, 181 (2021),
+arXiv:1911.09663.
+
+\bibitem{GogiosoScandolo2018}
+S.~Gogioso and C.~M.~Scandolo,
+\emph{Categorical probabilistic theories},
+EPTCS \textbf{266}, 367 (2018),
+arXiv:1701.08075.
+
+\bibitem{HardyWootters2012}
+L.~Hardy and W.~K.~Wootters,
+\emph{Limited holism and real-vector-space quantum theory},
+Found.\ Phys.\ \textbf{42}, 454 (2012),
+arXiv:1005.4870.
+
+\bibitem{BarnumWilce2016}
+H.~Barnum and A.~Wilce,
+\emph{Post-classical probability theory},
+in \emph{Quantum Theory: Informational Foundations and Foils},
+edited by G.~Chiribella and R.~W.~Spekkens (Springer, Dordrecht, 2016),
+arXiv:1205.3833.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,403 @@
+\documentclass[prl,aps,10pt,superscriptaddress,floatfix]{revtex4-2}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm, mathtools, bbm}
+\usepackage{dsfont}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true, pdfborder={0 0 0}]{hyperref}
+\definecolor{googleblue}{RGB}{34, 0, 204}
+\definecolor{panblue}{RGB}{0,24,150}
+\definecolor{carmine}{RGB}{150, 0, 24}
+\hypersetup{
+unicode=true,
+bookmarksnumbered=false,
+bookmarksopen=false,
+breaklinks=false,
+colorlinks=true,
+linkcolor=carmine,
+citecolor=googleblue,
+urlcolor=panblue,
+anchorcolor=OliveGreen}
+
+\usepackage{newtxtext}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, arrows, patterns, shapes, decorations, arrows.meta, fit, positioning}
+\usetikzlibrary{decorations.markings}
+\tikzset{mid arrow/.style={postaction={decorate,decoration={markings,mark=at position 0.55 with {\arrow{Latex[length=4pt]}}}}}}
+% device icons (after Mueller, SciPost Lect. Notes 28, Fig. 5)
+\tikzset{
+  pics/prepdev/.style={code={
+    \fill[black!45] (-0.65,-0.375) rectangle (0.65,0.375);
+    \fill[black!45] (-0.45,0.375) rectangle (-0.15,0.52);
+    \fill[black!45] (0.65,0.14) -- (0.95,0.24) -- (0.95,-0.24) -- (0.65,-0.14) -- cycle;
+  }},
+  pics/spooldev/.style={code={
+    \fill[black!45] (-0.6,-0.5) -- (-0.35,-0.38) -- (-0.35,0.38) -- (-0.6,0.5) -- cycle;
+    \fill[black!45] (0.6,-0.5) -- (0.35,-0.38) -- (0.35,0.38) -- (0.6,0.5) -- cycle;
+    \fill[pattern=north west lines, pattern color=black!55] (-0.35,-0.38) rectangle (0.35,0.38);
+  }},
+  pics/meterdev/.style={code={
+    \fill[black!45] (-0.75,-0.45) rectangle (0.75,0.45);
+    \fill[white] (-0.45,-0.12) arc (180:0:0.45) -- cycle;
+    \draw[-{Latex[length=3pt]}, thick] (0,-0.12) -- +(55:0.4);
+    \fill[black!45] (-0.75,0.14) -- (-1.05,0.24) -- (-1.05,-0.24) -- (-0.75,-0.14) -- cycle;
+  }},
+  pics/meterdevtwo/.style={code={
+    \fill[black!45] (-0.75,-0.45) rectangle (0.75,0.45);
+    \fill[white] (-0.45,-0.12) arc (180:0:0.45) -- cycle;
+    \draw[-{Latex[length=3pt]}, thick] (0,-0.12) -- +(55:0.4);
+    \fill[black!45] (-0.75,0.14) -- (-1.05,0.24) -- (-1.05,-0.24) -- (-0.75,-0.14) -- cycle;
+    \fill[black!45] (0.75,0.14) -- (1.05,0.24) -- (1.05,-0.24) -- (0.75,-0.14) -- cycle;
+  }},
+  pics/sourcedev/.style={code={
+    \fill[black!45] (-0.65,-0.375) rectangle (0.65,0.375);
+    \fill[black!45] (0.65,0.14) -- (0.95,0.24) -- (0.95,-0.24) -- (0.65,-0.14) -- cycle;
+    \fill[black!45] (-0.65,0.14) -- (-0.95,0.24) -- (-0.95,-0.24) -- (-0.65,-0.14) -- cycle;
+  }},
+}
+
+% Theorem environments
+\newtheorem{theo}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{coro}{Corollary}
+\newtheorem*{defi}{Definition}
+\newtheorem{obs}{Observation}
+
+\begin{document}
+\title{Generalized Probabilistic Topological Field Theories: Summary}
+\author{Pedro Lauand}
+\email{plauand@perimeterinstitute.ca}
+\affiliation{Perimeter Institute for Theoretical Physics, Waterloo, Ontario, Canada, N2L 2Y5}
+
+\begin{abstract}
+We summarize the GPTFT program. Field theories are formulated through the spacetime (Atiyah--Segal) axioms: a theory is a symmetric monoidal functor from a bordism category to a target category of systems and processes, functoriality encoding temporal locality and monoidality spatial locality. Replacing the traditional linear targets $\mathbf{Vec}$ or $\mathbf{Hilb}$ by the category of generalized probabilistic theories (GPTs) --- the minimal operational setting for probabilistic physics --- defines \emph{generalized probabilistic topological field theories} (GPTFTs). The category of GPTs is $\mathbf{Vec}$ with one positivity condition per layer: cones on objects, positive maps as morphisms, a choice of composite cone on tensor products. In one dimension, the entire theory concentrates into a single positivity test: the canonical duality element $g=\sum_a f_a\otimes f^a$ must be simultaneously a legal bipartite state and a legal bipartite effect. We describe this constraint, its reading as exact teleportation, and the conjecture that it selects (weakly) self-dual state cones --- classical and quantum pass, boxworld fails --- placing theories compatible with spacetime ``close to quantum.''
+\end{abstract}
+
+\maketitle
+
+\section{Introduction: the spacetime axioms}\label{sec:intro}
+
+A lesson internalized by high-energy physics is that quantum field theories are not merely defined \emph{in} spacetime; they are things one \emph{mounts on} manifolds. A theory assigns to every admissible space a collection of possible states, and to every admissible spacetime a process between such collections. One physical principle organizes these assignments: \emph{locality}. If a spacetime is obtained by gluing $M'$ to $M$ along a common spatial slice, the process assigned to the whole must be the composition of the processes assigned to the pieces,
+\[
+Z(M'\circ M)\;=\;Z(M')\circ Z(M)\,.
+\]
+Nothing beyond the two constituent processes enters: time evolution keeps no nonlocal memory of how the joint history was assembled. Likewise, placing two systems side by side --- the disjoint union of two spaces --- must be described by the \emph{joint} system,
+\[
+Z(\Sigma\sqcup\Sigma')\;=\;Z(\Sigma)\otimes Z(\Sigma')\,,
+\]
+which is spatial locality in the same algebraic garb: the monoidal product is nothing but the rule for what it means to have system $A$ \emph{and} system $B$ at once.
+
+These requirements are the \emph{spacetime axioms} of Atiyah and Segal \cite{Atiyah1988,Segal2004}: a field theory is a symmetric monoidal functor
+\[
+Z:\mathbf{Bord}_n\longrightarrow\mathcal C
+\]
+from a category whose objects are closed oriented $(n-1)$-manifolds (``space'') and whose morphisms are $n$-dimensional bordisms (``spacetime''), composed by gluing, with disjoint union as monoidal product --- to a symmetric monoidal category $\mathcal C$ of systems and processes. Functoriality is temporal locality; monoidality is spatial locality.
+
+Both sides of the functor embody a choice. The source fixes what counts as spacetime; in a \emph{topological} theory diffeomorphic bordisms are equal morphisms, so the theory carries no metric and no local excitations, and its entire content is algebraic. The target fixes what kind of physics inhabits spacetime: what a system is, what a process is, and how they compose. The traditional choices $\mathcal C=\mathbf{Vec}$ or $\mathbf{Hilb}$ reflect the linear skeleton of quantum theory --- a time slice carries a vector space of states, a spacetime a linear evolution map. Empirically, however, a physical theory is accessed through the \emph{probabilities} it assigns to measurement outcomes; the linear structure is scaffolding for probabilistic content. This suggests axiomatizing the target directly in operational terms.
+
+Generalized probabilistic theories (GPTs) provide exactly this: the minimal structure a physical theory needs to make probabilistic predictions \cite{Hardy2001,Barrett2007,Mueller2021,Plavala2023}, with classical probability and quantum theory as special cases. GPTs organize themselves into symmetric monoidal categories --- systems, transformations, composites --- and therefore qualify as targets for the spacetime axioms. We call a topological field theory valued in such a category a \emph{generalized probabilistic topological field theory} (GPTFT). The program is then a compatibility question between spacetime and probability:
+\begin{quote}
+\emph{Which probabilistic theories can be mounted on spacetime at all?}
+\end{quote}
+Already in one dimension the answer is a sharp geometric condition on the cones of the theory --- conjecturally, self-duality --- placing the admissible theories ``close to quantum.''
+
+\section{Topological field theories}\label{sec:tft}
+
+\paragraph{The bordism category.}
+Objects of $\mathbf{Bord}_n$ are the closed oriented $(n-1)$-manifolds: the possible spaces. A morphism $\Sigma\to\Sigma'$ is a compact oriented $n$-manifold $M$ with boundary $\partial M=\overline\Sigma\sqcup\Sigma'$ --- a spacetime interpolating between the two spaces --- taken up to diffeomorphism rel boundary. Composition is gluing along a common boundary; the identity on $\Sigma$ is the cylinder $\Sigma\times[0,1]$. Disjoint union $\sqcup$ is the monoidal product and the empty manifold $\varnothing$ its unit: the system ``nothing.'' A \emph{topological field theory valued in $\mathcal C$} is a symmetric monoidal functor $Z:\mathbf{Bord}_n\to\mathcal C$; in particular $Z(\varnothing)=\mathbf 1$ and $Z(\Sigma\sqcup\Sigma')=Z(\Sigma)\otimes Z(\Sigma')$.
+
+\paragraph{What ``topological'' buys.}
+Since diffeomorphic bordisms are identified, a TFT is insensitive to duration and distance: the cylinder is the identity process, so ``waiting'' does nothing, and no continuum dynamics survives. What survives is a finite algebraic skeleton. Every manifold decomposes into finitely many elementary pieces, so the functor is determined by its values on a finite list of generators, subject to the relations expressing that different decompositions of the same manifold agree. A TFT is a finite amount of algebra.
+
+In dimension one the generators are the interval, the cup, and the cap, subject to the snake relations, and a theory is precisely a \emph{dualizable object} of $\mathcal C$ (the cobordism hypothesis in $d=1$ \cite{Lurie2009}). In dimension two the generators are the disk, the cylinder, and the pair of pants, and a theory is precisely a \emph{commutative Frobenius algebra} internal to $\mathcal C$ \cite{Dijkgraaf1989,Abrams1996,Kock2004}. In both cases closed manifolds have no boundary on which to attach data, so they evaluate to scalars, the \emph{invariants} of the theory: the circle computes a categorical dimension, the genus-$g$ surface a trace of the $g$-th power of a handle operator.
+
+\paragraph{Moral.}
+The spacetime axioms convert the existence and classification of topological theories into an algebraic property of the target category. Changing the target changes the answer. In $\mathbf{Vec}$, dualizability holds for every object and $1$d theories are classified by a single integer. The content of the GPTFT program is that in the category of GPTs the very same structures exist as linear data but must, in addition, be \emph{positive} --- and positivity is a genuine, contingent constraint.
+
+\section{The category of GPTs}\label{sec:gpt}
+
+The theme of this section: the structure of a GPT is \emph{linear algebra plus positivity}. Every definition below is a $\mathbf{Vec}$ datum together with one positivity condition, and forgetting the conditions is a functor back to $\mathbf{Vec}$. We follow \cite{Mueller2021,Plavala2023}. It is convenient to first recall the target the GPT category will be measured against.
+
+\paragraph{$\mathbf{Vec}$.}
+An object is a finite-dimensional real vector space $V$; a morphism is \emph{any} linear map, so $\operatorname{Hom}(V_A,V_B)$ is itself a vector space; the monoidal product is $\otimes$ with unit $\mathbb{R}$. The category is \emph{compact closed}: every object has a dual $V^*$, the evaluation $\operatorname{ev}(\varphi\otimes v)=\varphi(v)$ and coevaluation $\operatorname{coev}(1)=\sum_af_a\otimes f^a$ (dual bases) are canonical, and the snake identities hold for every $V$ --- there is never anything to check.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[every node/.style={font=\small}]
+\pic at (0,0.5) {prepdev};
+\draw[-{Latex[length=5pt]}, thick] (1.05,0.5) -- (1.5,0.5);
+\fill (1.68,0.5) circle (2.4pt);
+\pic at (2.95,0.5) {spooldev};
+\pic at (5.3,0.5) {meterdev};
+\node at (0,-0.25) {$\mathbf P$};
+\node at (2.95,-0.25) {$\mathbf T$};
+\node at (5.3,-0.25) {$\mathbf M$};
+\end{tikzpicture}
+\caption{The operational scenario (after \cite{Mueller2021}): a preparation device $\mathbf P$ emits a system, a transformation device $\mathbf T$ acts on it, a measurement device $\mathbf M$ registers an outcome $a$. A GPT specifies the devices and the probabilities $P(a\,|\,\mathbf P,\mathbf T,\mathbf M)$.}
+\label{fig:ptm}
+\end{figure}
+
+\paragraph{Systems.}
+A \emph{state} is an equivalence class of preparation procedures (Fig.~\ref{fig:ptm}): two preparations are identified when no measurement distinguishes their statistics. Mixing makes the set of states convex, hence embeddable in a real vector space on which outcome probabilities are linear functionals; filtering (success probability $\lambda\le1$) closes it under nonnegative rescaling. The primitive carrier is thus a \emph{cone} of unnormalized states, and normalization survives as a single functional.
+
+\begin{defi}[System]
+A \emph{system} is a triple $A=(V_A,V_A^+,u_A)$: a finite-dimensional real vector space $V_A$, a proper cone $V_A^+\subseteq V_A$ of \emph{unnormalized states} (closed, convex, pointed, generating), and a \emph{unit} $u_A\in V_A^*$ with $u_A(v)>0$ for all $v\in V_A^+\setminus\{0\}$.
+\end{defi}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[scale=1.05, every node/.style={font=\scriptsize}]
+\fill[black!8] (0,0) -- (-1.4,2.2) -- (1.4,2.2) -- cycle;
+\draw[thick] (0,0) -- (-1.4,2.2);
+\draw[thick] (0,0) -- (1.4,2.2);
+\node at (0,2.0) {$V_A^+$};
+\draw[dashed] (-1.75,1.5) -- (1.75,1.5) node[right]{$u_A=1$};
+\draw[very thick] (-0.95,1.5) -- (0.95,1.5);
+\node[above] at (-0.45,1.55) {$\Omega_A$};
+\fill (0.95,1.5) circle (1.3pt) node[below right=2pt] {pure};
+\fill (0.3,1.5) circle (1.3pt) node[above=-1pt] {$\omega$};
+\fill (0.18,0.9) circle (1.3pt) node[right=-1pt] {$\lambda\omega$};
+\fill (0,0) circle (1.2pt) node[below] {$0$};
+\end{tikzpicture}
+\caption{A system: the cone $V_A^+$ of unnormalized states, graded by the unit. The slice $\Omega_A=u_A^{-1}(1)\cap V_A^+$ is the compact base of normalized states; its extreme points are pure, and $\lambda\omega$ is subnormalized.}
+\label{fig:cone}
+\end{figure}
+
+The unit grades the cone by total weight (Fig.~\ref{fig:cone}): the \emph{normalized} states form the compact convex base $\Omega_A:=\{\omega\in V_A^+:u_A(\omega)=1\}$, whose extreme points are the \emph{pure} states. Measurement outcomes need no new data: outcome probabilities are linear in the state, so effects are elements of the dual cone
+\[
+(V_A^+)^*:=\{e\in V_A^*:\,e(v)\ge0\ \forall v\in V_A^+\},
+\]
+the \emph{allowed effects} are $\mathcal E_A:=[0,u_A]$, and a \emph{measurement} is a finite family $(e_i)\subset\mathcal E_A$ with $\sum_ie_i=u_A$. Taking $\mathcal E_A=[0,u_A]$ in full is the \emph{no-restriction hypothesis}, our default.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[scale=0.8, every node/.style={font=\scriptsize}, >=Latex]
+\begin{scope}
+\draw[->] (0,0) -- (1.5,0);
+\draw[->] (0,0) -- (0,1.5);
+\draw[->] (0,0) -- (-0.75,-0.75);
+\draw[thick, fill=black!12] (1.1,0) -- (0,1.1) -- (-0.5,-0.5) -- cycle;
+\node at (0.3,-1.35) {classical};
+\end{scope}
+\begin{scope}[xshift=3.4cm]
+\shade[inner color=black!3, outer color=black!22] (0,0.35) circle (0.8);
+\draw (0,0.35) circle (0.8);
+\draw[dashed] (-0.8,0.35) arc (180:360:0.8 and 0.24);
+\fill (0,1.15) circle (1.2pt);
+\fill (0,-0.45) circle (1.2pt);
+\node at (0,-1.35) {quantum};
+\end{scope}
+\begin{scope}[xshift=6.6cm]
+\draw[thick] (-0.62,-0.27) rectangle (0.62,0.97);
+\draw[thick, dashed] (0,-0.53) -- (0.88,0.35) -- (0,1.23) -- (-0.88,0.35) -- cycle;
+\node at (0,-1.35) {boxworld};
+\end{scope}
+\end{tikzpicture}
+\caption{Normalized-state slices. Classical: the simplex in the orthant. Quantum: the Bloch ball. Boxworld: the square, with the slice of its dual cone (dashed) --- no linear map aligns the two.}
+\label{fig:examples}
+\end{figure}
+
+\paragraph{Examples (Fig.~\ref{fig:examples}).}
+\emph{Classical}: $V=\mathbb{R}^N$ with the orthant $\mathbb{R}^N_{\ge0}$ and $u(p)=\sum_ip_i$; $\Omega$ is the probability simplex. The orthant is \emph{self-dual}. \emph{Quantum}: $V=\mathrm{H}_N(\mathbb{C})$, the Hermitian matrices, with the positive-semidefinite cone and $u=\operatorname{tr}$; $\Omega$ is the set of density matrices, $\mathcal E$ the POVM elements. The PSD cone is \emph{self-dual}. \emph{Boxworld (gbit)}: $V=\mathbb{R}^3$, $V^+$ the cone over a square \cite{Barrett2007}; the dual cone is the cone over the \emph{rotated} square, and no linear map aligns the two: \emph{not} self-dual. Self-duality of the state cone will decide the $1$d problem.
+
+\paragraph{Transformations.}
+Mixing forces transformations to be linear; the rest is preservation of the decorations. A \emph{morphism} $f:A\to B$ is a linear map $f:V_A\to V_B$ with $f(V_A^+)\subseteq V_B^+$; it is \emph{allowed} if $u_B\circ f\le u_A$ on $V_A^+$, and a \emph{channel} if equality holds. Composition and identities are those of $\mathbf{Vec}$. The hom-set
+\[
+\operatorname{Hom}_{\mathrm{GPT}}(A,B)=\{f\in\operatorname{Hom}_{\mathbf{Vec}}(V_A,V_B):\,f(V_A^+)\subseteq V_B^+\}
+\]
+is closed under conic combinations but not subtraction: a \emph{cone}, not a subspace. GPT thus sits over $\mathbf{Vec}$ as a \emph{wide, non-full} subcategory --- all objects, only the positive maps. The trivial system is $\mathbf 1=(\mathbb{R},\mathbb{R}_{\ge0},\operatorname{id})$; states and effects are ordinary arrows $\omega:\mathbf 1\to A$ and $e:A\to\mathbf 1$, and the composite $e\circ f\circ\omega\in\operatorname{End}(\mathbf 1)=\mathbb{R}$ is the predicted probability.
+
+\paragraph{Composites.}
+Independent local preparations and measurements must combine with factorizing statistics, $(e_A\otimes e_B)(\omega_A\otimes\omega_B)=e_A(\omega_A)\,e_B(\omega_B)$. Bilinearity places the products in $V_A\otimes V_B$; that the joint space is \emph{exactly} $V_A\otimes V_B$ is the postulate of \emph{tomographic locality}, which we assume by default. The local data bound the composite cone without fixing it:
+\[
+V_A^+\otimes_{\min}V_B^+\;\subseteq\;V_{AB}^+\;\subseteq\;V_A^+\otimes_{\max}V_B^+,
+\]
+where $\otimes_{\min}$ is generated by the product states (the separable cone) and $\otimes_{\max}$ contains everything nonnegative against product effects; duality exchanges the two ends. Any intermediate proper cone is admissible, and any coherent choice makes $(\mathrm{GPT},\otimes,\mathbf 1)$ symmetric monoidal. The freedom is generic: the two bounds coincide iff one factor is classical (entangleability of cones \cite{ALPP2021}). For quantum systems the three cones differ --- separable $\subsetneq$ PSD $\subsetneq$ entanglement witnesses --- so the quantum tensor product is an additional input, strictly between the bounds.
+
+\paragraph{GPT versus $\mathbf{Vec}$: three layers, one condition each.}
+\[
+\begin{aligned}
+V\ &\rightsquigarrow\ (V,\,V^+,\,u),\\[2pt]
+f\ &\rightsquigarrow\ f\ \ \text{with}\ \ f(V_A^+)\subseteq V_B^+,\\[2pt]
+V_A\otimes V_B\ &\rightsquigarrow\ V_{AB}^+\in[\otimes_{\min},\otimes_{\max}],\quad u_A\otimes u_B.
+\end{aligned}
+\]
+Each condition changes the linear-algebraic character of its layer: hom-sets become cones, the monoidal product becomes a family of products indexed by the choice of composite cone. Duals survive at the level of \emph{objects} --- swapping the state cone with the effect cone gives a dual system on $V^*$ --- but the evaluation and coevaluation are morphisms only if \emph{positive}: the element $\sum_af_a\otimes f^a$ must lie in the chosen composite cone, and in the dual of the cone chosen for the swapped pair. In $\mathbf{Vec}$ dualizability is automatic; in GPT it is a contingent property of the cones. Which GPTs pass is the $1$d question.
+
+\section{One dimension: the positivity constraint}\label{sec:1d}
+
+\paragraph{The $1$d bordism category.}
+Objects of $\mathbf{Bord}_1$ are finite disjoint unions of the two oriented points $+$ and $-$. As a symmetric monoidal category it is generated by the interval $\operatorname{id}_+$, the cup $\cup:\varnothing\to+\sqcup-$, and the cap $\cap:-\sqcup+\to\varnothing$, subject to the \emph{snake relations}
+\begin{align}
+(\operatorname{id}_+\sqcup\,\cap)\circ(\cup\,\sqcup\operatorname{id}_+)&=\operatorname{id}_+,\label{eq:snake1}\\
+(\cap\,\sqcup\operatorname{id}_-)\circ(\operatorname{id}_-\sqcup\,\cup)&=\operatorname{id}_-,\label{eq:snake2}
+\end{align}
+an S-shaped strand pulls taut (Fig.~\ref{fig:bord}). The only closed connected $1$-manifold is the circle, a cup closed by a cap: $S^1=\cap\circ\sigma\circ\cup$. By the cobordism hypothesis in $d=1$ \cite{Lurie2009}, $Z\mapsto Z(+)$ identifies $1$d TFTs valued in $\mathcal C$ with \emph{dualizable objects} of $\mathcal C$; all values on bordisms, and all closed invariants, follow.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[scale=0.85, every node/.style={font=\scriptsize}]
+\draw[thick, mid arrow] (0,0) -- (0,1.2);
+\node[below] at (0,0) {$+$};
+\node[above] at (0,1.2) {$+$};
+\draw[thick, mid arrow] (1.1,1.2) .. controls (1.1,0.15) and (2.0,0.15) .. (2.0,1.2);
+\node[above] at (1.1,1.2) {$+$};
+\node[above] at (2.0,1.2) {$-$};
+\draw[thick, mid arrow] (3.1,0) .. controls (3.1,1.05) and (4.0,1.05) .. (4.0,0);
+\node[below] at (3.1,0) {$-$};
+\node[below] at (4.0,0) {$+$};
+\begin{scope}[yshift=-2.3cm]
+\draw[thick] (0,0) -- (0,0.5) .. controls (0,1.05) and (0.6,1.05) .. (0.6,0.65) .. controls (0.6,0.25) and (1.2,0.25) .. (1.2,0.65) -- (1.2,1.3);
+\node at (1.7,0.65) {$=$};
+\draw[thick] (2.2,0) -- (2.2,1.3);
+\draw[thick] (3.55,0.65) circle (0.45);
+\draw[dashed] (3.1,0.65) -- (4.0,0.65);
+\node[right] at (4.1,0.65) {$S^1$};
+\end{scope}
+\end{tikzpicture}
+\caption{Top: the generators of $\mathbf{Bord}_1$ --- interval, cup, cap. Bottom: the snake relation \eqref{eq:snake1}, and the circle as a cup glued to a cap.}
+\label{fig:bord}
+\end{figure}
+
+\paragraph{In $\mathbf{Vec}$: everything is free.}
+Every object is dualizable, with canonical data $V^\vee=V^*$, $\operatorname{ev}(\varphi\otimes v)=\varphi(v)$, and
+\[
+\operatorname{coev}(1)=g:=\textstyle\sum_af_a\otimes f^a,
+\]
+which is $\operatorname{id}_V$ under $V\otimes V^*\cong\operatorname{End}(V)$, hence basis-independent. The snakes reduce to the resolution of identity $v=\sum_af^a(v)\,f_a$, and the circle computes the trace: $Z(S^1)=\dim_{\mathbb R}V$. Thus $1$d TQFTs valued in $\mathbf{Vec}$ are classified by a single nonnegative integer, every closed invariant is a power $n^k$, and at no point is any datum tested against a condition.
+
+\paragraph{In GPT: the dual is forced, and the data must be positive.}
+A \emph{$1$d GPTFT} is a symmetric monoidal functor $Z:\mathbf{Bord}_1\to(\mathrm{GPT},\otimes)$; equivalently, a dualizable object $X=Z(+)=(V,V^+,u)$. Positivity leaves no freedom in the candidate dual: if $X$ is dualizable then, up to isomorphism,
+\[
+X^\vee=\big(V^*,\;(V^+)^*,\;u^\vee\big),
+\]
+with $\operatorname{ev}$ the canonical pairing and $\operatorname{coev}(1)=g$ --- the underlying linear duality data of $\mathbf{Vec}$, now decorated with the dual cone. The snake identities and the circle value $Z(S^1)=\dim_{\mathbb R}V$ are equalities of linear maps and hold automatically \emph{whenever the cup and cap are legal morphisms}. That legality is the entire content of the theory. The cup is a state $\mathbf 1\to X\otimes X^\vee$ and the cap an effect $X^\vee\otimes X\to\mathbf 1$, and both are carried by \emph{one and the same} element $g$:
+\begin{align}
+\text{cup (state):}&\quad g\in V^+_{X\otimes X^\vee},\label{eq:cup}\\
+\text{cap (effect):}&\quad g\in\big(V^+_{X^\vee\otimes X}\big)^{*}.\label{eq:cap}
+\end{align}
+The two requirements pull in opposite directions: the cup prefers the composite cone \emph{large} (easier for $g$ to lie inside), the cap prefers it \emph{small} (easier for $g$ to lie in its dual), while the composite cone is only pinned to the interval $[\otimes_{\min},\otimes_{\max}]$, whose ends min--max duality exchanges. In $\mathbf{Vec}$ there is no tension --- $g=\operatorname{id}_V$ is unconditionally both a vector and a functional. In GPT, $g$ must thread the cone from both sides at once, and the whole $1$d theory concentrates in the membership of this single element.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[every node/.style={font=\scriptsize}]
+\draw[-{Latex[length=5pt]}, thick] (-0.95,0) -- (-2.3,0);
+\fill (-1.25,0) circle (2pt);
+\node[above] at (-2.15,0.08) {$v$};
+\node[above] at (-1.6,0.3) {Bob};
+\node[below] at (-1.6,-0.1) {$X_{\mathrm B}$};
+\pic at (0,0) {sourcedev};
+\node[below] at (0,-0.55) {resource $\psi=\operatorname{coev}(1)$};
+\draw[thick] (0.95,0) -- (2.15,0);
+\fill (1.3,0) circle (2pt);
+\node[above] at (1.55,0.08) {$X^\vee_{\mathrm A}$};
+\pic at (3.2,0) {meterdevtwo};
+\node[below] at (3.2,-0.55) {Alice: joint effect $\psi$};
+\draw[-{Latex[length=5pt]}, thick] (5.4,0) -- (4.3,0);
+\fill (4.95,0) circle (2pt);
+\node[above] at (5.25,0.08) {$v$};
+\node[below] at (4.85,-0.1) {$X_{\mathrm A}$};
+\end{tikzpicture}
+\caption{The snake as exact teleportation. A source pre-shares the resource $\psi=g$ between Bob ($X_{\mathrm B}$) and Alice ($X^\vee_{\mathrm A}$); Alice applies the joint effect $\psi$ to the input $v$ and her share; Bob's system exits in the state $v$.}
+\label{fig:teleport}
+\end{figure}
+
+\paragraph{Teleportation.}
+Conditions \eqref{eq:cup}--\eqref{eq:cap} are a teleportation protocol (Fig.~\ref{fig:teleport}) \cite{BBLW}. Reading the first snake along its time direction: at $t_0$ the bipartite resource $\psi=g$ is pre-shared between Bob ($X_{\mathrm B}$) and Alice ($X^\vee_{\mathrm A}$); at $t_1$ Alice receives the input $v\in V^+$; at $t_2$ she contracts her two systems against the joint effect $\psi$; at $t_3$ Bob holds $\sum_af^a(v)\,f_a=v$. The transfer is exact, resource and measurement being one and the same element. A $1$d GPTFT exists iff the theory supports this protocol with positive resource and positive measurement.
+
+\paragraph{Conjecture: self-duality decides.}
+We conjecture that the invariant deciding \eqref{eq:cup}--\eqref{eq:cap} is (weak) \emph{self-duality} of the state cone $V^+$: heuristically, $g$ must occupy the state role and the effect role at once, and self-duality is exactly the symmetry that permits it. Across the standard examples:
+\begin{itemize}
+\item \emph{Classical} (orthant): passes. $g=\sum_i\delta_i\otimes\delta^i$ is separable and lies already in the minimal composite $\otimes_{\min}$.
+\item \emph{Quantum} (PSD cone): passes. $g$ is rescued by a positive (but not completely positive) transpose twist on the dual leg, after which it becomes the maximally entangled element and sits inside the genuine quantum composite cone.
+\item \emph{Boxworld} (square cone): expected \emph{no-go}. The cone is not self-dual; cup and cap collide quantitatively (an inequality of the schematic form ``$2\le1$''), and, the cone being polyhedral, only a finite group of twists is available --- no continuous rescue analogous to the transpose.
+\end{itemize}
+Two rigorous results frame the conjecture. Barnum--Barrett--Leifer--Wilce \cite{BBLW}: weak self-duality plus universal steering implies homogeneity of the state cone --- and the cup/cap data above are exactly the teleportation/steering structure in that hypothesis. Koecher--Vinberg \cite{KoecherVinberg}: homogeneous self-dual cones are precisely the cones of squares of Euclidean Jordan algebras. Together, any GPT admitting a $1$d GPTFT would be placed ``close to quantum.''
+
+\paragraph{Beyond local tomography.}
+If tomographic locality fails, $V_{X\otimes X^\vee}\cong(V\otimes V^*)\oplus C$ with a nonzero global sector $C$. The element $g$ lives entirely in the local sector and has no component along $C$ --- yet its positivity is adjudicated in the full ambient space, in all directions, including those where the composite cone may bend. Keeping $C$ general is therefore not optional: it is precisely the regime in which a genuinely non-locally-tomographic theory, such as a fermionic GPT, can behave differently from the qudit.
+
+\paragraph{Outlook: two dimensions.}
+In $d=2$ a theory is a commutative Frobenius algebra internal to the target, and the Frobenius structure already contains duality data: $Z(S^1)$ is self-dual, so the entire $1$d positivity problem embeds into the $2$d one before any condition on the multiplication and comultiplication is imposed. The $2$d description --- which algebras survive positivity, and what replaces the classification by Frobenius algebras --- is taken up next.
+
+\begin{thebibliography}{99}
+
+\bibitem{Atiyah1988}
+M.~F.~Atiyah,
+\emph{Topological quantum field theories},
+Publ.\ Math.\ IH\'ES \textbf{68}, 175 (1988).
+
+\bibitem{Segal2004}
+G.~Segal,
+\emph{The definition of conformal field theory},
+in \emph{Topology, Geometry and Quantum Field Theory},
+London Math.\ Soc.\ Lecture Note Ser.\ \textbf{308}
+(Cambridge University Press, 2004).
+
+\bibitem{Hardy2001}
+L.~Hardy,
+\emph{Quantum theory from five reasonable axioms},
+arXiv:quant-ph/0101012.
+
+\bibitem{Barrett2007}
+J.~Barrett,
+\emph{Information processing in generalized probabilistic theories},
+Phys.\ Rev.\ A \textbf{75}, 032304 (2007),
+arXiv:quant-ph/0508211.
+
+\bibitem{Mueller2021}
+M.~P.~M\"uller,
+\emph{Probabilistic theories and reconstructions of quantum theory},
+SciPost Phys.\ Lect.\ Notes \textbf{28} (2021),
+arXiv:2011.01286.
+
+\bibitem{Plavala2023}
+M.~Pl\'avala,
+\emph{General probabilistic theories: An introduction},
+Phys.\ Rep.\ \textbf{1033}, 1 (2023),
+arXiv:2103.07469.
+
+\bibitem{ALPP2021}
+G.~Aubrun, L.~Lami, C.~Palazuelos, and M.~Pl\'avala,
+\emph{Entangleability of cones},
+Geom.\ Funct.\ Anal.\ \textbf{31}, 181 (2021),
+arXiv:1911.09663.
+
+\bibitem{Lurie2009}
+J.~Lurie,
+\emph{On the classification of topological field theories},
+Current Developments in Mathematics \textbf{2008}, 129 (Int.\ Press, 2009),
+arXiv:0905.0465.
+
+\bibitem{BBLW}
+H.~Barnum, J.~Barrett, M.~Leifer, and A.~Wilce,
+\emph{Teleportation in general probabilistic theories},
+Proc.\ Sympos.\ Appl.\ Math.\ (AMS, 2012),
+arXiv:0805.3553.
+
+\bibitem{KoecherVinberg}
+M.~Koecher, \emph{The Minnesota Notes on Jordan Algebras and Their Applications},
+Lecture Notes in Mathematics \textbf{1710} (Springer, 1999);
+E.~B.~Vinberg, \emph{The theory of convex homogeneous cones},
+Trans.\ Moscow Math.\ Soc.\ \textbf{12}, 340 (1963).
+
+\bibitem{Dijkgraaf1989}
+R.~Dijkgraaf,
+\emph{A geometrical approach to two-dimensional conformal field theory},
+Ph.D.\ thesis, Utrecht University (1989).
+
+\bibitem{Abrams1996}
+L.~Abrams,
+\emph{Two-dimensional topological quantum field theories and Frobenius algebras},
+J.\ Knot Theory Ramifications \textbf{5}, 569 (1996).
+
+\bibitem{Kock2004}
+J.~Kock,
+\emph{Frobenius Algebras and 2D Topological Quantum Field Theories},
+London Math.\ Soc.\ Student Texts \textbf{59}
+(Cambridge University Press, 2004).
+
+\end{thebibliography}
+
+\end{document}

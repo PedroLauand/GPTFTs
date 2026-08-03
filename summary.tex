@@ -40,7 +40,7 @@ anchorcolor=OliveGreen}
 \affiliation{Perimeter Institute for Theoretical Physics, Waterloo, Ontario, Canada, N2L 2Y5}
 
 \begin{abstract}
-Conceptual skeleton of the GPTFT program: the spacetime axioms, topological field theories as finite algebraic data, the category of GPTs as $\mathbf{Vec}$ plus positivity, the $1$d case as dualizability, and the $2$d case as a commutative Frobenius algebra whose finite data are positive GPT data.
+Conceptual skeleton of the GPTFT program: the spacetime axioms, topological field theories as finite algebraic data, the category of GPTs as $\mathbf{Vec}$ plus positivity, the $1$d case as dualizability, and the $2$d case as a commutative Frobenius algebra whose finite data are positive GPT data. Existence of a $2$d theory reduces to an intrinsic condition on the state space --- an \emph{operational Frobenius structure}, whose physically central case is a \emph{copyable maximal frame} of perfectly distinguishable states. \emph{Spectral mountability} (every frame copyable, coherently) derives the dagger-compact postulates of the Selby--Scandolo--Coecke reconstruction, making spacetime-mountability a candidate reconstruction axiom.
 \end{abstract}
 
 \maketitle
@@ -217,9 +217,77 @@ are a positive effect and a positive state, and the Frobenius $+$ (co)unit relat
 Z(\Sigma_g)=\varepsilon\big(h^g(\eta(1))\big)\ \ge\ 0 :
 \]
 every closed surface evaluates to a composition of positive data --- an (unnormalized) probability. In particular $Z(S^2)=\varepsilon(\eta(1))\ge0$ and $Z(T^2)=\dim_{\mathbb R}V$.
-\item \emph{Classical example passes.} $V=\mathbb{R}^N$ with the pointwise algebra: $\eta(1)=\sum_ie_i$, $\varepsilon(e_i)=\lambda_i>0$, $\mu(e_i\otimes e_j)=\delta_{ij}e_i$, $\Delta(e_i)=\lambda_i^{-1}\,e_i\otimes e_i$. All four maps are positive (for the unique classical composite cone, $\otimes_{\min}=\otimes_{\max}$), $\beta$ is nondegenerate: classical $2$d GPTFTs exist, one family per choice of weights $\lambda$.
-\item \emph{Quantum is the open case.} The PSD cone passes the necessary self-duality condition, but the obvious products fail: matrix multiplication is neither commutative nor Hermiticity-preserving; the Jordan product is commutative but not associative. Whether $\mathrm{H}_N(\mathbb{C})$ ($N\ge2$) carries \emph{some} commutative, associative, positive Frobenius structure --- and more generally, which weakly self-dual cones do --- is the $2$d classification problem.
+\item \emph{Classical passes --- twice over.} Basis type: the pointwise algebra on $\mathbb{R}^N$, $\eta(1)=\sum_ie_i$, $\varepsilon(e_i)=\lambda_i>0$, $\mu(e_i\otimes e_j)=\delta_{ij}e_i$, $\Delta(e_i)=\lambda_i^{-1}e_i\otimes e_i$; one family per weight vector $\lambda$, with invariants $Z(\Sigma_g)=\sum_i\lambda_i^{1-g}$. Gauge type (no copyable frame): the nilpotent algebra $\mathbb{R}[x]/(x^2)$ on the bit cone $\operatorname{cone}\{1,x\}$ with $\varepsilon=s\,x^*$ ($Z(S^2)=0$, $Z(T^2)=2$), and group algebras $\mathbb{R}[G]$ with cone over the group elements --- $2$d lattice gauge theories mounted on classical GPTs, whose would-be frames (Fourier idempotents) are not physical states.
+\item \emph{Quantum passes --- the coherent copy.} For each orthonormal basis, with $W=\sum_i|ii\rangle\langle i|$:
+\[
+\Delta(\rho)=W\rho W^\dagger,\quad
+\mu(x)=W^\dagger xW\ \ (\text{Schur product}),\quad
+\eta(1)=J=\textstyle\sum_{ij}|i\rangle\langle j|,\quad
+\varepsilon=\langle\eta|\cdot|\eta\rangle .
+\]
+All four maps are positive for the standard quantum composite (positivity of $\mu$ \emph{is} the Schur product theorem); the derived cup is the maximally entangled $\gamma=|\Phi\rangle\langle\Phi|$ --- realizing the transpose twist conjectured in the $1$d analysis --- the handle is trivial ($h=\operatorname{id}$, the structure is special), and $Z(\Sigma_g)=N^2$ for every genus. No-cloning is respected: the \emph{trace}-marginals of $\Delta$ give dephasing; only the $\varepsilon$-marginal is lossless.
+\item \emph{No-broadcasting dichotomy.} If $\varepsilon$ is strictly positive, the counit laws make $\Delta$ a universal broadcaster for the system $(V,V^+,\varepsilon)$, and the generalized no-broadcasting theorem \cite{BBLWnobroadcast} forces a simplicial cone. Nonclassical solutions therefore have \emph{boundary} counit --- in quantum, the pure effect $\langle\eta|\cdot|\eta\rangle$. Diagrammatically \cite{SSC2021}: purity of the cup $\iff$ triviality of leaks $\iff$ fully quantum.
 \end{itemize}
+
+\section{The existence condition: copyable frames}\label{sec:condition}
+
+\paragraph{Reduction to the state space.}
+All the data of a $2$d GPTFT collapse onto a product and one effect:
+
+\begin{prop}[Operational Frobenius structure]\label{prop:ofs}
+$X=(V,V^+,u)$ admits a $2$d GPTFT iff $V$ carries a commutative associative product $\star$ with unit $\eta$, and an effect $\varepsilon\in(V^+)^*$, such that:
+\emph{(i)} $\eta\in V^+$ and $V^+\!\star V^+\subseteq V^+$ --- \emph{the cone is closed under the product};
+\emph{(ii)} $\beta(v,w):=\varepsilon(v\star w)$ is nondegenerate and $\flat:v\mapsto\beta(v,-)$ is an order isomorphism $(V,V^+)\cong(V^*,(V^+)^*)$ --- \emph{the effect self-dualizes the cone through the product};
+\emph{(iii)} the handle element $H=\sum_a b_a\star b^a$ (any basis, $\beta$-dual basis) acts positively.
+The coproduct and counit are then derived, $\Delta=\mu^{\dagger}$, $\varepsilon=\eta^{\dagger}$, and the composite cone can be taken minimal: $V^+_{XX}=\overline{\operatorname{cone}}\big(\otimes_{\min}\cup\,\Delta(V^+)\big)$.
+\end{prop}
+
+\paragraph{Dagger form (under tomographic locality).}
+$\beta$ induces a dagger $f^\dagger:=\flat^{-1}\!\circ f^*\circ\flat$ on the monoidal subcategory generated by $X$; condition \emph{(ii)} says precisely that this dagger \emph{preserves positivity}. A $2$d GPTFT is then a positive dagger together with a commutative $\dagger$-Frobenius algebra $(\mu,\eta)$ with $\mu,\eta$ positive --- the GPT form of the correspondence between $\dagger$-Frobenius algebras, orthonormal bases, and finite-dimensional C$^*$-algebras \cite{CPV2013,Vicary2011}. Two bilinear forms coexist and divide the labor:
+\[
+\beta=\varepsilon\circ\mu,
+\qquad
+\beta_s(v,w)=\varepsilon(v\star Tw),
+\]
+where $T$ is the canonical \emph{Galois involution} of the algebra (identity on the real spectrum, conjugation on the complex spectrum; in quantum, $\rho\mapsto\rho^{T}$). The copairing of $\beta$ is the positive cup --- the teleportation resource; in quantum $\gamma=|\Phi\rangle\langle\Phi|$, $\beta=\operatorname{tr}(\rho\,\sigma^{T})$. The copairing of $\beta_s$ is \emph{not} positive (in quantum, \textsc{swap}), but $\beta_s$ is a GNS-type inner product whose adjoint is the \emph{sharp dagger} (in quantum, Hilbert--Schmidt, giving the Hermitian adjoint). Cups give the transpose; the Frobenius algebra supplies the conjugation; their composite is the dagger --- $(\star,T,\varepsilon)$ is an abstract commutative $*$-algebra with a positive functional, compatible with the cone.
+
+\paragraph{The operational condition.}
+
+\begin{defi}[Copyable frame]
+A maximal set of perfectly distinguishable states $\{\omega_i\}_{i=1}^{n}$ of $X$ is \emph{copyable} if there exist an admissible composite cone, a positive linear map $\Delta:X\to X\otimes X$, and an effect $\varepsilon\in(V^+)^*$ with:
+\emph{(C1) copying:} $\Delta(\omega_i)=\omega_i\otimes\omega_i$;
+\emph{(C2) losslessness:} $\varepsilon(\omega_i)=1$ and $(\varepsilon\otimes\operatorname{id})\Delta=\operatorname{id}=(\operatorname{id}\otimes\varepsilon)\Delta$;
+\emph{(C3) consistency:} $\Delta$ is coassociative and cocommutative;
+\emph{(C4) mergeability:} the copairing dual to the induced $\beta$ equals $\Delta(\eta)$ for a state $\eta\in V^+$, and the induced merge $\mu$ is positive.
+\end{defi}
+
+\begin{defi}[Spectrally mountable]
+$X$ is \emph{spectrally mountable} if \emph{every} maximal set of perfectly distinguishable states is copyable, and the daggers induced by the twisted forms $\beta_s$ of the resulting structures coincide (\emph{coherence}).
+\end{defi}
+
+\begin{prop}[Existence]\label{prop:exist}
+A single copyable frame yields a $2$d GPTFT of \emph{basis type}: the frame is the positive real spectrum of the algebra, and the twisted dagger is sharp at it. Every basis-type theory arises this way. The inclusion in all $2$d GPTFTs is strict: \emph{gauge-type} solutions exist with no copyable frame (nilpotent and group-algebra structures above). Every $2$d GPTFT has at least one real character (Perron--Frobenius applied to the commuting positive family $L_v=v\star(-)$).
+\end{prop}
+
+\begin{prop}[Alignment with the SSC reconstruction \cite{SSC2021}]\label{prop:ssc}
+If $X$ is spectrally mountable in a tomographically local GPT, then Postulates 1--4 of \cite{SSC2021} hold for the process theory generated by $X$: \emph{(1)} process theory and \emph{(2)} finite local classical interface are the ambient framework; \emph{(3)} cups \& caps are $\gamma=\Delta(\eta)$ and $\beta=\varepsilon\circ\mu$; \emph{(4)} the common twisted dagger is sharp at every maximal testable preparation, since every frame is copyable. By the lemmas of \cite{SSC2021}, $X$ is then \emph{spectral}. Their Postulate 5 (essentially unique symmetric purification $\Rightarrow$ homogeneity $\Rightarrow$ Koecher--Vinberg $\Rightarrow$ Euclidean Jordan algebras) is the remaining distance to quantum $\oplus$ classical theory.
+\end{prop}
+
+Quantum theory is spectrally mountable: one coherent copier per orthonormal basis, and all twisted forms collapse to the basis-independent Hilbert--Schmidt inner product, whose adjoint is the Hermitian dagger. Classical theory is spectrally mountable through the pointwise copiers. Boxworld fails already at the derived $1$d layer.
+
+\paragraph{The ladder.}
+Each condition strictly refines the last (as classes of GPTs):
+\[
+\{\text{teleportable}\}\supseteq\{\text{mountable}\}\supseteq\{\text{copyable frame}\}\supseteq\{\text{spectrally mountable}\}\supseteq\{\text{quantum}\oplus\text{classical}\},
+\]
+where \emph{teleportable} $=$ admits a $1$d GPTFT (cups \& caps; weak self-duality), \emph{mountable} $=$ admits some $2$d GPTFT (operational Frobenius structure; at least one real character; nonnegative invariants), \emph{copyable frame} $=$ admits a basis-type theory, and \emph{spectrally mountable} as above ($\Rightarrow$ SSC Postulates 1--4 $\Rightarrow$ spectrality). The last inclusion is conjectured to be an equality up to the Jordan-algebraic loose ends.
+
+\paragraph{Open problems.}
+\emph{(1) Coherence:} is the common-dagger condition automatic when every frame is copyable?
+\emph{(2) Converse of Prop.~\ref{prop:ssc}:} can the coherent copier be constructed from a sharp dagger --- the ``spiders'' question raised in the outlook of \cite{SSC2021}?
+\emph{(3) Spin factors:} are the $d$-ball systems ($d\neq3$) mountable? Decisive for whether $2$d mountability alone cuts the Jordan family to $\mathbb{C}$-quantum $\oplus$ classical.
+\emph{(4)} The TFT origin of symmetric purification (SSC Postulate 5).
+\emph{(5)} The non-tomographically-local ($C\neq0$, fermionic) case.
 
 \begin{thebibliography}{99}
 
@@ -281,6 +349,35 @@ M.~Koecher, \emph{The Minnesota Notes on Jordan Algebras and Their Applications}
 Lecture Notes in Mathematics \textbf{1710} (Springer, 1999);
 E.~B.~Vinberg, \emph{The theory of convex homogeneous cones},
 Trans.\ Moscow Math.\ Soc.\ \textbf{12}, 340 (1963).
+
+\bibitem{SSC2021}
+J.~H.~Selby, C.~M.~Scandolo, and B.~Coecke,
+\emph{Reconstructing quantum theory from diagrammatic postulates},
+Quantum \textbf{5}, 445 (2021),
+arXiv:1802.00367.
+
+\bibitem{BBLWnobroadcast}
+H.~Barnum, J.~Barrett, M.~Leifer, and A.~Wilce,
+\emph{Generalized no-broadcasting theorem},
+Phys.\ Rev.\ Lett.\ \textbf{99}, 240501 (2007),
+arXiv:0707.0620.
+
+\bibitem{CPV2013}
+B.~Coecke, D.~Pavlovi\'c, and J.~Vicary,
+\emph{A new description of orthogonal bases},
+Math.\ Structures Comput.\ Sci.\ \textbf{23}, 555 (2013),
+arXiv:0810.0812.
+
+\bibitem{Vicary2011}
+J.~Vicary,
+\emph{Categorical formulation of finite-dimensional quantum algebras},
+Comm.\ Math.\ Phys.\ \textbf{304}, 765 (2011),
+arXiv:0805.0432.
+
+\bibitem{BarnumHilgert}
+H.~Barnum and J.~Hilgert,
+\emph{Strongly symmetric spectral convex bodies are Jordan algebra state spaces},
+arXiv:1904.03753.
 
 \bibitem{Dijkgraaf1989}
 R.~Dijkgraaf,

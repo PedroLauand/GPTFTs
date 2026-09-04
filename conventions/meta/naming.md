@@ -13,7 +13,9 @@ sources/papers/210312 - general probabilistic theories/
 
 The date is when the thing happened or first appeared, not when it was filed.
 For a paper, the arXiv first-version date; say so in `source.md` if the filed
-copy is a later version. Six digits, no separators.
+copy is a later version. Six digits, no separators. When a component is
+unknown, write `00` for it and say so in `source.md`: `940300` for a paper
+known only to March 1994, `480000` for one known only to 1948.
 
 ## Everything else
 

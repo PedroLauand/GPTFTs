@@ -15,9 +15,13 @@ one file that grows: add lines at the end, never change earlier ones.
 Naming is `YYMMDD - short description`, dated to when the thing happened or
 first appeared. See `conventions/meta/naming.md`.
 
-Nothing is filed yet (2026-09-04). The 42 works in `paper/draft.bib` are
-citations, not sources, until they are filed here with an extraction.
-`syntheses/literature-map.md` tracks which are which.
+Filed on 2026-09-04: the nine works cited in live text (two as stubs, because
+PopescuRohrlich1994 and Einstein1948 have no open copy), three works filed for
+the technical toolbox (Carqueville–Runkel, Fewster–Rejzner, Coecke) and one
+related paper not in the bib (Popescu–Rohrlich 1995). PDFs are not kept; arXiv
+is the source of record and `paper.md` is the extraction. The other 30 bib
+entries are citations, not sources, until filed. `syntheses/literature-map.md`
+tracks which are which.
 
 ## Why sources and syntheses are kept apart
 

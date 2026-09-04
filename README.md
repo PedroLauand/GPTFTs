@@ -35,8 +35,12 @@ an agent from reading its own earlier output back as evidence.
   2026-09-04 (git tag `archive/pre-reorg-260904`); results re-enter through
   `pipeline/`.
 - **Literature.** 42 works in `paper/draft.bib`; 9 cited in live text, 7 more
-  only in a retired paragraph, 26 not yet cited; none filed in `sources/`.
-  Map: `syntheses/literature-map.md`.
+  only in a retired paragraph, 26 not yet cited. 12 filed in `sources/papers/`
+  (10 with extractions, 2 stubs), plus one related paper outside the bib; all
+  nine live citations checked. Map: `syntheses/literature-map.md`.
+- **Toolbox.** `syntheses/toolbox/`: the GPT framework, TFT, the AQFT axioms
+  and a catalogue of conditions, with statement numbers from the filed
+  sources.
 
 ## Working here
 

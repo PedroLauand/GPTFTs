@@ -35,10 +35,19 @@ what that requires of a probabilistic theory.
 | [locality-of-action](locality-of-action.md) | the dynamical premise; parallel versus sequential composition | draft |
 | [topological-field-theory](topological-field-theory.md) | the form the import is expected to take; almost nothing fixed yet | stub |
 
+## Toolbox
+
+Technical definitions, lemmas and conditions with statement numbers live in
+[../toolbox/](../toolbox/README.md): the GPT framework (G1–G21), TFT
+(T1–T10), the AQFT axioms against the two premises, and a catalogue of
+conditions across the filed reconstructions.
+
 ## What is missing
 
-- No primary source is filed. Every attribution to a cited work is second-hand
-  through the draft and marked `UNVERIFIED`.
+- Ten of the cited works are filed with extractions (2026-09-04) and the live
+  citations are checked in `../literature-map.md`. PopescuRohrlich1994 and
+  Einstein1948 have no open copy and are stubs; the retired paragraph's RG and
+  two of its AQFT references are unfiled.
 - Nothing on the results. B9 is a placeholder and the earlier technical notes
   were retired; see `pipeline/`.
 - Nothing on the renormalisation-group and gapped-limit arguments beyond one

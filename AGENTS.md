@@ -32,6 +32,9 @@ In this order, every time:
 3. The status table in `syntheses/narratives/intro-narrative.md`: where the
    manuscript stands, beat by beat.
 4. The `status:` line of every file in `pipeline/`.
+5. For technical work, `syntheses/toolbox/README.md`: definitions and lemmas
+   with statement numbers, so the discussion can point at G12 or T7 instead of
+   rebuilding them.
 
 That is the project's current state. Read `paper/draft.tex` itself when the
 task touches the text.

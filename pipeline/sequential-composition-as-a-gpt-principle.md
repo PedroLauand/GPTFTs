@@ -40,10 +40,15 @@ knowing too.
   nothing about causally connected points.
 - **Circuit frameworks (OPTs, CDP2011).** Have sequential composition as a
   primitive of the circuit language, but the wires are not regions of spacetime
-  and no dynamical law is asked for. UNVERIFIED until filed.
+  and no dynamical law is asked for. Checked against the filed CDP2011: the
+  framework is circuits with outcomes [CDP §II]; its Causality axiom is no
+  signalling from the future [CDP Axiom 1; Coecke C3], not a spacetime law.
 - **Algebraic QFT (StreaterWightman, HaagSchroer1962, FewsterRejzner2019).**
-  Has both premises, but assumes quantum theory from the start. UNVERIFIED
-  until filed.
+  Has both premises, but assumes quantum theory from the start. Checked
+  against the filed FewsterRejzner2019: premise (i) is Einstein causality A3,
+  premise (ii) the time-slice axiom A5; the local algebras are *-algebras of
+  observables, quantum from the start. See
+  `syntheses/toolbox/spacetime-axioms.md`.
 - **The B8 prior-art group** (Oeckl2019, Gogioso2021, Coecke2014,
   HorodeckiRamanathan2019, WeilenmannColbeck2020). Each puts some of spacetime
   into an operational framework. TODO: for each, what it assumes, what it
@@ -57,6 +62,16 @@ no-signalling and this principle has such-and-such structure. TODO Pedro:
 whether the structure is "a TFT valued in GPT systems and processes", and
 whether the theorem selects quantum theory or characterises a class (standing
 assumption A3). UNVERIFIED either way; B7 to B9 are placeholders.
+
+## Candidate formalisation (agent proposal, 2026-09-04)
+
+A symmetric monoidal functor from a bordism category to a symmetric monoidal
+category of GPT systems and processes (toolbox T2, T7). Premise (i) is the
+monoidal structure, premise (ii) is functoriality under gluing (T2). T3 then
+forces every system in the image to be finite-dimensional and dual to its
+orientation reverse, which no GPT framework supplies by default (G5, and the
+last section of `syntheses/toolbox/gpt-framework.md`). Whether this is the
+paper's route is for Pedro; nothing in the draft says so.
 
 ## How would we know we'd solved it
 

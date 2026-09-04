@@ -38,7 +38,8 @@ distributed over spacetime, a dynamical law) cannot be expressed in convex GPT
 terms and forces a move to another formalism, such as operational
 probabilistic theories or process theories. See "GPT versus OPT" in
 `rigour.md`: the draft cites CDP2011 as a GPT landscape reference although
-that work's own framework is an OPT (UNVERIFIED until CDP2011 is filed).
+that work's own framework is an OPT (checked 2026-09-04 against the filed CDP2011, §II: "the
+framework of operational-probabilistic theories").
 
 ### A3. The reconstruction stance, with special relativity as the role model
 
@@ -58,7 +59,10 @@ open uncertainty; see `pipeline/`.
 
 No-signalling (PopescuRohrlich1994) is the weakest condition a reasonable
 theory must satisfy, in the sense of being compatible with special relativity
-(Gisin2020). Formally: operations on separate systems commute (Barrett2007).
+(Gisin2020). Formally: operations on separate systems commute (Barrett2007). Both
+checked against the filed sources on 2026-09-04: Gisin et al. state the
+weakest-condition sentence almost verbatim and cite PopescuRohrlich1994 for it;
+Barrett's Assumption 4 yields his Corollary 1, the no-signalling principle.
 It invokes one feature of spacetime only, the causal relation between a pair
 of points held at spacelike separation. [B3 opening, approved 2026-09-01; new
 B4 opening, drafted 2026-09-01]
@@ -73,6 +77,9 @@ Between points that *are* causally connected, influences propagate locally
 through spacetime, by a dynamical law (Einstein1948). This is the feature of
 spacetime physics that no-signalling does not use and that has not been
 imported into the GPT framework. The project's principles follow from it.
+Citation check 2026-09-04: Einstein's sentence states the independence of
+distant objects and remarks that only field theory implements it consistently;
+the dynamical reading is the draft's own (see the Einstein1948 stub).
 [New B4 opening, drafted 2026-09-01; retired B4 paragraph for the programme
 logic]
 
@@ -94,8 +101,10 @@ and may return in B7 or B8.]
 
 **We would drop this if:** the parallel/sequential split proved not to be the
 right decomposition of locality of action, or the mirroring of AQFT's axioms
-misled rather than guided. UNVERIFIED: that the cited AQFT axioms split the
-way the paragraph says. Check against the filed sources.
+misled rather than guided. Checked 2026-09-04 against the filed
+FewsterRejzner2019: premise (i) is Einstein causality (their A3), premise (ii)
+is the time-slice axiom (their A5); isotony and covariance have no counterpart
+in the paragraph. See `syntheses/toolbox/spacetime-axioms.md`.
 
 ### A7. Field theory is the generic long-distance description, and its gapped limit is topological
 
@@ -125,7 +134,8 @@ should not quietly pick a side.
   fixed by the draft. B7 names only the Atiyah–Segal skeleton.
 - **The no-restriction hypothesis.** Whether every mathematically allowed
   effect is physically available is not stated in the draft, and the GPT
-  literature is split on it. TODO Pedro: decide, and record here.
+  literature is split on it (Plávala §3.7; toolbox G7). TODO Pedro: decide, and
+  record here.
 - **Reconstruction versus classification.** See A3.
 - **Spelling.** The draft mixes "Generalized" and "no-signalling". APS journals
   use American spelling. TODO Pedro: pick one. `notation.md` records the

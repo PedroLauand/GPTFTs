@@ -3,6 +3,9 @@ status: draft
 last-reviewed: 2026-09-04
 sources:
   - paper/draft.tex
+  - sources/papers/190408 - algebraic quantum field theory an introduction/paper.md
+  - sources/papers/050828 - information processing in generalized probabilistic theories/paper.md
+  - sources/papers/480000 - quanten-mechanik und wirklichkeit/source.md
 machine-written: true
 ---
 
@@ -35,8 +38,13 @@ been imported into the GPT framework; it is the premise from which our
 principles follow."
 
 The paragraph is out of the introduction since 2026-09-01. The logic is still
-the project's; standing assumption A6 holds it. UNVERIFIED: that the cited AQFT
-axioms split along this line. Check when the sources are filed.
+the project's; standing assumption A6 holds it. Checked 2026-09-04 against the
+filed Fewster–Rejzner: the split is theirs. Premise (i) is Einstein causality
+(their A3, algebras of causally disjoint regions commute); premise (ii) is the
+time-slice axiom (their A5, "existence of dynamics": the algebra of a region
+equals that of a sub-region containing a Cauchy surface of it). Isotony and
+covariance have no counterpart in the paragraph. Details and the recurring
+lesson that commutation is not independence: `syntheses/toolbox/spacetime-axioms.md`.
 
 ## From locality of action to field theory to topology
 
@@ -49,14 +57,23 @@ Atiyah–Segal skeleton. Neither is written. See
 [topological-field-theory](topological-field-theory.md) and
 `pipeline/field-theory-genericity-for-gpts.md`.
 
-## Citation check pending
+## Citation check: Einstein1948
 
-Einstein1948 is the Dialectica paper "Quanten-Mechanik und Wirklichkeit", in
-German. Any quotation needs the original and a sourced translation. UNVERIFIED
-that it is the best citation for the principle as the draft states it.
+Partial support (2026-09-04; translation unverified). The sentence usually
+quoted from the Dialectica paper reads: "external influence on A has no direct
+influence on B; this is known as the Principle of Local Action, which is used
+consistently only in field theory." That is a statement of the independence of
+distant objects, the kinematic content, plus the remark that only field theory
+implements it consistently. The dynamical reading in B4 (propagation between
+causally connected points by a dynamical law) is what field theory adds, not
+what Einstein's sentence says. Either B4 cites Einstein for the field-theory
+remark and states the dynamical half in its own voice, or a different source
+carries it. Stub with provenance:
+`sources/papers/480000 - quanten-mechanik und wirklichkeit/source.md`.
 
 ## Related
 
 - [no-signalling](no-signalling.md)
 - `conventions/domain/standing-assumptions.md`, A5, A6, A7
 - `pipeline/sequential-composition-as-a-gpt-principle.md`
+- `syntheses/toolbox/spacetime-axioms.md`

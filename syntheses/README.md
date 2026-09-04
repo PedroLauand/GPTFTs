@@ -4,6 +4,8 @@ What we understand the sources and the draft to mean. Present tense, live.
 
 ```
 wiki/               one file per concept the paper turns on
+toolbox/            definitions, lemmas and conditions with statement numbers,
+                    from the filed sources (G, T labels)
 narratives/         the introduction beat by beat, and other long-form maps
 literature-map.md   every work in draft.bib: role, where cited, filed or not,
                     citation checks pending
@@ -25,5 +27,6 @@ unmarked guess.
 Front matter carries `status`, `last-reviewed`, `sources` and
 `machine-written`. See `conventions/meta/file-conventions.md`.
 
-Everything here was rebuilt from `paper/draft.tex` alone on 2026-09-04 and is
-machine-written. Nothing cites a filed source yet, because none is filed.
+Everything here was built on 2026-09-04 and is machine-written. The wiki
+entries, the literature map and the toolbox cite the sources filed that day;
+the intro narrative cites the draft alone.

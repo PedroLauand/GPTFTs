@@ -37,7 +37,7 @@ status: draft            # draft | reviewed | stable
 last-reviewed: 2026-09-04
 sources:
   - paper/draft.tex
-  - sources/papers/210312 - general probabilistic theories/paper.md
+  - sources/papers/210312 - general probabilistic theories an introduction/paper.md
 machine-written: true    # drop once a person has rewritten it
 ---
 ```

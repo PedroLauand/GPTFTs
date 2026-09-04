@@ -8,7 +8,7 @@ One convention everywhere, so that a file's name and place are predictable.
 
 ```
 sources/meetings/260904 - reorganisation session/
-sources/papers/210312 - general probabilistic theories/
+sources/papers/210312 - general probabilistic theories an introduction/
 ```
 
 The date is when the thing happened or first appeared, not when it was filed.
@@ -39,7 +39,7 @@ collide (`Barrett2005polytope`).
 A folder named for the event or paper, plain names inside.
 
 ```
-sources/papers/210312 - general probabilistic theories/
+sources/papers/210312 - general probabilistic theories an introduction/
 ├── source.md      identity and provenance
 ├── paper.md       machine-readable extraction
 └── paper.pdf      the file, if kept in the repository

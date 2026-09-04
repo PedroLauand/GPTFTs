@@ -8,3 +8,6 @@
 *.fdb_latexmk
 *.synctex.gz
 *Notes.bib
+
+# macOS
+.DS_Store

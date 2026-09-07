@@ -7,11 +7,12 @@ feeds: B8, B9, results section
 machine-written: true
 ---
 
-# Results narrative
+# Results narrative: dimension one
 
-A proposal for the results section, agreed at the level of logic in the chat of
-2026-09-07. Section 1 is written out; Sections 2–5 are stubs with the theorem
-to prove and the checks owed. Nothing here is in `draft.tex`. Source tags in
+The one-dimensional half of the results, agreed at the level of logic in the
+chat of 2026-09-07. Section 1 is written out; Sections 2–4 are stubs with the
+theorem to prove and the checks owed. Dimension two, which builds on this, is in
+`results-narrative-2d.md`. Nothing here is in `draft.tex`. Source tags in
 brackets point at the toolbox (`syntheses/toolbox/`), whose labels G, C, X, E,
 T, R are stable. No quantum theory is invoked until Section 4, on purpose.
 
@@ -41,7 +42,10 @@ is not a technicality. It is where the physics of a topological phase lives.
 (i) *Closed spacetimes.* Every closed one-manifold is a union of circles, and
 each circle is a bend glued to a bend. Z(E × S¹) = dim Z(E) is the size of the
 low-energy state space on a closed spatial manifold: the ground-state
-degeneracy by which topological order is recognised [T5, T8].
+degeneracy by which topological order is recognised [T5, T8]. In a
+probabilistic target "size" is the dimension of the state space, Hardy's K,
+which counts perfectly distinguishable states only when the system is
+classical; see the 2d file for what the extra dimensions are.
 
 (ii) *Cutting and gluing.* The value of a region is recovered from the region
 cut along a slice by contracting with the dual pairing of that slice, the sum
@@ -90,7 +94,8 @@ be unable to describe a single topological phase or a single pair-production
 event. Section 2 gives the criterion an operational form, every closed
 worldline carrying one of the theory's own operations must have nonnegative
 weight, and Section 3 shows that boxworld and the regular polygon theories
-fail it.
+fail it. Dimension two, where the slice is a ring and the theory acquires an
+algebra, is treated in `results-narrative-2d.md`.
 
 ---
 
@@ -140,15 +145,6 @@ tomographic locality: only n = 1 and n = 3 pass (character 2 + 2cos θ for
 n = 3). Owed: the rebit computation with the Sym₄ composite; the quaternionic
 bit against BGW's exclusion [C12]; the relation to Dmello–Gross's χ_φ ≥ 0
 [DG Thm 11].
-
-## 5. Two dimensions and unitarity (stub)
-
-Z(S¹) is self-conjugate, forcing weak self-duality under a symmetric form
-[R5]; the four positivity constraints [R4]; unitary 2d TFTs are weighted frames
-with copying [T15–T18]; worked quantum Schur example [R7]. Which GPT
-characteristic is crucial for 2d: frames plus a positive copying map plus a
-self-dualising pairing compatible with the cone (T18). Owed: redo the boxworld
-2d no-go and the pentagon from filed sources.
 
 ---
 

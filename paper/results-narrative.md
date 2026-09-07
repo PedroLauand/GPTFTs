@@ -7,7 +7,7 @@ feeds: B8, B9, results section
 machine-written: true
 ---
 
-# Results plan
+# Results narrative
 
 A proposal for the results section, agreed at the level of logic in the chat of
 2026-09-07. Section 1 is written out; Sections 2–5 are stubs with the theorem

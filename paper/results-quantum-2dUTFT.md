@@ -179,10 +179,7 @@ ambient space carries the unique (up to basis and weights) unitary theory and
 the GPT is a real form of it.
 
 TARGET (a), converse: is every 2d TFT valued in (Q, ⊗) with Z(S¹) = Q_N of the
-form D ∘ Z? Non-doubled candidates would be Frobenius algebras internal to
-CPM(FHilb) whose structure maps have Kraus rank above one. The CP* construction
-classifies the normalisable †-Frobenius algebras in FHilb as C*-algebras [CHK
-Thm 2.8, Def 2.6] and is the starting point.
+form D ∘ Z? Treated in §9: proved for N = 2, reduced for general N.
 
 TARGET (b), nondegeneracy forces the coherences: the decohered candidate
 μ′(A ⊗ B) = Σ_i A_ii B_ii E_ii, η′(1) = 𝟙, ε′ = tr, Δ′(ρ) = Σ_i ρ_ii E_ii ⊗ E_ii
@@ -220,3 +217,101 @@ Given X = (V, V^+, u), dim_R V = d.
 First cases after quantum theory: Cl_n (k = n, m = 0 is the obvious real form;
 are there admissible ones with m > 0?); then the dualizable candidates E10–E12
 and the Jordan algebras that pass the 1d test.
+
+---
+
+## 9. The converse: from CPM(FHilb) back to FHilb
+
+**Setting.** Z_Q : Bord_2 → CPM(FHilb) symmetric monoidal, Z_Q(S¹) = H,
+dim H = N. Its structure maps are CP: η_Q(1) = ρ ≥ 0; ε_Q = tr(E ·) with
+E ≥ 0; μ_Q = Σ_a K_a (·) K_a† with K_a : H⊗H → H; Δ_Q = Σ_b D_b (·) D_b† with
+D_b : H → H⊗H. Question: is Z_Q = D ∘ Z̃ for some Z̃ : Bord_2 → FHilb?
+
+**Purification is the wrong tool.** A Stinespring dilation writes each CP map
+as D(V) followed by discarding an environment, and discarding is not in the
+image of D (its Kraus rank is dim E). A lift exists iff the structure maps
+already have Kraus rank one. The Frobenius axioms force this, at least for
+N = 2; no environment is ever needed.
+
+Two facts used throughout. (F1) The identity channel has Kraus rank one: if
+Σ_i F_i X F_i† = X for all X then every F_i = f_i 𝟙 with Σ_i |f_i|² = 1.
+(F2) Frobenius nondegeneracy: β(X, ·) = 0 implies X = 0.
+
+**Lemma 9.1 (the unit is pure).** Write ρ = Σ_r p_r |r⟩⟨r|. The unit law
+μ_Q(ρ ⊗ X) = X and (F1) give K_a(|r⟩ ⊗ v) = α_{ar} v for every a and every r
+in the support. Hence μ_Q(|r⟩⟨r| ⊗ X) = λ_r X with λ_r = Σ_a |α_{ar}|², so
+β(|r⟩⟨r| − λ_r ρ, Y) = 0 for all Y and by (F2) |r⟩⟨r| = λ_r ρ. A rank-one
+operator proportional to ρ forces rank ρ = 1. ✓ Normalise ρ = |η⟩⟨η| with
+‖η‖ = 1; the rescaling (μ, η, Δ, ε) ↦ (μ/t, tη, tΔ, ε/t) preserves the axioms.
+
+**Lemma 9.2 (the counit is pure).** E = Σ_j q_j |e_j⟩⟨e_j|, P the projector
+onto supp E. The two counit laws with (F1) give (𝟙 ⊗ ⟨e_j|) D_b ∝ 𝟙 and
+(⟨e_j| ⊗ 𝟙) D_b ∝ 𝟙, hence (𝟙 ⊗ P) D_b v = v ⊗ w_b and (P ⊗ 𝟙) D_b v = w'_b ⊗ v
+with w_b, w'_b ∈ supp E, and therefore (Pv) ⊗ w_b = w'_b ⊗ (Pv) for all v. If
+dim supp E ≥ 2, a v ∈ supp E not parallel to w_b forces w_b = 0 for every b,
+contradicting the normalisation Σ_{b,j} |a_{bj}|² = 1 from (F1). So
+E = q |e⟩⟨e|. ✓
+
+**Lemma 9.3 (cup and cap are pure).** The Frobenius structure makes the
+object self-dual in CPM with cup γ = Δ_Q(ρ) ≥ 0 and cap B ≥ 0, β(W) = tr(BW),
+satisfying the snake (id ⊗ β)(γ ⊗ id) = id. With γ = Σ_i |g_i⟩⟨g_i| and
+B = Σ_j |b_j⟩⟨b_j| the snake is the identity channel whose Kraus operators are
+the partial contractions ⟨b_j|g_i⟩ : H → H, each a multiple of 𝟙 by (F1); two
+non-proportional g_i cannot both contract to multiples of 𝟙 against the same
+b_j, so γ and B are rank one. ✓ This is the CPM form of R1–R2: the cup is a
+scaled maximally entangled vector, the cap its Choi–Jamiołkowski inverse.
+
+**Lemma 9.4 (equal Kraus ranks).** Δ_Q = (id ⊗ μ_Q)(γ ⊗ id) and
+μ_Q = (id ⊗ β)(Δ_Q ⊗ id) with γ, B pure give a Kraus decomposition of each map
+from the other's, so rank_K μ_Q = rank_K Δ_Q. ✓
+
+**Proposition 9.5 (N = 2: Kraus rank one).** Choose the basis with η = |0⟩.
+By (F1) and a unitary change of Kraus operators, K_1(|0⟩ ⊗ v) = v and
+K_j(|0⟩ ⊗ v) = 0 for j ≥ 2. The right unit law then gives K_1(v ⊗ |0⟩) = v and
+K_j(v ⊗ |0⟩) = 0, so K_j = |x_j⟩⟨11| and Σ_{j≥2} K_j X K_j† = ⟨11|X|11⟩ R with
+R = Σ_j |x_j⟩⟨x_j| ≥ 0. Write K_1(|1⟩ ⊗ v) = B v with B|0⟩ = |1⟩, B|1⟩ = y:
+K_1 is the product of the algebra C[t]/(t² − y_1 t − y_0) on {|0⟩ = 1,
+|1⟩ = t}, commutative and associative by itself. CP-associativity says the
+Kraus families {K_a(K_b ⊗ 𝟙)} and {K_a(𝟙 ⊗ K_b)} are related by a unitary W;
+evaluated on |00⟩ ⊗ v this gives W_{ab,11} = δ_{a1} δ_{b1}, so K_1(K_1 ⊗ 𝟙) =
+K_1(𝟙 ⊗ K_1) and the families with (a, b) ≠ (1, 1) define the same CP map. On
+inputs |1⟩ ⊗ |1⟩ ⊗ w that equality forces (B − y_1) R = 0; since B ≠ y_1 𝟙,
+R = r |x⟩⟨x| with (B − y_1) x = 0, which gives y_0 = 0 and x ∝ |1⟩. The
+remaining Kraus operators then all have image C|1⟩, and their scalar trilinear
+forms, in the monomial basis {u_1v_1w_0, u_1v_1w_1, u_0v_1w_1, u_1v_0w_1},
+have Gram matrices that agree except in the (u_1v_1w_0, u_1v_0w_1) entry, 0 on
+one side and r on the other. Hence r = 0: μ_Q = K_1 (·) K_1† has Kraus rank
+one, and by 9.4 so does Δ_Q. ✓ (Computation to be re-checked by hand; it uses
+only unit, commutativity and associativity.)
+
+**Lemma 9.6 (rank one lifts, up to a phase theory).** If μ_Q = D(K),
+Δ_Q = D(D̃), η_Q = D(η), ε_Q = D(e†), the axioms hold in FHilb up to phases.
+Rephasing η fixes the left unit; commutativity K σ = e^{iγ} K forces
+e^{2iγ} = 1, and γ = π would give K(η ⊗ η) = 0 against K(η ⊗ η) = η; associativity
+and the Frobenius law evaluated on η have phase 1; rephasing D̃ fixes the
+counit. So (H, K, η, D̃, e†) is a Frobenius algebra in FHilb and Z_Q = D ∘ Z̃.
+The lift is unique up to tensoring with an invertible Euler theory
+M ↦ λ^{χ(M)}, |λ| = 1, which is the kernel of D on theories. If Z_Q is a
+dagger theory then Z̃(M̄) = e^{iφ(M)} Z̃(M)† with e^{iφ} an invertible theory,
+hence λ^{χ}; dividing Z̃ by λ^{χ/2} makes it unitary (χ(M̄) = χ(M)). ✓
+
+**Theorem 9.7 (N = 2).** Every 2d TFT valued in CPM(FHilb) with Z(S¹) = C² is
+the doubling of a 2d TFT valued in FHilb. The dagger ones are the doublings of
+unitary ones, that is of an orthogonal basis of C² with weights, and their real
+form on Herm_2 is R² ⊕ C (§6). Non-dagger ones exist and are also doubled: the
+doubling of a non-orthogonal idempotent basis (still R² ⊕ C as a real algebra,
+β not from an inner product), and the doubling of the nilpotent algebra
+C[t]/t², a local Frobenius algebra on End(C²) with Z_Q(Σ_g) = 0 for g ≥ 2:
+Sawin's degenerate theories survive in the GPT. The dagger condition is what
+selects the R^N ⊕ C^m of §5 with its classical-structure basis.
+
+**TARGET 9.8.** Proposition 9.5 for general N. Available reduction: after
+normalisation every K_j with j ≥ 2 vanishes on |η⟩ ⊗ H + H ⊗ |η⟩, so it lives
+on η^⊥ ⊗ η^⊥, one-dimensional only for N = 2. Plan: use the decomposition of
+(End(H), μ_Q) over C into local algebras together with the pure counit to show
+the idempotents are rank-one operators, or find a counterexample at N = 3.
+
+**Answer to the question posed.** One does not purify and then redefine; the
+Frobenius axioms already make the theory pure. For N = 2 this is a theorem;
+for general N the unit, counit, cup and cap are pure and the multiplication
+and comultiplication have equal Kraus rank, and rank one remains to be shown.

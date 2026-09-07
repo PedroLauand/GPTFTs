@@ -76,3 +76,54 @@ is Pedro's; agents do not rewrite it.
 
 **retired paragraph.** Text taken out of the introduction but kept commented in
 the draft for salvage.
+
+## Technical terms added 2026-09-07 (toolbox vocabulary; sources in `syntheses/toolbox/`)
+
+**frame.** A sequence of perfectly distinguishable pure states; maximal if not
+extendable. [BH Def 3.2, 3.3]
+
+**spectral.** Every state lies in the convex hull of some frame. [BH Def 3.4;
+BMU Postulate 1 "classical decomposability"]
+
+**strongly symmetric.** The automorphism group of Ω acts transitively on
+k-frames for every k. [BH Def 3.5; BMU Postulate 2]
+
+**weakly self-dual.** There is an order isomorphism V_A ≅ V_A^* carrying V_A^+
+onto (V_A^+)^*. [BBLW §2; the gbit and even polygons are, by a rotation]
+
+**self-dual (strongly self-dual).** The isomorphism is given by an inner
+product: V_A^+ = (V_A^+)^* under ⟨·,·⟩. [Müller–Ududec; JL Def 2; SSC Def 4.6]
+
+**homogeneous cone.** Aut(V^+) acts transitively on the interior. [SSC Def 4.2]
+
+**symmetric cone; Euclidean Jordan algebra (EJA).** Homogeneous and self-dual;
+by Koecher–Vinberg exactly the cones of squares of EJAs. [SSC Thm 4.8]
+
+**bit symmetry.** Every pair of perfectly distinguishable pure states can be
+mapped to any other by a reversible transformation. [Müller–Ududec]
+
+**higher-order interference.** Sorkin's hierarchy; quantum theory has none
+beyond second order. [BMU Postulate 3]
+
+**dualisable object; cups and caps.** An object with a dual and evaluation and
+coevaluation morphisms satisfying the snake identities; in a process theory,
+cups and caps for every system. [CR §3.1; SSC Def 2.36]
+
+**terminality.** Every process followed by discarding equals discarding; one
+deterministic effect per system, here u_A. [Coecke Def 3.1; CDP Axiom 1]
+
+**entangleable; nuclear.** A pair of cones whose minimal and maximal tensor
+products differ; nuclear if they coincide. [ALPP]
+
+**semisimple commutative Frobenius algebra.** A direct sum of one-dimensional
+Frobenius algebras: functions on a finite set with a weight per point. [Sawin
+Prop 2; Moore–Segal §3.1]
+
+**handle operator.** h = μ ∘ Δ on Z(S¹); its eigenvalues classify unitary 2d
+TFTs. [Durhuus–Jonsson; notes Thm 2d]
+
+**unitary TFT; reflection positivity.** Target Hilb with Z(M^*) = Z(M)^*
+[Sawin Def 2]; the Wick-rotated form of unitarity [Freed–Hopkins].
+
+**GPTFT.** The retired notes' name for a TFT valued in (GPT, ⊗). Working
+vocabulary, not in the draft.

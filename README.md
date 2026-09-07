@@ -35,12 +35,13 @@ an agent from reading its own earlier output back as evidence.
   2026-09-04 (git tag `archive/pre-reorg-260904`); results re-enter through
   `pipeline/`.
 - **Literature.** 42 works in `paper/draft.bib`; 9 cited in live text, 7 more
-  only in a retired paragraph, 26 not yet cited. 12 filed in `sources/papers/`
-  (10 with extractions, 2 stubs), plus one related paper outside the bib; all
+  only in a retired paragraph, 26 not yet cited. 14 filed in `sources/papers/`
+  (12 with extractions, 2 stubs), plus 23 toolbox sources outside the bib; all
   nine live citations checked. Map: `syntheses/literature-map.md`.
-- **Toolbox.** `syntheses/toolbox/`: the GPT framework, TFT, the AQFT axioms
-  and a catalogue of conditions, with statement numbers from the filed
-  sources.
+- **Toolbox.** `syntheses/toolbox/`: the GPT framework, categorical GPTs, the
+  axioms of the GPT literature, examples, TFT (1d, 2d, unitary), the AQFT
+  axioms, and the retired notes' results, with statement numbers and stable
+  labels; house notation in `conventions/domain/notation.md`.
 
 ## Working here
 

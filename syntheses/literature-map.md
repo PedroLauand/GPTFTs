@@ -1,6 +1,6 @@
 ---
 status: draft
-last-reviewed: 2026-09-04
+last-reviewed: 2026-09-07
 sources:
   - paper/draft.tex
   - paper/draft.bib
@@ -31,8 +31,9 @@ works go no further than title and venue.
 
 Counts on 2026-09-04: 42 works in the bib. 9 cited in live text (8 in approved
 beats, 1 in the drafted B4 opening); 7 cited only in the retired B4 paragraph;
-26 not cited. Filed: 12 of the 42 (10 with a machine-readable extraction, 2 as
-stubs because no open copy exists), plus 1 filed work that is not in the bib.
+26 not cited. Filed: 14 of the 42 (12 with a machine-readable extraction, 2 as
+stubs because no open copy exists), plus 23 filed works that are not in the
+bib, listed below (2026-09-07).
 
 ## B1: operational stance
 
@@ -51,7 +52,7 @@ stubs because no open copy exists), plus 1 filed work that is not in the bib.
 | Chiribella2010 | Chiribella, D'Ariano, Perinotti, "Probabilistic theories with purification", PRA 2010 | not cited | no |
 | Muller2021 | Müller, "Probabilistic theories and reconstructions of quantum theory", SciPost Lect. Notes 2021 | B1+B2 | yes, `201102 - probabilistic theories and reconstructions of quantum theory` |
 | Plavala2023 | Plávala, "General probabilistic theories: An introduction", Phys. Rep. 2023 | B1+B2 | yes, `210312 - general probabilistic theories an introduction` |
-| JanottaHinrichsen2014 | Janotta, Hinrichsen, "Generalized probability theories: what determines the structure of quantum theory?", J. Phys. A 2014 | not cited | no |
+| JanottaHinrichsen2014 | Janotta, Hinrichsen, "Generalized probability theories: what determines the structure of quantum theory?", J. Phys. A 2014 | not cited | yes, `140226 - generalized probability theories what determines the structure of quantum theory` |
 
 ## Reconstructions (no group comment in the bib; listed at its end)
 
@@ -106,7 +107,7 @@ old framing used; whether B8 still needs them is open.
 | Kitaev2003 | Kitaev, "Fault-tolerant quantum computation by anyons", Ann. Phys. 2003 | not cited | no |
 | LevinWen2005 | Levin, Wen, "String-net condensation", PRB 2005 | not cited | no |
 | Nayak2008 | Nayak et al., "Non-Abelian anyons and topological quantum computation", RMP 2008 | not cited | no |
-| Freed2014folklore | Freed, "Short-range entanglement and invertible field theories", arXiv 1406.7278 | not cited | no |
+| Freed2014folklore | Freed, "Short-range entanglement and invertible field theories", arXiv 1406.7278 | not cited | yes, `140627 - short-range entanglement and invertible field theories` |
 | CarquevilleRunkel2018 | Carqueville, Runkel, "Introductory lectures on topological quantum field theory", Banach Center Publ. 2018 | not cited | yes, `170516 - introductory lectures on topological quantum field theory` |
 | Kock2003 | Kock, *Frobenius Algebras and 2D Topological Quantum Field Theories*, CUP 2003 | not cited | no |
 
@@ -122,11 +123,37 @@ old framing used; whether B8 still needs them is open.
 
 ## Filed but not in the bib
 
+Works filed for the toolbox (2026-09-07 unless noted). A work enters the bib
+only when a sentence of the draft needs it.
+
 | work | why filed | folder |
 |---|---|---|
-| Popescu, Rohrlich, "Nonlocality as an axiom for quantum theory", quant-ph/9508009 (1995) | open-access restatement of PopescuRohrlich1994, which has no open copy; used to check B3 second-hand | `950809 - nonlocality as an axiom for quantum theory` |
+| Popescu, Rohrlich, "Nonlocality as an axiom for quantum theory", quant-ph/9508009 (1995) | open restatement of PopescuRohrlich1994 (filed 2026-09-04) | `950809 - nonlocality as an axiom for quantum theory` |
+| Barnum, Hilgert, "Strongly symmetric spectral convex bodies are Jordan algebra state spaces", 1904.03753 | spectrality, strong symmetry, frames; Thm 1.1 | `190407 - strongly symmetric spectral convex bodies are jordan algebra state spaces` |
+| Selby, Scandolo, Coecke, "Reconstructing quantum theory from diagrammatic postulates", 1802.00367 | process-theoretic GPTs; cups and caps; the five postulates | `180201 - reconstructing quantum theory from diagrammatic postulates` |
+| Barnum, Müller, Ududec, "Higher-order interference and single-system postulates", 1403.4147 | single-system postulates; Sorkin hierarchy | `140317 - higher-order interference and single-system postulates` |
+| Barnum, Graydon, Wilce, "Composites and categories of Euclidean Jordan algebras", 1606.09331 | categories of Jordan-algebraic systems with duals | `160630 - composites and categories of euclidean jordan algebras` |
+| Barnum, Graydon, Wilce, "Some nearly quantum theories", 1507.06278 | examples; dagger-compact categories of EJAs | `150722 - some nearly quantum theories` |
+| Janotta, Lal, "GPTs without the no-restriction hypothesis", 1302.2632 | no-restriction; strong self-duality; polygons; Spekkens toy | `130211 - gpts without the no-restriction hypothesis` |
+| Aubrun, Lami, Palazuelos, "Universal entangleability of non-classical theories", 1910.04745 | entangleability, physics companion | `191010 - universal entangleability of non-classical theories` |
+| Aubrun, Lami, Palazuelos, Plávala, "Entangleability of cones", 1911.09663 | Thm A: nuclear iff a cone is classical | `191121 - entangleability of cones` |
+| Coecke, Pavlović, Vicary, "A new description of orthogonal bases", 0810.0812 | orthonormal bases = commutative dagger-Frobenius monoids | `081005 - a new description of orthogonal bases` |
+| Turaev, Turner, "Unoriented TQFT and link homology", math/0506229 | extended Frobenius algebras | `050613 - unoriented tqft and link homology` |
+| Barnum, Barrett, Leifer, Wilce, "Teleportation in general probabilistic theories", 0805.3553 | conclusive and deterministic teleportation; weak self-duality | `080523 - teleportation in general probabilistic theories` |
+| Baez, Dolan, "Higher-dimensional algebra and TQFT", q-alg/9503002 | n-categorical view of TFT | `950305 - higher-dimensional algebra and tqft` |
+| Kapustin, Turzillo, "Equivariant TQFT and SPT phases", 1504.01830 | gapped phases in one spatial dimension | `150408 - equivariant tqft and symmetry protected topological phases` |
+| Durhuus, Jonsson, "Unitary topological field theories in two dimensions", hep-th/9308043 | classification of unitary 2d TFTs | `930809 - unitary topological field theories in two dimensions` |
+| Sawin, "Direct sum decompositions and indecomposable TQFTs", q-alg/9505026 | decomposition; semisimple versus nilpotent | `950523 - direct sum decompositions and indecomposable tqfts` |
+| Moore, Segal, "D-branes and K-theory in 2D topological field theory", hep-th/0609042 | semisimple Frobenius algebras; open/closed | `060905 - d-branes and k-theory in 2d topological field theory` |
+| Freed, Hopkins, "Reflection positivity and invertible topological phases", 1604.06527 | unitarity as reflection positivity | `160422 - reflection positivity and invertible topological phases` |
+| Müller, Ududec, "The structure of reversible computation determines the self-duality of quantum theory", 1110.3516 | bit symmetry implies self-duality | `111016 - reversible computation determines the self-duality of quantum theory` |
+| Gogioso, Scandolo, "Categorical probabilistic theories", 1701.08075 | categorical framework with classical subtheory and discarding | `170125 - categorical probabilistic theories` |
+| Gogioso, Scandolo, "Density hypercubes, higher order interference and hyper-decoherence", 1806.00915 | the DD(fHilb) candidate | `180604 - density hypercubes higher order interference and hyper-decoherence` |
+| Dmello, Ligthart, Gross, "Entanglement-swapping in GPTs, and iterated CHSH games", 2405.13819 | entanglement-swapping theories; oblate stabilizer theory | `240522 - entanglement swapping in gpts and iterated chsh games` |
+| Dmello, Gross, "Probabilistic theories stable under teleportation", 2603.21347 | teleportation stability; the T_H(a) families | `260322 - probabilistic theories stable under teleportation` |
 
-Not to be cited in place of the 1994 paper without Pedro deciding.
+The 1995 Popescu–Rohrlich paper is not to be cited in place of the 1994 one
+without Pedro deciding.
 
 ## Citation checks
 
@@ -162,8 +189,8 @@ Nothing here should be cited until the sentence it supports exists.
 
 ## Not in the bibliography
 
-The retired notes relied on works that are not in `draft.bib`. They are not
-listed here and are not to be added silently; a work enters the bib through
-distillation when a sentence needs it. Barnum–Hilgert 2019 (spectrality and
-strong symmetry) is mentioned in `syntheses/toolbox/conditions-catalogue.md`
-through Müller's account only.
+The retired notes relied on works that were not in `draft.bib`; on 2026-09-07
+they were filed (table above) and the toolbox cites them directly. None has
+entered the bib: a work enters the bib through distillation when a sentence
+needs it. REORG-PLAN's proposed bibliography additions are recorded as project
+result R16.

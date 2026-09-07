@@ -37,10 +37,11 @@ what that requires of a probabilistic theory.
 
 ## Toolbox
 
-Technical definitions, lemmas and conditions with statement numbers live in
-[../toolbox/](../toolbox/README.md): the GPT framework (G1–G21), TFT
-(T1–T10), the AQFT axioms against the two premises, and a catalogue of
-conditions across the filed reconstructions.
+Technical definitions, lemmas, axioms and examples with statement numbers live
+in [../toolbox/](../toolbox/README.md): the GPT framework (G), categorical GPTs
+(C), the axioms of the GPT literature (X), examples (E), TFT (T1–T26), the AQFT
+axioms against the two premises, and the retired notes' own results (R,
+unverified).
 
 ## What is missing
 

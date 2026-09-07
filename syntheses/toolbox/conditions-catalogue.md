@@ -75,6 +75,10 @@ unfiled) and an ill-defined classical limit (Navascués–Wunderlich). Almost
 quantum (Navascues2015 in the bib, unfiled). None is a spacetime principle
 beyond no-signalling.
 
+Structural axioms (self-duality, spectrality, strong symmetry, cups and caps,
+teleportation) are catalogued separately in `gpt-axioms.md` (X1–X22), with the
+examples table in `gpt-examples.md`.
+
 ## E. For discussion: what a locality-of-action principle would have to be
 
 Checklist derived from the above. Machine-written; a proposal for the

@@ -125,11 +125,12 @@ commitment, not something the draft establishes.
 Positions the project is neutral on by choice, or that were retired. An agent
 should not quietly pick a side.
 
-- **The technical conventions of the retired notes.** Ambient space versus
-  normalised state space, which cone is canonical, oriented versus unoriented
-  bordisms, and whose terminology to follow were all fixed in the notes removed
-  on 2026-09-04. None of it is in the draft. Re-enter any of them here,
-  deliberately, with a "drop if" line, before using them.
+- **The other technical conventions of the retired notes.** Oriented versus
+  unoriented bordisms as the default, whose terminology to follow
+  (Barnum–Hilgert, Selby–Scandolo–Coecke) and the composition rule were fixed
+  in the notes removed on 2026-09-04. None is in the draft. The notation and
+  presentation were re-entered on 2026-09-07 as the provisional convention P1
+  below; the rest still needs a deliberate entry with a drop-if line.
 - **The bordism category.** Dimension, orientation and extra structure are not
   fixed by the draft. B7 names only the Atiyah–Segal skeleton.
 - **The no-restriction hypothesis.** Whether every mathematically allowed
@@ -140,3 +141,34 @@ should not quietly pick a side.
 - **Spelling.** The draft mixes "Generalized" and "no-signalling". APS journals
   use American spelling. TODO Pedro: pick one. `notation.md` records the
   current usage.
+
+## Provisional conventions (adopted for the toolbox, 2026-09-07)
+
+Not results, not in the draft: working conventions so that discussions and the
+toolbox use one language. Each has a drop-if line like an assumption.
+
+### P1. House notation and presentation
+
+Systems are triples A = (V_A, V_A^+, u_A): the cone of unnormalised states is
+primitive, normalisation is a functional, effects are the interval [0, u_A] in
+the dual cone. Full table in `notation.md`. This is the presentation of
+Barnum–Hilgert (Def 2.1), Aubrun–Lami–Palazuelos–Plávala (Def S8) and the
+retired notes. Adopted because Pedro asked for a house notation (session
+2026-09-07) and this one is his own.
+
+**We would drop this if:** Pedro fixes a different convention for the paper,
+or the categorical framing needs states and effects as co-equal primitives. The
+retired main.tex argues the two presentations coincide in finite dimension once
+effects separate states (project result R12, unverified).
+
+### P2. Categorical basics
+
+Systems are objects, physical transformations (positive linear maps, channels
+being the normalisation-preserving ones) are morphisms, composites give the
+symmetric monoidal structure. Pedro (2026-09-07): "we will have our own framing
+... very similar to Selby's framework" (Selby–Scandolo–Coecke). Details
+deferred to the project.
+
+**We would drop this if:** the framing needs a process theory with more
+structure than a symmetric monoidal category of cones from the start, for
+example a dagger or cups and caps as primitives.

@@ -32,7 +32,7 @@ works go no further than title and venue.
 Counts on 2026-09-04: 42 works in the bib. 9 cited in live text (8 in approved
 beats, 1 in the drafted B4 opening); 7 cited only in the retired B4 paragraph;
 26 not cited. Filed: 14 of the 42 (12 with a machine-readable extraction, 2 as
-stubs because no open copy exists), plus 23 filed works that are not in the
+stubs because no open copy exists), plus 25 filed works that are not in the
 bib, listed below (2026-09-07).
 
 ## B1: operational stance
@@ -151,6 +151,8 @@ only when a sentence of the draft needs it.
 | Gogioso, Scandolo, "Density hypercubes, higher order interference and hyper-decoherence", 1806.00915 | the DD(fHilb) candidate | `180604 - density hypercubes higher order interference and hyper-decoherence` |
 | Dmello, Ligthart, Gross, "Entanglement-swapping in GPTs, and iterated CHSH games", 2405.13819 | entanglement-swapping theories; oblate stabilizer theory | `240522 - entanglement swapping in gpts and iterated chsh games` |
 | Dmello, Gross, "Probabilistic theories stable under teleportation", 2603.21347 | teleportation stability; the T_H(a) families | `260322 - probabilistic theories stable under teleportation` |
+| Selinger, "Dagger compact closed categories and completely positive maps", ENTCS 170 (2007); filed as the QPL 2005 preliminary version | the CPM construction and doubling functor; categorical Choi | `050000 - dagger compact closed categories and completely positive maps` |
+| Coecke, Heunen, Kissinger, "Categories of quantum and classical channels", 1305.3821 | the CP* construction; †-Frobenius algebras in FHilb are C*-algebras | `130516 - categories of quantum and classical channels` |
 
 The 1995 Popescu–Rohrlich paper is not to be cited in place of the 1994 one
 without Pedro deciding.

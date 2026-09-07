@@ -3,7 +3,7 @@ status: outline
 created: 2026-09-07
 entered-by: agent, from the chat of 2026-09-07 with Pedro
 last-reviewed: 2026-09-07
-feeds: results section, dimension two
+feeds: results section, dimension two; results-quantum-2dUTFT.md
 machine-written: true
 ---
 
@@ -54,99 +54,61 @@ theorems to prove; R-labelled items are the retired notes' results, unverified.
   hallmarks (degeneracy on closed manifolds, pair production) and to be stated
   more cautiously. DECISION: how much condensed-matter framing to carry.
 
-## 2. What it demands of a probabilistic theory
+## 2. Generic facts from the unitary 2d TFT literature (the basis of the calculations)
 
-(i) **Inherited from dimension one.** X dualizable; every allowed process on X
-has nonnegative trace [1d file, Theorems A, B].
+- A unitary 2d TFT in FHilb is a commutative †-Frobenius algebra on Z(S¹),
+  equivalently an orthogonal basis with weights; it is semisimple, a direct sum
+  of one-point theories, and Z(Σ_g) = Σ_i θ_i^{1−g} [Sawin Prop 1, Thm 2, Cor 1;
+  DJ §3; CPV Thm 5.1; T12–T17].
+- A semisimple commutative algebra over a field is a product of field
+  extensions; over R the only ones are R and C, so a semisimple commutative
+  real Frobenius algebra is R^k ⊕ C^m (Wedderburn). Nilpotent summands are
+  allowed by surface topology and are what unitarity excludes [Sawin Prop 2].
+- Real forms. The d-point classical structure on C^d with an antilinear
+  involution permuting the basis restricts to R^k ⊕ C^m on the fixed real
+  subspace, k the fixed basis vectors, m the swapped pairs, k + 2m = d.
+- **The plan (Pedro, 2026-09-07).** Every GPT has an ambient real vector space
+  V. Its complexification carries the unique (up to basis and weights) unitary
+  2d TFT; the GPT is a real form of it; what remains to show is that, restricted
+  to the cone of states, the structure maps preserve the cone. The R^k ⊕ C^m
+  decomposition is the central result. This makes the calculation close to the
+  Vec case with structure added, and it is done for quantum theory in
+  `results-quantum-2dUTFT.md`.
 
-(ii) **Self-conjugacy forces weak self-duality.** Z(S̄¹) = X^∨ ≅ X by an
-allowed map, and β = ε ∘ μ is a symmetric order isomorphism V → V^* with
-β(V^+) = (V^+)^* [R5]. Weak self-duality under a *symmetric* form is the gate.
-Boxworld and the polygons pass this gate (they are weakly self-dual); what
-excludes them is (i).
+## 3. The calculation programme
 
-(iii) **Positivity of the four generators for one swap-invariant composite
-cone V^+_{XX}** [R4]: η(1) ∈ V^+ (a ring can be born in a state); ε ∈ (V^+)^*
-(a ring can be absorbed); μ(V^+_{XX}) ⊆ V^+ (merging is a process); Δ(V^+) ⊆
-V^+_{XX} (splitting is a process). Consequences for any composite: V^+ is
-closed under μ, an ordered algebra; Δ(x) is positive on all product effects.
-The pants wants the composite small, the copants wants it large: the 1d pinch
-returns on maps [R9].
+1. Quantum theory (done as a calculation): D ∘ Z for the doubling functor,
+   Herm_N ≅ R^N ⊕ C^{N(N−1)/2}, positivity automatic. `results-quantum-2dUTFT.md`.
+2. Converse for quantum theory: are all 2d TFTs valued in (Q, ⊗) doubled? CP*
+   construction as the starting point [CHK].
+3. Classical Cl_n; then the dualizable non-quantum candidates (E10–E12); then
+   the Jordan algebras passing the 1d test. In each case: basis, involution,
+   (k, m), composite cone, positivity.
+4. Unitarity for GPT-valued theories: Durhuus–Jonsson over the complexification
+   ("induced from a unitary FHilb theory") versus a real condition. DECISION.
 
-(iv) **Two counits.** The Frobenius counit ε is not the unit effect u. The
-physical marginal of splitting, (id ⊗ u) ∘ Δ, is a positive map fixing the
-frame pointwise: in the quantum example it is decoherence onto the frame [R7,
-R9]. A subset of states can be broadcast iff a measure-and-prepare channel
-fixes it [P Thm 7.10; G18]. So 2d structure forces a **broadcastable frame**:
-the vacua are perfectly distinguishable states that the copants copies, and
-no-broadcasting says they cannot be all of Ω unless X is classical [T18].
+## 4. Interpretation
 
-(v) **The shape of the algebra.** A semisimple commutative real algebra is
-R^k ⊕ C^m (Wedderburn over R). Reading: k vacua (a frame) and m coherence
-factors; dim V = k + 2m; a C-summand makes β indefinite for every choice of
-counit. Quantum with the Schur product: R^N ⊕ C^{N(N−1)/2}, signature
-(N(N+1)/2, N(N−1)/2) [R7; C1 in R11]. Surface topology allows nilpotent
-summands too [Sawin Prop 2]. TARGET: does cone positivity exclude them?
-
-(vi) **What "unitary" means for a probabilistic target.** DECISION. Durhuus–
-Jonsson unitarity (β positive-definite, Z(M*) = Z(M)*) forces m = 0: the ring's
-state space is classical, vacua only. The probabilistic target carries its
-positivity in the cones, not in an inner product; β need only be positive on
-V^+ × V^+, and coherences survive. The retired notes' headline: sharpness, a
-positive-definite self-dualising β, is the one postulate 2d topology does not
-supply [R10; BH's inner product, X7; SSC Post 4 sharp dagger, C9].
-
-## 3. Which characteristic of a GPT is crucial in dimension two
-
-- TARGET, Theorem D (structure): if X carries a 2d GPTFT then V splits as
-  frame span ⊕ coherence planes, the frame states are positive primitive
-  idempotents, and each coherence plane carries a complex structure compatible
-  with β; k + 2m = dim V. Conjecture C1 of the retired notes [R11].
-- TARGET, Theorem E (selection): the pants and copants pinch the composite
-  cone from both sides; for quantum theory the density-operator cone is the
-  unique admissible choice ("the quantum tensor product is selected by the 2d
-  structure") [R7]. Make precise; generalise or refute.
-- TARGET, Theorem F (unitary case): a DJ-unitary 2d GPTFT has Z(S¹) classical.
-  One line from (v) once β definite is imposed.
-- Examples, from the toolbox table [E1–E13]: classical Cl_n passes with
-  k = n, m = 0; quantum passes with the Schur structure [R7]; boxworld and the
-  pentagon fail already at (i), and the k + 2m = 3 count (a 3-frame is
-  impossible in a two-dimensional state space, leaving one vacuum plus one
-  coherence plane) is where the 2d mechanism would have failed them [R6, R8];
-  the open cases are the dualizable non-quantum candidates, oblate stabilizer
-  theory, the Dmello–Gross families, density hypercubes, and the Jordan
-  algebras that pass (i). TARGET: test one of them for a Frobenius structure.
-  That test is the content of "which flavour of GPT is crucial".
-- Candidate surprise, to be handled with care: surface topology forces a
-  classical subsystem (the vacua) and permits, as the only non-classical
-  residue, coherence planes that are complex because R and C are the only
-  commutative real division algebras. A topological origin for "classical
-  labels plus complex phases". Requires semisimplicity (TARGET above) and the
-  positivity analysis. Conjecture only.
-
-## 4. The statement (to write after 1–3 are agreed)
-
-Shape, by analogy with the 1d section: a ring has no preferred direction, so
-its state space is self-conjugate; surfaces glue only in the four ways above,
-so the state space carries a commutative Frobenius algebra with positive
-structure maps; the copants is a broadcasting of the ring's vacua and the
-pants their comparison, so a probabilistic theory hosts a 2d topological
-theory only if it contains a broadcastable frame whose complement is organised
-as coherences compatible with the cone. Then: which theories do, and what
-unitarity removes.
-
+Deferred. Pedro will supply the physical reading once the calculations stand.
 ---
+
+## Set aside on 2026-09-07 (kept for the record, not to be used)
+
+The earlier Section 2 argued from self-conjugacy of the ring to weak
+self-duality under a symmetric form [R5], from the two counits to a forced
+broadcastable frame, and from the pants and copants to a pinch on the composite
+cone [R4, R9]. Pedro: "not quite correct"; to be re-examined only after the
+calculations. The examples-table items depending on them (the k + 2m = 3
+autopsy for the gbit and pentagon) are likewise on hold.
 
 ## Checks owed
 
-1. Verify R7 in full: positivity of μ and Δ on the density-operator composite,
-   the signature of β, Z(Σ_g) = N².
-2. Semisimplicity: does positivity of the four generators exclude nilpotent
-   summands?
-3. The k + 2m = 3 analysis for the gbit and the pentagon, to exhibit the 2d
-   mechanism even though (i) already excludes them.
-4. One dualizable non-quantum candidate (E10–E12) tested for a Frobenius
-   structure.
-5. DECISION on the notion of unitarity for a probabilistic target.
+1. R7 verified for θ = 1 and generalised to weights in
+   `results-quantum-2dUTFT.md` §3–§6 ✓.
+2. Converse for quantum theory (programme item 2).
+3. Classical Cl_n through the template (programme item 3).
+4. One dualizable non-quantum candidate (E10–E12) through the template.
+5. DECISION on unitarity (programme item 4).
 6. Sources: Kock's book and Abrams are not open; Dijkgraaf's thesis is not
-   filed. The filed classification is CR Thm 3.5 with Sawin Thm 2.
+   filed. The filed classification is CR Thm 3.5 with Sawin Thm 2; the CPM
+   construction is Selinger (filed 2026-09-07), the CP* construction is CHK.

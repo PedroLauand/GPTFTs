@@ -77,8 +77,11 @@ theorems to prove; R-labelled items are the retired notes' results, unverified.
 
 ## 3. The calculation programme
 
-1. Quantum theory (done as a calculation): D ∘ Z for the doubling functor,
-   Herm_N ≅ R^N ⊕ C^{N(N−1)/2}, positivity automatic. `results-quantum-2dUTFT.md`.
+1. Quantum theory: **Result 1**, written out in `results-quantum-2dUTFT.md`.
+   The 2d TFTs valued in the GPT of quantum theory on a qudit are exactly the
+   2d TFTs valued in FHilb: doubling is surjective, unitary corresponds to
+   dagger bijectively, and in general the only ambiguity is a unit-modulus
+   Euler theory. Real form Herm_N ≅ R^N ⊕ C^{N(N−1)/2}.
 2. Converse for quantum theory: done. Every 2d TFT valued in CPM(FHilb) on a
    qudit is the doubling of one in FHilb, dagger ones of unitary ones
    (`results-quantum-2dUTFT.md` §9, Theorem 9.7). Purity is forced by the

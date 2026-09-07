@@ -18,7 +18,10 @@ first appeared. See `conventions/meta/naming.md`.
 Filed on 2026-09-04: the nine works cited in live text (two as stubs, because
 PopescuRohrlich1994 and Einstein1948 have no open copy), three works filed for
 the technical toolbox (Carqueville–Runkel, Fewster–Rejzner, Coecke) and one
-related paper not in the bib (Popescu–Rohrlich 1995). PDFs are not kept; arXiv
+related paper not in the bib (Popescu–Rohrlich 1995). Filed on 2026-09-07:
+twenty-four more for the toolbox (GPT axioms and categorical GPTs, unitary and
+1d TFT, the candidate theories), two of them in the bib (Freed,
+Janotta–Hinrichsen); see `syntheses/literature-map.md`. PDFs are not kept; arXiv
 is the source of record and `paper.md` is the extraction. The other 30 bib
 entries are citations, not sources, until filed. `syntheses/literature-map.md`
 tracks which are which.

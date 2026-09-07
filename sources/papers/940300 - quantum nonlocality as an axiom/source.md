@@ -37,6 +37,14 @@ Cited in B3 for no-signalling as "the most famous physical principle in GPTs".
   special relativity follows from two axioms; relativistic causality forbids
   superluminal messages; correlations respecting it can violate CHSH up to 4.
 
+## Abstract (from the Bristol research portal, 2026-09-07)
+
+"In the conventional approach to quantum mechanics, indeterminism is an axiom
+and nonlocality is a theorem. We consider inverting the logical order, making
+nonlocality an axiom and indeterminism a theorem. Nonlocal ''superquantum''
+correlations, preserving relativistic causality, can violate the CHSH
+inequality more strongly than any quantum correlations."
+
 ## To do
 
 Obtain the 1994 text through library access and check the B3 attribution

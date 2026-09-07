@@ -440,6 +440,19 @@ and D squares: Z_Q(M) = |Z(M)|² on closed M. The lost information is exactly a
 unit-modulus Euler theory, Theorem A(iii). For dagger theories nothing is lost,
 Theorem A(iv).
 
+**8.5 The Euler phases are the Kraus phases, made consistent with gluing.**
+A rank-one CP map has Kraus freedom K ↦ e^{iθ}K only, so each generator lifts
+with one phase: (α, β, γ, δ) for (μ, η, Δ, ε). The unit law forces β = −α and
+the counit law δ = −γ. Of the two remaining phases, α − γ is realised by the
+isomorphism c·id_H with c a phase, which is an equivalence of FHilb theories
+and the identity in CPM (D(c·id) = id); α + γ is not an isomorphism: it
+multiplies Z(Σ_g) by λ^{2−2g} with λ² = e^{−i(α+γ)} and is the Euler theory
+E_λ. A phase per bordism compatible with composition and disjoint union must be
+proportional to the Euler characteristic, so this is all that can survive:
+the topological θ-term e^{iθχ(M)}, an Euler counterterm with imaginary
+coefficient, a global-phase-type redundancy of amplitudes that the passage to
+probabilities squares away and that unitarity forbids (2.4(b)).
+
 **8.4 The template this instantiates.** For a general GPT system
 X = (V, V^+, u), dim_R V = d: the complexification V_C carries, for any basis
 and weights, the d-point classical structure; the GPT is a real form under an

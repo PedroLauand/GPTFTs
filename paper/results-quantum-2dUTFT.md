@@ -178,10 +178,11 @@ automatic because the structure maps are completely positive; the complexified
 ambient space carries the unique (up to basis and weights) unitary theory and
 the GPT is a real form of it.
 
-TARGET (a), converse: is every 2d TFT valued in (Q, ⊗) with Z(S¹) = Q_N of the
-form D ∘ Z? Treated in §9: proved for N = 2, reduced for general N.
+Converse, formerly TARGET (a): every 2d TFT valued in (Q, ⊗) with Z(S¹) = Q_N
+is of the form D ∘ Z̃, and dagger ones come from unitary Z̃. Proved in §9 for
+every N (Theorem 9.7).
 
-TARGET (b), nondegeneracy forces the coherences: the decohered candidate
+TARGET (a), nondegeneracy forces the coherences: the decohered candidate
 μ′(A ⊗ B) = Σ_i A_ii B_ii E_ii, η′(1) = 𝟙, ε′ = tr, Δ′(ρ) = Σ_i ρ_ii E_ii ⊗ E_ii
 satisfies the Frobenius relation but β′(X, Y) = Σ_i X_ii Y_ii is degenerate on
 Herm_N (it kills the off-diagonal directions). It is therefore a 2d TFT with
@@ -189,7 +190,7 @@ Z(S¹) = Cl_N, not Q_N. Any 2d TFT with Z(S¹) = Q_N must give the off-diagonal
 directions a nondegenerate pairing: that is what the C-summands do. To prove
 in general.
 
-TARGET (c): which notion of unitarity the paper adopts for GPT-valued theories.
+TARGET (b): which notion of unitarity the paper adopts for GPT-valued theories.
 Here the natural one is "induced from a unitary FHilb theory", equivalently
 Durhuus–Jonsson unitarity of the complexification. Pedro to decide, with the
 interpretation.
@@ -265,24 +266,33 @@ scaled maximally entangled vector, the cap its Choi–Jamiołkowski inverse.
 μ_Q = (id ⊗ β)(Δ_Q ⊗ id) with γ, B pure give a Kraus decomposition of each map
 from the other's, so rank_K μ_Q = rank_K Δ_Q. ✓
 
-**Proposition 9.5 (N = 2: Kraus rank one).** Choose the basis with η = |0⟩.
-By (F1) and a unitary change of Kraus operators, K_1(|0⟩ ⊗ v) = v and
-K_j(|0⟩ ⊗ v) = 0 for j ≥ 2. The right unit law then gives K_1(v ⊗ |0⟩) = v and
-K_j(v ⊗ |0⟩) = 0, so K_j = |x_j⟩⟨11| and Σ_{j≥2} K_j X K_j† = ⟨11|X|11⟩ R with
-R = Σ_j |x_j⟩⟨x_j| ≥ 0. Write K_1(|1⟩ ⊗ v) = B v with B|0⟩ = |1⟩, B|1⟩ = y:
-K_1 is the product of the algebra C[t]/(t² − y_1 t − y_0) on {|0⟩ = 1,
-|1⟩ = t}, commutative and associative by itself. CP-associativity says the
-Kraus families {K_a(K_b ⊗ 𝟙)} and {K_a(𝟙 ⊗ K_b)} are related by a unitary W;
-evaluated on |00⟩ ⊗ v this gives W_{ab,11} = δ_{a1} δ_{b1}, so K_1(K_1 ⊗ 𝟙) =
-K_1(𝟙 ⊗ K_1) and the families with (a, b) ≠ (1, 1) define the same CP map. On
-inputs |1⟩ ⊗ |1⟩ ⊗ w that equality forces (B − y_1) R = 0; since B ≠ y_1 𝟙,
-R = r |x⟩⟨x| with (B − y_1) x = 0, which gives y_0 = 0 and x ∝ |1⟩. The
-remaining Kraus operators then all have image C|1⟩, and their scalar trilinear
-forms, in the monomial basis {u_1v_1w_0, u_1v_1w_1, u_0v_1w_1, u_1v_0w_1},
-have Gram matrices that agree except in the (u_1v_1w_0, u_1v_0w_1) entry, 0 on
-one side and r on the other. Hence r = 0: μ_Q = K_1 (·) K_1† has Kraus rank
-one, and by 9.4 so does Δ_Q. ✓ (Computation to be re-checked by hand; it uses
-only unit, commutativity and associativity.)
+**Theorem 9.5 (Kraus rank one, every N).** Normalise as after 9.1:
+ρ = |η⟩⟨η|, ‖η‖ = 1. The left unit law with (F1) gives K_a(|η⟩ ⊗ 𝟙) = c_a 𝟙
+with Σ_a |c_a|² = 1; a unitary change of Kraus operators (which leaves μ_Q
+unchanged) makes c = (1, 0, …, 0), so
+
+    K_1(η ⊗ v) = v,   K_j(η ⊗ v) = 0  (j ≥ 2).
+
+The right unit law, which holds because μ_Q ∘ σ = μ_Q, gives K_a(𝟙 ⊗ |η⟩) =
+c'_a 𝟙, and evaluating both at η ⊗ η gives c' = c. Now associativity of the CP
+map: for all ξ, ξ' ∈ H^{⊗3},
+
+    Σ_{a,b} |K_a(K_b ⊗ 𝟙) ξ⟩⟨K_a(K_b ⊗ 𝟙) ξ'|  =  Σ_{a,b} |K_a(𝟙 ⊗ K_b) ξ⟩⟨K_a(𝟙 ⊗ K_b) ξ'|.
+
+Take ξ = u ⊗ η ⊗ w and ξ' = u' ⊗ v' ⊗ η. The unit relations give
+
+    K_a(K_b ⊗ 𝟙) ξ  = δ_{b1} K_a(u ⊗ w),      K_a(K_b ⊗ 𝟙) ξ' = δ_{a1} K_b(u' ⊗ v'),
+    K_a(𝟙 ⊗ K_b) ξ  = δ_{b1} K_a(u ⊗ w),      K_a(𝟙 ⊗ K_b) ξ' = δ_{b1} K_a(u' ⊗ v').
+
+On the left only (a, b) = (1, 1) survives, giving |K_1(u ⊗ w)⟩⟨K_1(u' ⊗ v')|;
+on the right b = 1 survives for every a, giving Σ_a |K_a(u ⊗ w)⟩⟨K_a(u' ⊗ v')|.
+Hence Σ_{a≥2} |K_a(u ⊗ w)⟩⟨K_a(u' ⊗ v')| = 0 for all u, w, u', v', and with
+u' = u, v' = w every K_a(u ⊗ w) with a ≥ 2 vanishes. So μ_Q = K_1 (·) K_1†. ✓
+The proof uses only the unit law, commutativity, associativity and (F1). The
+coordinate computation for N = 2 in the previous version of this section is
+this argument written out; its Gram-matrix mismatch is the cross term between
+ξ and ξ' above. By 9.3 and Δ_Q = (id ⊗ μ_Q)(γ ⊗ id), Δ_Q has Kraus rank one as
+well.
 
 **Lemma 9.6 (rank one lifts, up to a phase theory).** If μ_Q = D(K),
 Δ_Q = D(D̃), η_Q = D(η), ε_Q = D(e†), the axioms hold in FHilb up to phases.
@@ -295,23 +305,22 @@ M ↦ λ^{χ(M)}, |λ| = 1, which is the kernel of D on theories. If Z_Q is a
 dagger theory then Z̃(M̄) = e^{iφ(M)} Z̃(M)† with e^{iφ} an invertible theory,
 hence λ^{χ}; dividing Z̃ by λ^{χ/2} makes it unitary (χ(M̄) = χ(M)). ✓
 
-**Theorem 9.7 (N = 2).** Every 2d TFT valued in CPM(FHilb) with Z(S¹) = C² is
-the doubling of a 2d TFT valued in FHilb. The dagger ones are the doublings of
-unitary ones, that is of an orthogonal basis of C² with weights, and their real
-form on Herm_2 is R² ⊕ C (§6). Non-dagger ones exist and are also doubled: the
-doubling of a non-orthogonal idempotent basis (still R² ⊕ C as a real algebra,
-β not from an inner product), and the doubling of the nilpotent algebra
-C[t]/t², a local Frobenius algebra on End(C²) with Z_Q(Σ_g) = 0 for g ≥ 2:
-Sawin's degenerate theories survive in the GPT. The dagger condition is what
-selects the R^N ⊕ C^m of §5 with its classical-structure basis.
-
-**TARGET 9.8.** Proposition 9.5 for general N. Available reduction: after
-normalisation every K_j with j ≥ 2 vanishes on |η⟩ ⊗ H + H ⊗ |η⟩, so it lives
-on η^⊥ ⊗ η^⊥, one-dimensional only for N = 2. Plan: use the decomposition of
-(End(H), μ_Q) over C into local algebras together with the pure counit to show
-the idempotents are rank-one operators, or find a counterexample at N = 3.
+**Theorem 9.7 (every N).** Every 2d TFT valued in CPM(FHilb) with Z(S¹) = H is
+the doubling D ∘ Z̃ of a 2d TFT valued in FHilb with Z̃(S¹) = H, and Z̃ is
+unique up to an invertible Euler phase theory. Z_Q is a dagger theory iff Z̃
+can be chosen unitary, that is an orthogonal basis of H with weights, in which
+case the real form on Herm_N is R^N ⊕ C^{N(N−1)/2} of §5. Non-dagger theories
+exist and are also doublings: of a non-orthogonal idempotent basis (semisimple,
+same (k, m), β not from an inner product) and of nilpotent Frobenius algebras
+such as C[t]/t² on C², local on End(C²) with Z_Q(Σ_g) = 0 for g ≥ 2: Sawin's
+degenerate theories survive in the GPT. So 2d TFTs valued in the GPT of
+quantum theory on a qudit are exactly the 2d TFTs valued in FHilb on that
+qudit, modulo unit-modulus Euler theories, and the unitary ones correspond.
 
 **Answer to the question posed.** One does not purify and then redefine; the
-Frobenius axioms already make the theory pure. For N = 2 this is a theorem;
-for general N the unit, counit, cup and cap are pure and the multiplication
-and comultiplication have equal Kraus rank, and rank one remains to be shown.
+Frobenius axioms already make the theory pure. The chain is: nondegeneracy
+makes the unit pure (9.1); the unit law then fixes every Kraus operator on
+η ⊗ H and H ⊗ η; associativity evaluated on inputs carrying η in different slots
+kills every Kraus operator but one (9.5); the counit is pure by the counit laws
+(9.2); the lift to FHilb is then forced up to Euler phases (9.6). Valid for
+every qudit dimension.

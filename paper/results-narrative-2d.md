@@ -79,8 +79,10 @@ theorems to prove; R-labelled items are the retired notes' results, unverified.
 
 1. Quantum theory (done as a calculation): D ∘ Z for the doubling functor,
    Herm_N ≅ R^N ⊕ C^{N(N−1)/2}, positivity automatic. `results-quantum-2dUTFT.md`.
-2. Converse for quantum theory: are all 2d TFTs valued in (Q, ⊗) doubled? CP*
-   construction as the starting point [CHK].
+2. Converse for quantum theory: done. Every 2d TFT valued in CPM(FHilb) on a
+   qudit is the doubling of one in FHilb, dagger ones of unitary ones
+   (`results-quantum-2dUTFT.md` §9, Theorem 9.7). Purity is forced by the
+   Frobenius axioms; no purification needed.
 3. Classical Cl_n; then the dualizable non-quantum candidates (E10–E12); then
    the Jordan algebras passing the 1d test. In each case: basis, involution,
    (k, m), composite cone, positivity.
@@ -105,7 +107,7 @@ autopsy for the gbit and pentagon) are likewise on hold.
 
 1. R7 verified for θ = 1 and generalised to weights in
    `results-quantum-2dUTFT.md` §3–§6 ✓.
-2. Converse for quantum theory (programme item 2).
+2. Converse for quantum theory: done (§9 of the calculation file).
 3. Classical Cl_n through the template (programme item 3).
 4. One dualizable non-quantum candidate (E10–E12) through the template.
 5. DECISION on unitarity (programme item 4).

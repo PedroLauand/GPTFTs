@@ -2,7 +2,7 @@
 status: outline
 created: 2026-09-07
 entered-by: agent, from the chat of 2026-09-07 with Pedro
-last-reviewed: 2026-09-07
+last-reviewed: 2026-09-08
 feeds: results section, dimension two; results-quantum-2dUTFT.md
 machine-written: true
 ---
@@ -74,6 +74,11 @@ theorems to prove; R-labelled items are the retired notes' results, unverified.
   decomposition is the central result. This makes the calculation close to the
   Vec case with structure added, and it is done for quantum theory in
   `results-quantum-2dUTFT.md`.
+- Caveat from real quantum theory (2026-09-08): when tomographic locality
+  fails, the ambient real vector space in the plan must be the full square
+  (End(W) for real quantum theory), not the span of the states Sym(W); the
+  Frobenius algebra is internal to the GPT's own composite, and the truncation
+  to Sym(W) ⊗ Sym(W) is not positive (`results-quantum-2dUTFT.md` 9.5).
 
 ## 3. The calculation programme
 
@@ -84,12 +89,21 @@ theorems to prove; R-labelled items are the retired notes' results, unverified.
    Euler theory. Real form Herm_N ≅ R^N ⊕ C^{N(N−1)/2}.
 2. Converse for quantum theory: done. Every 2d TFT valued in CPM(FHilb) on a
    qudit is the doubling of one in FHilb, dagger ones of unitary ones
-   (`results-quantum-2dUTFT.md` §9, Theorem 9.7). Purity is forced by the
+   (`results-quantum-2dUTFT.md` §4, Theorem A(ii)). Purity is forced by the
    Frobenius axioms; no purification needed.
-3. Classical Cl_n; then the dualizable non-quantum candidates (E10–E12); then
+3. Real quantum theory: done, by the same argument (`results-quantum-2dUTFT.md`
+   §9, Theorem A′). Real quantum theory is CPM(FHilb_R) (Lemma 9.2: a Kraus map
+   is fixed by its values on symmetric matrices), so doubling f ↦ f(·)fᵀ
+   transports every 2d TFT of FHilb_R and the purity lemmas lift every theory
+   back; the fibre is a sign, so the correspondence is a bijection with no
+   Euler ambiguity at all. Where it differs: the composite Sym(W ⊗ W') has the
+   global sector Λ²W ⊗ Λ²W', the copants lands in it, and the locally
+   tomographic truncation is not positive (9.5). Owed: real analogue of
+   Schneider; unitary theories over R include C-summands (9.4).
+4. Classical Cl_n; then the dualizable non-quantum candidates (E10–E12); then
    the Jordan algebras passing the 1d test. In each case: basis, involution,
    (k, m), composite cone, positivity.
-4. Unitarity for GPT-valued theories: Durhuus–Jonsson over the complexification
+5. Unitarity for GPT-valued theories: Durhuus–Jonsson over the complexification
    ("induced from a unitary FHilb theory") versus a real condition. DECISION.
 
 ## 4. Interpretation
@@ -110,10 +124,13 @@ autopsy for the gbit and pentagon) are likewise on hold.
 
 1. R7 verified for θ = 1 and generalised to weights in
    `results-quantum-2dUTFT.md` §3–§6 ✓.
-2. Converse for quantum theory: done (§9 of the calculation file).
-3. Classical Cl_n through the template (programme item 3).
+2. Converse for quantum theory: done (§4 of the calculation file).
+3. Classical Cl_n through the template (programme item 4).
 4. One dualizable non-quantum candidate (E10–E12) through the template.
-5. DECISION on unitarity (programme item 4).
+5. DECISION on unitarity (programme item 5).
 6. Sources: Kock's book and Abrams are not open; Dijkgraaf's thesis is not
    filed. The filed classification is CR Thm 3.5 with Sawin Thm 2; the CPM
    construction is Selinger (filed 2026-09-07), the CP* construction is CHK.
+7. Real quantum theory (programme item 3): real analogue of Schneider for
+   A′(iii); the C-summand unitary theories over R; file Wootters 1990 and
+   Hardy–Wootters 2012 (calculation file §10, items 6–8).

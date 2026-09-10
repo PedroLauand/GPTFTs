@@ -1,8 +1,8 @@
 ---
 status: result, detailed write-up
 created: 2026-09-07
-entered-by: agent, on Pedro's instruction (chat of 2026-09-07); the strategy of the converse is Pedro's
-last-reviewed: 2026-09-07
+entered-by: agent, on Pedro's instruction (chat of 2026-09-07); the strategy of the converse is Pedro's; §9 (real quantum theory) entered 2026-09-08 on Pedro's instruction
+last-reviewed: 2026-09-08
 feeds: results section, dimension two; results-narrative-2d.md
 machine-written: true
 ---
@@ -16,7 +16,8 @@ are completely positive maps, have the same two-dimensional topological field
 theories: doubling a Hilbert-space theory gives a probabilistic one, every
 probabilistic one arises this way, unitary theories correspond exactly to
 dagger theories, and the only ambiguity in general is a unit-modulus Euler
-phase that the probabilistic side cannot see.
+phase that the probabilistic side cannot see. Section 9 extends the result to
+real quantum theory by the same argument.
 
 Everything below is proved from filed sources with statement numbers, in house
 notation (`conventions/domain/notation.md`), and is interpretation-free; the
@@ -465,7 +466,122 @@ confirmed.)
 
 ---
 
-## 9. Owed
+## 9. Real quantum theory: the same argument
+
+Entered 2026-09-08 from the chat of 2026-09-07/08. The point of this section
+is that Result 1 is a statement about CPM(C) for a dagger compact category C,
+and real quantum theory is CPM(FHilb_R). The one new feature of the real case,
+the global sector of its composites, sits inside the isomorphism
+Q^R ≅ CPM(FHilb_R) and never enters the argument; 9.5 records where it shows up.
+
+**9.1 The categories.** FHilb_R: finite-dimensional real Hilbert spaces W,
+linear maps, dagger the transpose; dagger compact closed, with cup Σ_i e_i ⊗ e_i
+for any orthonormal basis. CPM(FHilb_R): Selinger's construction, which needs
+only dagger compactness [Selinger, filed 2026-09-07]: objects W, morphisms
+End(W) → End(W') of the form X ↦ Σ_a K_a X K_aᵀ, tensor product on W ⊗ W'. The
+GPT of real quantum theory, (Q^R, ⊗): objects Q^R_N = (Sym_N(R), PSD_N(R), tr),
+normalised states the real density matrices; the composite of Sym(W) and
+Sym(W') is Sym(W ⊗ W'), and
+
+    Sym(W ⊗ W')  =  Sym(W) ⊗ Sym(W')  ⊕  Λ²W ⊗ Λ²W',
+    NM(NM+1)/2   =  N(N+1)/2 · M(M+1)/2  +  N(N−1)/2 · M(M−1)/2.
+
+Tomographic locality fails; the second summand is the global sector of real
+quantum theory [Wootters 1990; Hardy–Wootters 2012 — UNVERIFIED, not filed].
+Transformations: the Kraus maps X ↦ Σ_a K_a X K_aᵀ, restricted to Sym(W).
+
+*Clarification (why the transformations must be defined this way).* In a
+theory whose composite is not the tensor product of the parts, a transformation
+is not determined by its action on one system: a linear map L on Sym(W) has no
+action on Λ²W ⊗ Λ²W', so "L ⊗ id" is undefined, and the P1 convention "positive
+maps between cones" does not by itself define a monoidal category here. The
+Kraus form is the specification of the action on every composite, K_a ⊗ 𝟙 on
+W ⊗ W'. This is the standard definition of real quantum theory and the one used
+below (convention adopted; DECISION owed, 10.8).
+
+**9.2 Lemma (Q^R ≅ CPM(FHilb_R)).** Restriction to symmetric parts is an
+isomorphism of symmetric monoidal categories. *Proof.* Objects: W ↦ Sym(W).
+Well defined: K X Kᵀ is symmetric when X is. Surjective by 9.1. Injective: if
+Σ_a K_a X K_aᵀ = 0 for every symmetric X, then for all v, w,
+0 = ⟨v| Σ_a K_a |w⟩⟨w| K_aᵀ |v⟩ = Σ_a ⟨v|K_a|w⟩², so every K_a = 0. Monoidal:
+Φ ⊗ Ψ acts on End(W ⊗ W') and restricts to Sym(W ⊗ W'), the composite of 9.1. ✓
+Contrast with Lemma 1.4: there End(H) = Herm ⊕ i·Herm and
+Herm(H ⊗ K) = Herm(H) ⊗ Herm(K); here End(W) = Sym ⊕ Antisym and
+Sym(W ⊗ W') ⊋ Sym(W) ⊗ Sym(W'). The isomorphism does not factor through Vec_R:
+the forgetful functor U : Q^R → Vec_R, Sym(W) ↦ Sym(W), is not strong monoidal.
+
+**9.3 Theorem A′ (real quantum theory).** Statements (i)–(v) of Theorem A hold
+with FHilb, CPM(FHilb), Q replaced by FHilb_R, CPM(FHilb_R), Q^R and D by
+D_R(f) = f(·)fᵀ, with these changes.
+
+- (iii) The fibre is a sign: D_R(f) = D_R(g) iff g = ±f (equal rank-one real
+  Choi matrices). The Euler theories are E_{±1}, both isomorphic to the trivial
+  theory (2.4). So D_R induces a bijection on isomorphism classes with no
+  residual ambiguity, dagger or not.
+- (iv) "Unitary" is Z(M̄) = Z(M)ᵀ, a commutative †-Frobenius algebra in
+  FHilb_R; "dagger" is the transpose-dagger of CPM(FHilb_R).
+- (v) For Z the classical structure of an orthonormal basis |i⟩ with weights
+  θ_i:
+
+      μ_R(X) = Vᵀ X V,   Δ_R(X) = V X Vᵀ,   V = Σ_i θ_i^{−1/2} |ii⟩⟨i|,
+      η_R = |η⟩⟨η|,      ε_R = ⟨η| · |η⟩,   |η⟩ = Σ_i θ_i^{1/2} |i⟩,
+      Z_R(Σ_g) = (Σ_i θ_i^{1−g})²,   Z_R(T²) = N².
+
+  Z_R(T²) = N² = dim_R End(W), not dim_R Sym(W) = N(N+1)/2: the categorical
+  dimension of Q^R_N in (Q^R, ⊗) counts the full square, global sector included
+  (compare A(v), where N² = dim_R Herm_N).
+
+*Proof.* (i) FHilb_R is dagger compact closed, so D_R is a dagger strong
+symmetric monoidal functor, as in 1.5. ✓ (ii) Lemmas 4.1–4.6 are statements
+about positivity, rank and Kraus operators. Their two inputs are: the identity
+channel has Kraus rank one (its Choi matrix is |Ω⟩⟨Ω| with Ω = Σ_i |ii⟩ real, so
+every Kraus vector is a multiple of Ω), and the associativity identity displayed
+in Lemma 4.4. Neither uses complex scalars or the spectral theorem over C, and
+the conjugates in Lemma 4.3 are trivial over R. Verbatim. ✓ (iii) 5.1 with the
+sign fibre; 5.2 needs the real statement "positivity-preserving bijections of
+Sym_N(R) are X ↦ c·G X Gᵀ", the real analogue of Schneider — UNVERIFIED, owed
+(10.6); 5.3 then verbatim. (iv) 5.4 with † = ᵀ. ✓ (v) Section 6 with V real;
+the phases are signs. ✓ Through 9.2 the statements hold for Q^R. ∎
+
+**9.4 Remark (unitary theories over R are more than bases).** Over C the
+commutative †-Frobenius algebras in FHilb are the classical structures (2.2,
+CPV). Over R they are the commutative real C*-algebras R^k ⊕ C^m: the algebra C
+on R² with orthonormal basis (1, i), μ†(1) = 1 ⊗ 1 − i ⊗ i,
+μ†(i) = 1 ⊗ i + i ⊗ 1, satisfies the Frobenius law (checked by hand,
+2026-09-07). It has Z(Σ_g) = 2^g θ^{1−g}, the invariants of the two-point
+complex theory with weights θ/2, θ/2, of which it is the real form. Theorem A′
+covers these theories; the explicit maps of 9.3(v) are written for classical
+structures only. TARGET: the doubled theory of a C-summand. [The classification
+"†-Frobenius in FHilb_R = real C*-algebras" is UNVERIFIED as filed; CHK is over
+C.]
+
+**9.5 Remark (where real quantum theory differs: the global sector).** With
+E_ij = S_ij + A_ij the symmetric and antisymmetric parts of the matrix units,
+9.3(v) gives
+
+    Δ_R(X) = Σ_i X_ii E_ii ⊗ E_ii + Σ_{i<j} 2 X_ij (S_ij ⊗ S_ij + A_ij ⊗ A_ij),
+
+and the last term lies in Λ²W ⊗ Λ²W. So the Frobenius algebra of the real
+theory is internal to (Q^R, ⊗), not to Vec_R on Sym(W). On the full square
+End(W) = W ⊗ W the entrywise product has all N² matrix units as idempotents:
+R^{N²}, k = N², m = 0, with β = tr(XᵀY) positive definite; no complex summands,
+because f ⊗ f carries no conjugation to pair E_ij with E_ji (contrast Theorem
+B). Truncating to local tomography is not an option: the β-dual coproduct Δ' on
+Sym(W) ⊗ Sym(W), which drops the A ⊗ A term, is not positive. For N = 2, θ = 1,
+X = J the unit, Δ_R(J) = 2|Φ⁺⟩⟨Φ⁺| while Δ'(J) has eigenvalues 3/2, 1/2, 1/2,
+−1/2 on Φ⁺, Φ⁻, Ψ⁺, Ψ⁻ (numerical check, 2026-09-07). Comparison with Theorem
+B: Herm(H) = Sym ⊕ i·Antisym, and the C-summand of the pair i < j is spanned by
+P_ij = 2 S_ij and Q_ij = 2i A_ij with Q ∘ Q = −P. The antisymmetric directions
+that real quantum theory excludes from single systems, and that return in
+composites as the global sector, are the ones complex quantum theory keeps
+locally, with a factor i; N(N+1)/2 + N(N−1)/2 = N². For the template 8.4: when
+tomographic locality fails, the ambient real vector space must be the full
+square, here End(W), not the span of the states. Same mechanism as the rebit
+loop test in dimension one (`results-narrative-1d.md`, the R11 paragraph).
+
+---
+
+## 10. Owed
 
 1. File the classification of positivity-preserving bijections of Herm_N
    (Schneider 1965) used in 5.2, or replace it by a self-contained argument.
@@ -478,3 +594,13 @@ confirmed.)
    FHilb theory", equivalently Durhuus–Jonsson unitarity of the
    complexification.
 5. Interpretation: deferred to Pedro.
+6. Real analogue of 5.2 for Theorem A′(iii): positivity-preserving bijections
+   of Sym_N(R) are congruences X ↦ c·G X Gᵀ. UNVERIFIED; file or prove.
+7. Real quantum theory: file the global-sector sources (Wootters 1990;
+   Hardy–Wootters 2012) and the classification of commutative †-Frobenius
+   algebras in FHilb_R as real C*-algebras; compute the doubled theory of a
+   C-summand (9.4).
+8. DECISION (Pedro): record in the standing assumptions that, when tomographic
+   locality fails, processes are defined by their action on all composites
+   (for real quantum theory: Kraus maps, 9.1), since P1's "positive maps
+   between cones" does not fix them.

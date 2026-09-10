@@ -1,8 +1,8 @@
 ---
-status: proposal
+status: proposal; Sections 2–3 detailed 2026-09-09 (Pedro's review owed)
 created: 2026-09-07
 entered-by: agent, from the chat of 2026-09-07 with Pedro
-last-reviewed: 2026-09-07
+last-reviewed: 2026-09-09
 feeds: B8, B9, results section
 machine-written: true
 ---
@@ -99,38 +99,96 @@ algebra, is treated in `results-narrative-2d.md`.
 
 ---
 
-## 2. The loop-weight criterion (stub)
+## 2. The one-dimensional criterion (detailed 2026-09-09; Pedro's review owed)
 
-**Theorem A (to state and prove).** In (GPT, ⊗) with a coherent composite
-rule, X is dualizable iff the element Σ_a f_a ⊗ f^a is a state of X ⊗ X^∨ and
-an effect on X^∨ ⊗ X for that rule; the dual is forced to be X^∨ [R1, R2].
+Throughout this section the composites involved are assumed locally
+tomographic, V_AB = V_A ⊗ V_B [X1], so that the forgetful functor
+U : (GPT, ⊗) → (Vec_R, ⊗) is strong monoidal; it is faithful in any case [C14].
+Real quantum theory is the case where this fails (its composite has a global
+sector) and is treated in `results-quantum-2dUTFT.md` §9.
 
-**Theorem B (agent's proposal 2026-09-07, to check).** If X is dualizable and
-the theory is tomographically local, then tr_V(g) ≥ 0 for every allowed
-process g : X → X. Proof: the closed worldline carrying g is
-cap ∘ σ ∘ (g ⊗ id) ∘ cup ∈ End(1) = R_{≥0}; the categorical trace is
-independent of the duality data and equals the linear trace once the forgetful
-functor to Vec preserves duals. Physical reading: a vacuum bubble carrying an
-operation is a probability weight.
+**Theorem A (dualizability, and the dual is forced).** Let X = (V, V⁺, u). Put
+X^∨ := (V*, (V⁺)*, u^∨) with u^∨ any interior point of V⁺, and
+ψ := Σ_a f_a ⊗ f^a ∈ V ⊗ V* for a basis f_a with dual basis f^a. Then X is
+dualizable in (GPT, ⊗) iff ψ is a state of X ⊗ X^∨ (cup) and an effect on
+X^∨ ⊗ X (cap). Any duality data for X are isomorphic to these.
+*Proof.* (a) Linear data. If (Y, cup, cap) is a duality for X in GPT, then
+(U(Y), U(cup), U(cap)) is a duality for V in Vec_R, since U is strong monoidal
+and preserves composition. Duality data in Vec_R are unique up to unique
+isomorphism [C7], so there is a linear isomorphism U(Y) ≅ V* carrying U(cup)
+to ψ and U(cap) to evaluation; transport the cone of Y along it. (b) Cones.
+The cap is an effect on Y ⊗ X, so it is nonnegative on product states y ⊗ x:
+⟨y, x⟩ ≥ 0 for all y ∈ V_Y⁺, x ∈ V⁺, i.e. V_Y⁺ ⊂ (V⁺)*. The cup is a state of
+X ⊗ Y, so it is nonnegative on product effects e ⊗ e', e ∈ (V⁺)*, e' ∈ (V_Y⁺)*:
+(e ⊗ e')(ψ) = e'(e) ≥ 0 for all e', i.e. (V⁺)* ⊂ (V_Y⁺)** = V_Y⁺. Hence
+V_Y⁺ = (V⁺)*. The unit effect of Y is not part of the duality data. (c)
+Conversely, if ψ is a state and an effect, the snake identities hold in Vec_R,
+hence in GPT because U is faithful. ∎ ✓ [This verifies the retired notes' R1
+and R2.] The cup wants the composite cone of X and X^∨ large, the cap wants it
+small: one element tested from inside and from outside one cone.
 
-**Theorem C (sufficiency, sketch).** Take the composite cone of X and X^∨ to be
-cone(T), the Choi states of the allowed transformations T. The cup is the Choi
-state of the identity; cap positivity is exactly trace positivity of T. Owed:
-coherence across multi-leg composites; the classical simplex as the worked
-sanity check [G19].
+**Theorem B (loop weights).** If X is dualizable, then tr_V(g) ≥ 0 for every
+process g : X → X. *Proof.* The closed worldline carrying g,
+cap ∘ σ ∘ (g ⊗ id_{X^∨}) ∘ cup ∈ Hom(1, 1), is a positive linear map
+R_{≥0} → R_{≥0}, hence a nonnegative scalar. U maps it to
+U(cap) ∘ σ ∘ (U(g) ⊗ id) ∘ U(cup), the categorical trace of U(g) in Vec_R for
+the duality data (U(cup), U(cap)); the categorical trace does not depend on
+the choice of duality data and equals the linear trace. ∎ ✓ Physical reading:
+a vacuum bubble carrying one of the theory's own operations is a probability
+weight. REVIEW: statement and reading, Pedro.
 
-## 3. Boxworld and the polygons cannot bend a worldline (stub)
+**Theorem C (separable duality data).** If X is dualizable and its cap is
+separable, cap = Σ_i c_i g_i ⊗ f_i with c_i ≥ 0, g_i ∈ V⁺ (effects on X^∨ are
+states of X) and f_i ∈ (V⁺)*, then for every x, x = (id ⊗ cap)(cup ⊗ x) =
+Σ_i c_i f_i(x) g_i: the identity of X is a measure-and-prepare channel. The
+same holds if the cup is separable, cup = Σ_j d_j s_j ⊗ t_j, with
+x = Σ_j d_j t_j(x) s_j. A system whose identity is measure-and-prepare is
+classical [G18; P Thm 7.7, Cor 7.8]. Self-contained proof of the last claim:
+write id = Σ_i q_i(·) s_i with q_i ≥ 0 on V⁺ and s_i ∈ V⁺. Then
+V⁺ = cone{s_i}, so every extreme ray p of V⁺ is proportional to some s_i, and
+for an extreme p only the s_i proportional to p can appear in
+p = Σ_i q_i(p) s_i. For each extreme ray p_j put Q_j := Σ_{i : s_i ∝ p_j} σ_i q_i
+with s_i = σ_i p_j; then Q_j(p_l) = δ_jl. Functionals dual to the extreme rays
+make them linearly independent, so there are exactly dim V of them and V⁺ is a
+simplex cone. ∎ ✓ Consequence: a non-classical dualizable system has an
+entangled cup and an entangled cap.
 
-The gbit's double bit flip (x, y, u) ↦ (−x, −y, u) is an allowed relabelling
-[B §VI] with trace −1 on R³: by Theorem B no composite rule makes the gbit
-dualizable. Composites of gbits inherit the flip on one factor. Regular n-gons
-with n ≥ 4 and rotations allowed contain a rotation with 1 + 2cos θ < 0. Two
-readings of the same obstruction: with ⊗_max the effects on a pair are
-separable, so there is no annihilation [Short–Barrett 0909.2601, to file]; and
-CHSH decays under iterated swapping [DLG Lemma 3]. Boxworld has the reversed
-system (the rotated square) and the correlated pairs (PR boxes); it lacks an
-annihilation compatible with its own operations. Recast the examples table of
-`gpt-examples.md` as "which theories can bend a worldline".
+**Remark (sufficiency via Choi cones; sketch, owed).** Take the composite cone
+of X and X^∨ to be cone(T), the Choi elements of the allowed transformations
+T. The cup is the Choi element of the identity; cap positivity is trace
+positivity of T. Owed: coherence across multi-leg composites; the classical
+simplex as the sanity check [G19].
+
+## 3. Boxworld and the polygons cannot bend a worldline (detailed 2026-09-09)
+
+**Theorem D (boxworld).** No system of boxworld is dualizable; boxworld admits
+no topological field theory in any dimension. *Proof.* Boxworld composites are
+the maximal tensor product of the local state cones [E7; B §VI], so by min–max
+duality [G12] every bipartite effect lies in (V⁺)* ⊗_min (V⁺)*: it is
+separable. If a gbit were dualizable its cap would be separable, so by Theorem
+C the gbit would be classical; its state space is a square, four extreme rays
+in R³. A composite of gbits is again a ⊗_max composite, so the same argument
+applies to it. By the slice reduction of Section 1, a theory with no
+dualizable system has no TFT in any dimension. ∎ ✓
+
+**Second proof (independent of the composite rule, under X1).** The gbit's
+double bit flip (x, y, u) ↦ (−x, −y, u) is an allowed reversible relabelling
+[B §VI] with trace −1 on R³. By Theorem B no locally tomographic composite rule
+makes the gbit dualizable. ✓ REVIEW (Theorem B).
+
+**Polygons.** Regular n-gon theories with n ≥ 4 and their rotations allowed
+contain a rotation by 2πk/n with 1 + 2cos(2πk/n) < 0 (k = ⌊n/2⌋ gives an angle
+in [144°, 180°]); by Theorem B they are not dualizable under any locally
+tomographic composite, and under ⊗_max also by Theorem D. The triangle, n = 3,
+is classical and passes. ✓
+
+**What boxworld has and lacks.** The reversed system (the rotated square), and
+the correlated pairs (PR boxes, entangled states); not the annihilation
+effect: its bipartite effects are all separable. This is the trade-off between
+strong nonlocality and joint measurements [Short–Barrett 0909.2601, to file],
+and the reason its CHSH value decays under iterated swapping [DLG Lemma 3].
+Recast the examples table of `gpt-examples.md` as "which theories can bend a
+worldline" (TARGET).
 
 ## 4. Which theories pass (stub; quantum theory enters here)
 
@@ -150,7 +208,8 @@ bit against BGW's exclusion [C12]; the relation to Dmello–Gross's χ_φ ≥ 0
 
 ## Checks owed before any of this enters the draft
 
-1. Pedro: the loop-weight argument (Theorem B) and the boxworld line.
+1. Pedro: Theorem B (statement and reading; the proof is written) and the
+   boxworld line (Theorem D).
 2. File Short–Barrett 0909.2601.
 3. Compute the rebit categorical trace with the real composite.
 4. Decide whether "balls: only d = 1, 3" belongs in this paper.

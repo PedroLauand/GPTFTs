@@ -2,7 +2,7 @@
 status: outline
 created: 2026-09-07
 entered-by: agent, from the chat of 2026-09-07 with Pedro
-last-reviewed: 2026-09-08
+last-reviewed: 2026-09-09
 feeds: results section, dimension two; results-quantum-2dUTFT.md
 machine-written: true
 ---
@@ -100,11 +100,21 @@ theorems to prove; R-labelled items are the retired notes' results, unverified.
    global sector Λ²W ⊗ Λ²W', the copants lands in it, and the locally
    tomographic truncation is not positive (9.5). Owed: real analogue of
    Schneider; unitary theories over R include C-summands (9.4).
-4. Classical Cl_n; then the dualizable non-quantum candidates (E10–E12); then
-   the Jordan algebras passing the 1d test. In each case: basis, involution,
-   (k, m), composite cone, positivity.
-5. Unitarity for GPT-valued theories: Durhuus–Jonsson over the complexification
+4. Oblate stabilizer theory: done for the quantum-type theories
+   (`results-ost-2dUTFT.md`, Theorem 3.1). OST is dualizable, so dimension one
+   holds; the Frobenius form of any 2d theory in it must be one of its four
+   twisted Bell forms, which pins every doubled qubit theory to the basis
+   R^{1/2}|±⟩ with equal weights, and there the pants sends x̃₊ ⊗ x̃₋ to a
+   negative multiple of z̃₋. The first theory that passes dimension one and
+   fails dimension two. Open: non-doubled semisimple algebras with the Bell
+   form (LP-in-T route), and whether the obstruction tracks the CHSH value or
+   the frame offset (Lemma 4.1 there).
+5. Classical Cl_n; then the remaining candidates (E11, E12) and the Jordan
+   algebras passing the 1d test. In each case: basis, involution, (k, m),
+   composite cone, positivity.
+6. Unitarity for GPT-valued theories: Durhuus–Jonsson over the complexification
    ("induced from a unitary FHilb theory") versus a real condition. DECISION.
+   For OST it decides whether R⁴ with one negative weight is in scope.
 
 ## 4. Interpretation
 
@@ -125,9 +135,10 @@ autopsy for the gbit and pentagon) are likewise on hold.
 1. R7 verified for θ = 1 and generalised to weights in
    `results-quantum-2dUTFT.md` §3–§6 ✓.
 2. Converse for quantum theory: done (§4 of the calculation file).
-3. Classical Cl_n through the template (programme item 4).
-4. One dualizable non-quantum candidate (E10–E12) through the template.
-5. DECISION on unitarity (programme item 5).
+3. Classical Cl_n through the template (programme item 5).
+4. OST: hand proof of the admissible-forms LP; the non-doubled algebras
+   (programme item 4, `results-ost-2dUTFT.md` §6); then E11, E12.
+5. DECISION on unitarity (programme item 6).
 6. Sources: Kock's book and Abrams are not open; Dijkgraaf's thesis is not
    filed. The filed classification is CR Thm 3.5 with Sawin Thm 2; the CPM
    construction is Selinger (filed 2026-09-07), the CP* construction is CHK.

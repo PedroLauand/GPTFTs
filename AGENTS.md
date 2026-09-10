@@ -35,6 +35,8 @@ In this order, every time:
 5. For technical work, `syntheses/toolbox/README.md`: definitions and lemmas
    with statement numbers, so the discussion can point at G12 or T7 instead of
    rebuilding them.
+6. `paper/results-structure.md`: the results so far, in logical order, with
+   the steps each argument rests on and what is still owed.
 
 That is the project's current state. Read `paper/draft.tex` itself when the
 task touches the text.

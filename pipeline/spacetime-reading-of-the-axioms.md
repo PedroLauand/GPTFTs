@@ -11,320 +11,317 @@ machine-written: true
 
 ## The paragraph
 
-The programme's question is now "what does a probabilistic theory require in
-order to be distributed over space?" [B4, drafted 2026-09-11]. The results so
-far answer it with two requirements on a GPT, and both entered as technical
-conditions rather than as physics: **dualizability** of every system (dimension
-one; Result 0) and **unitarity** of the theory, which for a GPT target is
-**self-duality** of its systems (dimension two; Results 1–3). If those two are
-to be read as principles in the sense the introduction uses the word
-[`glossary.md`], each needs a spacetime meaning that a physicist would accept
-before seeing the formalism. This entry collects what the filed sources support
-for each, and says which parts are the project's own reading.
+The programme's question is "what does a probabilistic theory require in order
+to be distributed over space?" [B4, drafted 2026-09-11]. The results so far
+answer it with two requirements, and both entered as technical conditions
+rather than as physics: **dualizability** of every system (dimension one;
+Result 0) and **unitarity** of the theory, which for a GPT target is
+**self-duality** of its systems (dimension two; Results 1–3). Each needs a
+statement a physicist would accept before seeing any formalism. This entry
+gives one for each, in the vocabulary the paper already uses — regions, slices,
+states, effects, processes, probabilities — and nothing else.
 
-The short version, and it is Freed–Hopkins' own framing of the twin pillars of
-field theory: **dualizability is locality, unitarity is reflection positivity.**
-"The twin pillars of quantum field theory are locality and unitarity. These
-fundamental properties persist after Wick rotation: locality manifests as
-factorization laws for correlation functions and unitarity manifests as
-reflection positivity. Locality is encoded in the Axiom System using
-composition of morphisms: gluing bordisms along codimension one submanifolds."
-[FH §1, filed `160422`]. The two axioms under discussion are not two technical
-conveniences: they are the two things field theory is made of, and the paper's
-job is to say what each costs a probabilistic theory.
+The two statements, first:
+
+> **Dualizability.** A slice can be moved from the end of a region to its
+> beginning. What one part of spacetime delivers on a slice, the adjacent part
+> receives on the same slice; a theory distributed over space must be able to
+> describe the slice both ways and pair the two descriptions. The price in a
+> probabilistic theory is a pair of entangled state and entangled effect, i.e.
+> exact teleportation.
+
+> **Unitarity.** A region can be read from either end. Read forwards it takes
+> states to states; read backwards it takes effects to effects. For both
+> readings to be processes of the same theory on the same systems, states and
+> effects must be the same objects. The price is self-duality.
+
+They are different requirements, and a theory can meet one and fail the other:
+OST does (Result 3).
 
 ## The problem
 
-Dualizability and unitarity are currently justified in this project by what they
-do (they make the functor exist; they are what the TFT literature assumes), not
-by what they mean. Without a spacetime reading:
+Dualizability and unitarity are currently justified by what they do — they make
+the functor exist, they are what the TFT literature assumes — not by what they
+mean. Without a physical reading, Result 0 says "boxworld fails a mathematical
+condition" rather than "boxworld cannot be distributed over space", and the
+unitarity DECISION owed in `results-structure.md` has nothing to decide
+against.
 
-- the no-go results (Result 0: boxworld, ⊗_min/⊗_max theories, polygons) say
-  "these theories fail a mathematical condition", not "these theories cannot be
-  distributed over space";
-- unitarity looks like an imported convention of the TFT literature, and the
-  DECISION owed on it (`results-structure.md`, Owed 1) has nothing to decide
-  against.
+---
 
-## Part 1. Dualizability
+## Part 1. Dualizability: a slice can be moved to the other end
 
-### 1.1 It is exactly the ability to cut and reglue
+### 1.1 The setting, stated once
 
-The sharpest statement is in a filed source and is a theorem, not an analogy.
-Carqueville–Runkel's Lemma 2.4 compares the *path-integral data* — a vector
-space Y(E) for each slice E, a vector Y(M) for each bordism M : ∅ → E, and
-Y(E ⊔ F) ≅ Y(E) ⊗ Y(F) — with the *functorial data*, a symmetric monoidal
-functor Bord_n → Vect. They are equivalent precisely when
+A probabilistic theory distributed over space assigns
 
-- a) the cylinder Y(E × [0,1]) ∈ Y(E) ⊗ Y(Ē) is a nondegenerate copairing, so
-  there is a unique dual pairing d_E : Y(Ē) ⊗ Y(E) → k; and
-- b) for any closed (n−1)-manifold U embedded in M, if M′ is M cut open along
-  U, so that M′ : ∅ → E ⊔ U ⊔ Ū, then Y(M) is recovered from Y(M′) by
-  contracting the U and Ū factors with d_U.
+- a **system** of the theory to each region of space (a slice);
+- a **process** of the theory to each region of spacetime, taking the system on
+  the slice where the region begins to the system on the slice where it ends.
 
-[CR Lemma 2.4, filed `170516`; the cutting picture is CR §2.1(v), and CR's own
-remark at §2.2(v) is that the gluing law of a functor composes *disjoint*
-manifolds while cutting a bordism need not produce disjoint pieces — the duality
-data are what repairs the mismatch.]
+That is all the structure there is, and it is the content of a symmetric
+monoidal functor Bord_d → (GPT, ⊗) [T1, T2, T7]. The requirement below is what
+that assignment costs.
 
-Read the two clauses as physics. The path-integral data know only what a
-theory assigns to a slice; they carry no notion of which boundary is "in" and
-which is "out". The duality data are exactly the dictionary that lets you cut a
-region of spacetime along an arbitrary slice and put it back together. So:
+### 1.2 The requirement
 
-> **Dualizability is the requirement that a region of spacetime may be cut
-> anywhere and reassembled, with the theory's statistics unchanged.**
+Take a region of spacetime and cut it along an intermediate slice U. The lower
+piece ends on U; the upper piece begins on U. Regluing means summing over
+everything that can cross U: pairing what the lower piece **delivers** on U
+against what the upper piece **receives** on U.
 
-This is the sharpest available rendering of locality of action (A5) as a
-condition on a probabilistic theory, and it is a rendering that does not
-mention topology, functors, or categories.
+Delivering and receiving are not the same kind of thing in a probabilistic
+theory. What is delivered is a **state**; what is received is consumed by an
+**effect**. So the slice U carries two descriptions — the system as something
+produced, and the system as something consumed — and cutting is only possible
+if the theory pairs them.
 
-### 1.2 The dual of a system is the same slice read the other way
+Write Ū for the second description: the same slice, entered from the other
+side. The requirement is then three sentences:
 
-"In nCob each object x is an oriented (n−1)-manifold, and its dual x* is the
-same manifold with its orientation reversed" [Baez–Dolan §2, filed `950305`].
-So X^∨ is not a new system: it is the same system with the time direction
-across the slice reversed. Cutting a region produces both U and Ū (1.1), i.e.
-the same slice appearing once as the future boundary of the past piece and once
-as the past boundary of the future piece. Which of the two a given component is
-depends on how the region is sliced, not on the system.
+1. **The pairing exists.** There is an effect on U ⊗ Ū that consumes a state
+   delivered on U together with whatever receives it. (The **cap**.)
+2. **Nothing is lost.** There is a state of Ū ⊗ U that the pairing recovers
+   completely: no part of what crosses the slice is invisible to the pairing.
+   (The **cup**.)
+3. **Cutting and regluing changes nothing.** Cut a region, pair across the cut,
+   and the result is the region you started with. (The **snake identity**.)
 
-This is the categorical shadow of the Feynman–Stückelberg reading: a bent
-worldline is pair creation to one observer and propagation to another. **No
-filed source states this**; it is folklore (`tft-1d-readings.md` T21 already
-flags the "particle–antiparticle" wording as UNVERIFIED attribution). If the
-paper wants the sentence, Stückelberg or Feynman has to be filed. The
-formalism-free version that *is* supported: the assignment of a state space to
-a slice must not depend on which side of the slice one calls the future.
+A system with these three is *dualizable*, and Ū is its dual. Nothing beyond
+"cut a region anywhere, glue it back, get the same statistics" has been assumed.
 
-### 1.3 Pushed to the limit, locality *is* dualizability
+This is not an analogy. It is the content of a filed theorem: Carqueville–Runkel
+compare the data of a theory that only knows what to assign to slices with the
+data of a functor, and they are equivalent exactly when (a) the cylinder over U
+is a non-degenerate pairing and (b) the value on a region cut along any
+embedded U is recovered by contracting with that pairing [CR Lemma 2.4, filed
+`170516`; toolbox T27]. CR's own remark is the same point in one line: gluing
+in a functor composes end to end, while cutting a region need not produce
+pieces that meet end to end, and the duality data are what repairs the mismatch
+[CR §2.2(v)].
 
-Freed, on the cobordism hypothesis: "A theory which extends in this way is
-fully local, and it is natural to make this strong locality hypothesis for the
-effective topological theory which comes from a gapped physical theory";
-and "the idea is that any n-manifold is glued together from balls, so that if
-the theory is fully local then its values can be reconstructed from those on a
-point" [Freed §2.1, §5, filed `140627`]. The cobordism hypothesis then says
-that fully local theories are classified by *fully dualizable* objects — so in
-the extended setting "local" and "dualizable" are the same word. TARGET: Lurie,
-*On the classification of topological field theories*, is not filed; the
-statement above is from Freed's summary plus general knowledge, and must not be
-cited from memory.
+### 1.3 What it says about time
 
-The project works with a non-extended, 1-categorical Bord_n, where only the
-first level of this survives: every slice must be dualizable (Result 0.1, the
-slice reduction, CR Thm 3.4). That is the shadow of full locality, and it is
-already enough to kill boxworld. Worth saying in the paper, and worth not
-overclaiming: the paper's dualizability is one level of a hierarchy whose top
-is "the theory is determined by a point".
+The two descriptions U and Ū are the same region of space; what differs is
+which side of the slice one stands on. A theory in which the two are unrelated
+would have to know, of each slice, which of its two sides is the past. The
+requirement says it need not: the theory can carry a slice from the end of a
+region to its beginning, at the price of exchanging the two descriptions.
 
-### 1.4 What it looks like inside the probabilistic theory
+So the process a region describes can begin with two systems and end with none:
+take the region that starts at the bottom of a slab, bends over and comes back
+down. Read by the clock it is **a pair appearing out of nothing and later
+annihilating**. The cup is the appearance, the cap the annihilation, and the
+snake says that a pair created and one member annihilated against an incoming
+system leaves that system untouched [T21, T22].
 
-The GPT-side translations, all of them already in the toolbox:
+### 1.4 What it costs a probabilistic theory
 
-- **Teleportation.** The snake identity read in a GPT is exact teleportation,
-  the cup a shared resource and the cap a joint effect [BBLW Thm 1, filed
-  `080523`; C8, R3; Result 0.3]. Barnum–Duncan–Wilce characterise compact
-  closure of a category of convex operational models "as a statement about the
-  existence of teleportation protocols, and as the principle that every process
-  allowed by that theory can be realized as an instance of a remote evaluation
-  protocol — hence, as a form of classical probabilistic conditioning"
-  [arXiv:1004.2920 abstract; **NOT FILED**, TARGET for triage].
-- **Conjugate systems.** Wilce's postulate is that each system can be paired
-  "with an isomorphic conjugate system by means of a non-signaling bipartite
-  state perfectly and uniformly correlating each basic measurement on A with
-  its counterpart on the conjugate system"; his gloss is that "a conjugate
-  system allows for the formation of records of the outcomes of measurements in
-  causally separated systems" [arXiv:1206.2897 abstract; **NOT FILED**].
-  That gloss is spacetime language already: a record is an imprint of an
-  outcome left in another region.
-- **The trade-off that makes it non-trivial.** A non-classical system needs
-  entangled states *and* entangled effects on its composite with its dual;
-  ⊗_max theories lack the second, ⊗_min theories the first (Result 0.6). So
-  dualizability is not free, and boxworld's failure is the Short–Barrett
-  trade-off (TARGET file).
+In a GPT the cup is a bipartite state and the cap a bipartite effect, and the
+snake identity is exactly the teleportation protocol: share the cup, measure
+the cap jointly with an unknown state, and the unknown state appears at the
+other end [BBLW Thm 1, filed `080523`; C8, R3; Result 0.3]. So:
 
-**The line for the paper.** Dualizability says a system can be moved through
-spacetime by local means — cut the region, hand the degrees of freedom to a
-conjugate system, reglue. A theory whose systems are not dualizable cannot be
-cut; its statistics depend on where you draw the slice; it cannot be the
-effective theory of any process in which a pair is created and annihilated.
-Boxworld is such a theory.
+> A theory that can be cut is a theory in which a system's state can be handed
+> from one region of space to the next without anything travelling in between.
 
-## Part 2. Unitarity, i.e. self-duality
+The cost is real, and the no-go is what shows it. A non-classical system needs
+entangled *states* and entangled *effects* on its composite with its dual;
+⊗_max theories have the first and not the second, ⊗_min theories the second and
+not the first [Result 0.6]. Boxworld is of the first kind: it has PR boxes and
+no annihilating effect. It can deliver across a slice and cannot receive. So
+boxworld cannot be cut, in any dimension — and it is worth saying in the paper
+that this is the failure, not "boxworld has no dualizable object".
 
-### 2.1 The two axioms are the two levels of duality, and they are independent
+The same argument in one further step: if the identity on a system factors
+through a separable pairing, the system is classical [Result 0.4, 0.5]. So the
+pairing across a slice is entangled or the theory on that slice is classical.
 
-Baez–Dolan, verbatim [filed `950305`]:
+---
 
-> "We have already seen two levels of duality in the definition of a unitary
-> TQFT. First, in nCob each object x is an oriented (n−1)-manifold, and its
-> dual x* is the same manifold with its orientation reversed. Second, each
-> morphism f : x → y is an oriented n-manifold with boundary, and its dual
-> f† : y → x is the same manifold with its orientation reversed. It is
-> important to note that the dual morphism f† : y → x is different from the
-> 'adjoint' morphism f* : y* → x* ... The notion of adjoint morphism is derived
-> from duality on objects, but the notion of dual morphism is conceptually
-> independent."
+## Part 2. Unitarity: a region can be read from either end
 
-So Pedro's observation that Bord is both compact and dagger is the statement
-that orientation reversal acts at two levels: on slices, giving duals
-(Part 1), and on bordisms, giving the dagger. **They are conceptually
-independent** — which is why the project's dimension-one and dimension-two
-results test different things, and why a theory can pass one and fail the other
-(OST: Result 3).
+### 2.1 The requirement
 
-A unitary TFT is then a functor with Z(f†) = Z(f)† [BD §2; Sawin Def 2, T11].
+A region of spacetime has two ends, and nothing intrinsic marks one of them as
+the beginning. Reading the region from its other end is a second, equally good
+description of the same piece of physics. Unitarity is the requirement that the
+theory contains both readings:
 
-### 2.2 Why a dagger on a GPT target is self-duality
+> The same region, read from either end, is a process of the theory, and the
+> two readings determine each other.
 
-By construction, as Pedro put it. A dagger sends a process f : A → B to a
-process f† : B → A between the *same* systems. The canonical reversal available
-in a GPT is the transpose f* : B^∨ → A^∨, which lands on the duals. So a target
-category of GPT systems admits a dagger only if each system is identified with
-its dual, A ≅ A^∨, by an order isomorphism carrying the state cone onto the
-effect cone: **self-duality**.
+In the bordism language this is the operation that swaps the two ends of a
+region while leaving its slices alone, and a unitary theory is one with
+Z(M read backwards) = Z(M)†, a dagger [BD §2, filed `950305`; Sawin Def 2;
+toolbox T28, T11].
 
-This is not a fresh claim inside the project; it is what the results already
-compute with. The Frobenius form of any GPT-valued 2d TFT "is a linear
-isomorphism of the state cone onto the effect cone" [Result 3, Lemma 2.1], and
-the OST obstruction is precisely a failure of that identification to be
-positive: "only strong self-duality escapes" [Result 3, Lemma 4.1]. What is new
-here is reading that computation as the *meaning* of the axiom rather than as a
-step in it.
+### 2.2 Why this is not the same requirement as Part 1
 
-Rigour, two points that must not be blurred:
+Both requirements are about reversal, and they are different reversals. Stated
+side by side:
 
-- **Weak versus strong.** Weak self-duality is an order isomorphism
-  V_A ≅ V_A^*; strong self-duality is that isomorphism given by an inner
-  product [glossary; SSC Def 4.6]. Barnum–Duncan–Wilce characterise dagger
-  compactness "in terms of the existence, for each system, of a symmetric
-  bipartite state, the associated conditioning map of which is an isomorphism"
-  [arXiv:1004.2920 abstract; **NOT FILED**] — more than weak self-duality, and
-  the symmetry of the state is the extra content. The project's results use the
-  strong version. Do not write "self-duality" without saying which.
-- **Not time symmetry.** A GPT has one deterministic effect and many
-  normalised states; terminality is time-asymmetric [`spacetime-axioms.md`;
-  Coecke C3]. Self-duality is a statement about the *cones*, and the dagger
-  sends the order unit u to a distinguished state — in the 2d results, the unit
-  of the Frobenius algebra, which is the handle's fixed point and, for OST,
-  forced to be a pole [Result 1.6, Result 3.6]. So "unitarity means the theory
-  has no arrow of time" is **wrong** and must not be written.
+| | what is exchanged | what stays fixed | price |
+|---|---|---|---|
+| **dualizability** | a slice moves from one end of the region to the other, and is exchanged for its opposite description | which end is the beginning | entangled state and effect (teleportation) |
+| **unitarity** | the two ends of the region are swapped | every slice keeps its description | states and effects are the same objects (self-duality) |
 
-### 2.3 The spacetime content: reflection positivity, with positivity for free
+Baez–Dolan say exactly this about the bordism side, and say it matters: the
+dual of an object is the slice with its orientation reversed, the dual of a
+morphism is the region read backwards, and "the notion of adjoint morphism is
+derived from duality on objects, but the notion of dual morphism is
+conceptually independent" [BD §2; T28].
 
-Freed–Hopkins [filed `160422`]:
+That independence is why the project's dimension-one and dimension-two tests
+are different tests, and why OST passes one and fails the other (Result 3).
 
-> "Three basic lessons we learned about reflection positivity: (i) 'reflection'
-> and 'positivity' are distinct; (ii) 'reflection' is a structure whereas
-> 'positivity' is a condition; and (iii) 'extended positivity' is a structure,
-> not a condition."
+### 2.3 Why it forces self-duality
 
-and
+This is the step Pedro called "by construction", and it is short.
 
-> "A reflection structure induces a hermitian metric on the vector space of
-> states attached to an (n−1)-manifold, and positivity is the condition that
-> these hermitian structures be positive definite. Analogous to reflection
-> positivity in Euclidean space we see that the partition function of the
-> double of a manifold with boundary must be positive in order that a
-> reflection structure be positive."
+- A process g of the theory takes states on the first slice to states on the
+  second. This is the reading forwards.
+- Read backwards, the same region takes **effects** on the second slice to
+  effects on the first: given a test to be performed at the end, it says which
+  test that amounts to at the beginning. This reading always exists in a GPT —
+  it is the transpose g^* — but it is a map between the *dual* systems, from
+  effects to effects.
+- Unitarity demands that the second reading be a process of the theory on the
+  *same* systems, so that both readings live in the same category. That is only
+  possible if each system is identified with its dual: an order isomorphism
+  carrying the state cone onto the effect cone.
 
-The physical content, which is standard and which FH state as the point of the
-paper: reflection positivity is Wick-rotated unitarity. A process glued to its
-own spacetime mirror image has a non-negative value, and that value is the norm
-of the state it prepares.
+That identification is **self-duality**. In words:
 
-Now translate to a GPT target. This is the project's own reading, and it is the
-one worth making the paper's:
+> A state and an effect are two descriptions of the same thing — what is
+> prepared on a slice, and what is tested for on that slice — and a theory that
+> can be read from either end must not distinguish them.
 
-> In Hilb, reflection is cheap and positivity is the condition. In a GPT it is
-> the other way round. The cones give positivity for nothing — a closed
-> spacetime is a morphism 1 → 1, a probability — so the "positivity" half of
-> reflection positivity is not a condition on the theory at all; it is built
-> into the target. What unitarity asks of a probabilistic theory is only the
-> *reflection structure*: that the mirror image of a physical process is again
-> a physical process, i.e. that states and effects are the same thing read in
-> the two time directions.
+Two things this does **not** say, and must not be written as saying:
 
-And because positivity is built into the target rather than imposed on the
-functor, it stops being a condition and becomes an *obstruction*: the loop
-weights of Result 0.7 (tr(g) ≥ 0 for every process on a dualizable system, which
-kills the gbit and the polygons) and the pants failure of Result 3.7 are exactly
-the double-of-a-manifold positivity of FH, evaluated in a theory whose scalars
-cannot be negative. That is a genuine structural difference between the GPT
-target and Hilb, and it is where the no-gos come from. UNVERIFIED as stated;
-what has to be checked is that every FH positivity condition is implied by cone
-positivity in the GPT target, not merely that the two smell alike.
+- **It is not reversibility of the dynamics.** Reading a region backwards gives
+  the transpose, not the inverse. In quantum theory the backwards reading of a
+  channel is its Heisenberg-picture adjoint, which is a positive map and
+  generally not a channel. Nothing here asks that a process can be undone.
+- **It is not the absence of an arrow of time.** A GPT has one deterministic
+  effect and many normalised states, and that asymmetry survives: the
+  identification sends the unit effect to one distinguished state, which in the
+  two-dimensional results is the unit of the Frobenius algebra [Result 1.6, and
+  for OST forced to be a pole, Result 3.6]. Self-duality is a statement about
+  the cones, not about normalisation.
 
-### 2.4 What the GPT literature already offers as a meaning for self-duality
+### 2.4 It is what the results already compute with
 
-Three readings, of which the first is filed:
+The reading is not decoration; it is what the two-dimensional results do.
 
-- **Reversible dynamics.** Bit symmetry — every logical bit can be mapped to
-  any other by a reversible transformation — implies self-duality
-  [Müller–Ududec, filed `111016`; X-labels in `gpt-axioms.md`]. Reading: the
-  dynamics does not distinguish one degree of freedom from another. That is
-  close to what "the same law everywhere" means for a field theory, and it is
-  the most field-theoretic justification of self-duality available. UNVERIFIED
-  as an interpretation; the theorem is theirs, the gloss is ours.
-- **Conjugates and filters.** Sharpness, a conjugate system and reversible
-  filters give homogeneity and self-duality [Wilce, arXiv:1206.2897; **NOT
-  FILED**]; ensemble steering gives homogeneity [Barnum–Gaebler–Wilce,
-  arXiv:0912.5532; **NOT FILED**].
-- **The honest state of the art.** Tull opens *Deriving Dagger Compactness*
-  with "Dagger compact structure is a common assumption in the study of
-  physical process theories, but lacks a clear interpretation", and derives it
-  from completely mixed states and purification [arXiv:1907.05172; **NOT
-  FILED**]. So the gap this entry is trying to fill is a known one, and the
-  answers on offer are information-theoretic. A *spacetime* interpretation —
-  unitarity as the reflection structure, positivity supplied by the cones —
-  would be new. TODO Pedro: is that a claim the paper wants to make?
+- The Frobenius form of any GPT-valued 2d TFT "is a linear isomorphism of the
+  state cone onto the effect cone" [Result 3, Lemma 2.1]. The form *is* the
+  identification of states with effects, so the 2d test is a test of
+  self-duality, and every theory that passes exhibits one.
+- Quantum theory passes, and the identification it exhibits is the familiar one,
+  the trace pairing on Hermitian matrices [Result 1.7].
+- OST fails, and the reason is now a sentence of physics rather than a
+  calculation: its states and its effects are the same shape, two octahedra, but
+  **misaligned** — the effect cone is the state cone rotated. There is no
+  alignment of the two that stays positive; any nonzero offset between the
+  state and effect frames produces a negative entry, and "only strong
+  self-duality escapes" [Result 3, Lemma 4.1, and 3.7, 3.8].
+
+So the interpretation and the results say the same thing twice: the theory must
+have one notion of what is on a slice, and OST has two that do not line up.
+
+### 2.5 The positivity that comes for free
+
+One structural remark, worth a line in the paper and no more. The TFT
+literature imposes positivity by hand on top of the reversal, because its
+target has no positivity of its own. A GPT target has: a closed spacetime is a
+process from nothing to nothing, a probability, which cannot be negative. So in
+this setting positivity is not a condition imposed on the theory — it is a
+property of the target, and it therefore turns into an **obstruction**. That is
+literally where the no-gos come from: the loop weights of Result 0.7
+(tr(g) ≥ 0 for every process on a dualizable system, which kills the gbit and
+the polygons) and the negative multiple of a state in the OST pants [Result
+3.7] are both "a probability came out negative".
+
+UNVERIFIED as stated: what has to be checked is that the positivity conditions
+the literature imposes are implied by cone positivity in a GPT target, rather
+than merely resembling it.
+
+---
+
+## Left out on purpose
+
+Recorded so that the choice is visible, not because the argument needs them.
+Pedro, 2026-09-11: the Euclidean route is not a detour the paper should take.
+
+- **Reflection positivity.** The standard name for unitarity in this setting is
+  reflection positivity, Wick-rotated unitarity, and Freed–Hopkins' framing is
+  that "'reflection' is a structure whereas 'positivity' is a condition"
+  [filed `160422`; toolbox T30]. §2.1 and §2.5 above say the same two things —
+  the reversal is structure, the positivity is the target's — without
+  Euclidean time. Keep the quote in the toolbox; keep it out of the draft.
+- **The cobordism hypothesis.** "Fully local" theories are classified by fully
+  dualisable objects, so at the top of that hierarchy locality and
+  dualizability are the same word [Freed's summary, filed `140627`; T29]. It
+  would strengthen §1.2 and it needs Lurie filed and an extended bordism
+  category the project does not use. Not needed: CR Lemma 2.4 already makes
+  §1.2 a theorem in the 1-categorical setting the paper works in.
+- **Feynman–Stückelberg.** The bend of §1.3 is the familiar reading of a
+  worldline that turns around in time. No filed source states it, T21 already
+  flags the wording as unverified folklore, and §1.3 does not need the name.
 
 ## If we had a solution, what would it look like
 
-Two paragraphs of the introduction, one per axiom, each stating the axiom in
-spacetime terms before any formalism, and each landing on a result:
+Two paragraphs of the introduction, one per requirement, each stated in the
+terms above before any formalism and each landing on a result:
 
-1. A region of spacetime can be cut anywhere and reassembled ⇒ every slice
-   carries a dualizable system ⇒ boxworld and every ⊗_min/⊗_max theory with a
+1. A region of spacetime can be cut anywhere and reglued ⇒ the system on every
+   slice is dualizable ⇒ boxworld and every ⊗_min/⊗_max theory with a
    non-classical system are excluded (Result 0).
-2. The mirror image in time of a physical process is a physical process ⇒ the
-   theory's systems are self-dual ⇒ quantum and real quantum theory survive
-   (Results 1, 2) and OST does not (Result 3).
+2. A region can be read from either end ⇒ states and effects are the same
+   objects ⇒ quantum and real quantum theory survive (Results 1, 2) and OST,
+   whose states and effects are misaligned, does not (Result 3).
 
 ## Uncertainties
 
-- Whether B4's "distributed over space" should be "spacetime". Part 1 is about
-  cutting *spacetime*; the phrase "distributed over space" is the kinematic
-  half. TODO Pedro (also logged in `sources/decisions.md`, 2026-09-11).
-- Whether dualizability should be motivated by cutting-and-gluing (1.1, fully
-  supported by CR, no extended machinery) or by the cobordism hypothesis (1.3,
-  stronger and more quotable, but needs Lurie filed and an extended Bord the
-  project does not use).
 - Whether unitarity is an axiom or a consequence. If self-duality can be
-  derived inside the programme from something more primitive (bit symmetry;
-  reversible dynamics on a lattice of regions), the paper should derive it
-  rather than assume it. The DECISION owed in `results-structure.md` is really
-  this question.
-- 2.3's claim that cone positivity supplies FH's positivity. Stated, not
-  checked.
+  derived in the programme from something more primitive, the paper should
+  derive it rather than assume it. The DECISION owed in `results-structure.md`
+  is really this question. One filed result is relevant: bit symmetry — every
+  logical bit can be mapped to any other by a reversible transformation —
+  implies self-duality [Müller–Ududec, filed `111016`]. Its reading, that the
+  dynamics does not distinguish one degree of freedom from another, is close to
+  what "the same law everywhere" means for a theory distributed over space.
+  UNVERIFIED as an interpretation; the theorem is theirs.
+- Weak versus strong self-duality. Weak is an order isomorphism V_A ≅ V_A^*;
+  strong is that isomorphism given by an inner product [glossary]. §2.3 as
+  written gives the weak version; the results use the strong one [Result 3,
+  Lemma 4.1]. The gap has to be closed before the paragraph is written.
+- §2.5's claim that cone positivity supplies the positivity the literature
+  imposes. Stated, not checked.
+- Whether §1.2's three sentences are the right level of detail for the
+  introduction or belong in the results section with the formalism.
 
 ## Sketch of a plan
 
-1. Triage the five unfiled works named above: Lurie (classification of TFTs),
-   Barnum–Duncan–Wilce 1004.2920, Wilce 1206.2897, Barnum–Gaebler–Wilce
-   0912.5532, Tull 1907.05172. Atiyah 1988 for the hermitian axiom if the paper
-   quotes the original definition of unitary TQFT.
-2. Distil 1.1 and 2.1 into toolbox statements (done as T27–T30, see below) and
-   check the CR and BD quotations against the PDFs before any of them enters
-   the draft.
-3. Write the two paragraphs above as candidate B8 prose in
+1. Write the two paragraphs as candidate B8 prose in
    `syntheses/narratives/intro-narrative.md`, not in `draft.tex`.
+2. Check the CR and BD quotations against the PDFs before either enters the
+   draft.
+3. Triage, in order of use: Barnum–Duncan–Wilce arXiv:1004.2920 (compact
+   closure ⇔ teleportation and remote evaluation, for §1.4; dagger compactness
+   ⇔ a symmetric bipartite state whose conditioning map is an isomorphism, for
+   §2.3), then Tull arXiv:1907.05172, which states that dagger compactness
+   "lacks a clear interpretation" and derives it from completely mixed states
+   and purification — it fixes what is new in the reading above. Both are
+   listed in `syntheses/literature-map.md`, quoted from abstracts only, NOT
+   FILED.
 
 ## Open questions and disagreements
 
-None recorded yet; the entry was written in one sitting from Pedro's framing of
-2026-09-11 and has not been argued over.
+None recorded. The entry was written from Pedro's framing of 2026-09-11 and
+rewritten the same day on his instruction to drop the Euclidean route and the
+outside concepts.
 
 ## Judgement
 
@@ -338,16 +335,15 @@ For Pedro. Not filled by the agent.
 
 ## Sources
 
-Filed and quoted: `950305` Baez–Dolan (two levels of duality; unitary TQFT);
-`170516` Carqueville–Runkel (Lemma 2.4, cutting and gluing); `140627` Freed
-(full locality, reconstruction from a point); `160422` Freed–Hopkins (the twin
-pillars; reflection a structure, positivity a condition); `111016`
-Müller–Ududec (bit symmetry ⇒ self-duality); `080523` Barnum–Barrett–Leifer–
-Wilce (teleportation).
+Filed and quoted: `170516` Carqueville–Runkel (Lemma 2.4, cutting and gluing;
+T27); `950305` Baez–Dolan (the two reversals, and their independence; T28);
+`080523` Barnum–Barrett–Leifer–Wilce (teleportation); `111016` Müller–Ududec
+(bit symmetry ⇒ self-duality). Filed, kept out of the argument on purpose:
+`160422` Freed–Hopkins (T30), `140627` Freed (T29).
 
-Not filed, quoted from abstracts only and marked as such in the text:
-arXiv:1004.2920, arXiv:1206.2897, arXiv:0912.5532, arXiv:1907.05172, Lurie.
+Not filed, quoted from abstracts only and marked in the text: arXiv:1004.2920,
+arXiv:1206.2897, arXiv:0912.5532, arXiv:1907.05172, Lurie.
 
 Project: `paper/results-structure.md` (Results 0–3), `paper/draft.tex` (B3, B4),
-`syntheses/toolbox/` (T3, T5, T11, T21, T22, T25, C8, R3, R5),
+`syntheses/toolbox/` (T1, T2, T7, T21, T22, T27, T28, C8, R3),
 `conventions/domain/standing-assumptions.md` (A5, A6).

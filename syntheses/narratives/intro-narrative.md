@@ -99,8 +99,8 @@ with no comment.
 
 - `\tmp{[cite]}` in B1+B2 after "remained elusive".
 - Approval of the new B4 opening, now including the question.
-- "Space" or "spacetime" in the question. The draft says "space", Pedro's
-  wording; the programme is about bordisms, hence spacetime. TODO Pedro.
+- "Space" in the question is settled (Pedro, 2026-09-11): the degrees of
+  freedom are distributed over space, and then evolve in time.
 - B6, Warning, B7, B8, B9, title, abstract.
 - Spelling consistency (`conventions/domain/notation.md`).
 - Citation checks pending for every live citation

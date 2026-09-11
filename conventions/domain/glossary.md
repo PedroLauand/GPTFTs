@@ -68,8 +68,9 @@ distributed over space?" [B4, drafted 2026-09-11 on Pedro's instruction]. It
 replaces the earlier and broader "are there other physical principles that
 spacetime compatibility requires from any probabilistic theory?", which closed
 the approved B3 until 2026-09-11 and is kept commented in the draft. Still to
-be restated in B8 in a form that mirrors no-signalling. Open: "space" or
-"spacetime".
+be restated in B8 in a form that mirrors no-signalling. "Space", not
+"spacetime", is deliberate (Pedro, 2026-09-11): the degrees of freedom are
+distributed over space, and then evolve in time.
 
 **beat.** The unit the introduction is written in: one paragraph with one job,
 labelled `% B<n>` in the draft, drafted, then approved by Pedro on a recorded

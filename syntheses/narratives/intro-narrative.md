@@ -19,8 +19,8 @@ and log the change in `sources/decisions.md`.
 |---|---|---|---|
 | B1+B2 | operational stance; GPTs as the framework; quantum theory one among many | approved 2026-08-31 | Barrett2007, Muller2021, Plavala2023; Hardy2001, CDP2011, MasanesMuller2011. One `\tmp{[cite]}` open |
 | B2b | reconstructions; special relativity as role model; Hardy, then CDP and Masanes–Müller | approved 2026-08-31 (grammar-only fixes) | Hardy2001, CDP2011, MasanesMuller2011 |
-| B3 | no-signalling the most famous principle; weakest, compatible with SR; commuting operations | approved 2026-09-01; closing question retired 2026-09-11 | PopescuRohrlich1994, Gisin2020, Barrett2007 |
-| B4 (new) | no-signalling as the kinematical picture; **the question** | drafted 2026-09-01, question added and locality-of-action sentence removed 2026-09-11, awaiting approval | none live; Einstein1948 now only in comments |
+| B3 | no-signalling the most famous principle; weakest, compatible with SR; commuting operations; **the question** | approved 2026-09-01, closing question replaced 2026-09-11 (drafted) | PopescuRohrlich1994, Gisin2020, Barrett2007 |
+| B4 (new) | no-signalling as the kinematical picture | drafted 2026-09-01; locality-of-action sentence removed 2026-09-11, awaiting approval | none live; Einstein1948 now only in comments |
 | B4 (old) | modern spacetime physics; fields; RG genericity; two premises mirroring AQFT | retired 2026-09-01, kept commented | Einstein1948; WilsonKogut1974, Wilson1975, WeinbergEFT, Polchinski1992; StreaterWightman, HaagSchroer1962, FewsterRejzner2019; Barrett2007 |
 | B5 | — | no such beat; numbering runs B4 → B6 | — |
 | B6 | reconceptualisation: continuity and the RG justify a field-theory description | placeholder | bib group B6 ready, uncited |
@@ -58,20 +58,20 @@ principles."
 sense of being compatible with special relativity"; formulated as "operations
 on separate systems commute"; guarantees that spacelike separated devices have
 correlations respecting relativistic causality; hence "the compatibility of
-relativistic causality with the operational theory". Ended, until 2026-09-11,
-on the question "are there other physical principles that spacetime
-compatibility requires from any probabilistic theory?"; that sentence is now
-commented out above B4, and the question is asked in B4 instead (decision of
-2026-09-11).
+relativistic causality with the operational theory". Ends on the programme's
+question, in Pedro's words of 2026-09-11: "This suggests a more precise
+question: what does a probabilistic theory require in order to be distributed
+over space?" It replaced "are there other physical principles that spacetime
+compatibility requires from any probabilistic theory?", which is kept commented
+above the block. The question was briefly placed at the end of B4 the same day
+and moved back here, so that it follows the compatibility sentence directly.
 
 **B4, new opening (drafted; locality of action removed 2026-09-11).** No-signalling "considers the kinematical
 picture of relativity": systems are points of spacetime and spacelike
 separated points cannot instantaneously influence each other's statistics.
 "The only feature of spacetime this invokes is the causal relation between a
-pair of points." Then the programme's question, in Pedro's words of
-2026-09-11: "what does a probabilistic theory require in order to be
-distributed over space?" The beat ends there. The locality-of-action
-sentence ("between points that *are* causally connected, influences propagate
+pair of points." The beat ends there. The question is now at the end of B3,
+not here. The locality-of-action sentence ("between points that *are* causally connected, influences propagate
 locally through spacetime, by a dynamical law", Einstein1948) was removed on
 2026-09-11 and kept commented; the premise itself stands (A5), it is simply no
 longer introduced here. What now answers the question is owed to the later

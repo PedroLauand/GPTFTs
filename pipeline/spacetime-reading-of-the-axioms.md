@@ -3,7 +3,7 @@ status: workup           # entry | workup | proposed | project
 created: 2026-09-11
 entered-by: agent, on Pedro's instruction (session of 2026-09-11)
 last-reviewed: 2026-09-11
-feeds: B4, B7, B8, B9
+feeds: B3, B7, B8, B9
 machine-written: true
 ---
 
@@ -12,7 +12,7 @@ machine-written: true
 ## The paragraph
 
 The programme's question is "what does a probabilistic theory require in order
-to be distributed over space?" [B4, drafted 2026-09-11]. The results so far
+to be distributed over space?" [B3, drafted 2026-09-11]. The results so far
 answer it with two requirements, and both entered as technical conditions
 rather than as physics: **dualizability** of every system (dimension one;
 Result 0) and **unitarity** of the theory, which for a GPT target is

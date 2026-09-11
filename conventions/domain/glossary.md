@@ -66,7 +66,8 @@ theory, with the Atiyah–Segal axioms as its skeleton. In the draft only the
 title and the B7 placeholder refer to it. [title, B7]
 
 **the question.** "What does a probabilistic theory require in order to be
-distributed over space?" [B4, drafted 2026-09-11 on Pedro's instruction]. It
+distributed over space?" [B3, closing sentence, drafted 2026-09-11 on Pedro's
+instruction]. It
 replaces the earlier and broader "are there other physical principles that
 spacetime compatibility requires from any probabilistic theory?", which closed
 the approved B3 until 2026-09-11 and is kept commented in the draft. Still to

@@ -41,7 +41,9 @@ the causal relation between a pair of points. [B4 new]
 
 **locality of action.** Between points that are causally connected, influences
 propagate locally through spacetime, by a dynamical law (Einstein1948). The
-feature of spacetime physics no-signalling does not use. [B4 new]
+feature of spacetime physics no-signalling does not use. [B4 new until
+2026-09-11, when the sentence was removed from the draft and kept commented;
+the premise stands as standing assumption A5 and has no beat of its own yet]
 
 **causal development.** The region to which a local dynamical law propagates
 the degrees of freedom on a given region. [retired]

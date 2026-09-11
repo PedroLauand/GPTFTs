@@ -63,9 +63,13 @@ planned as B6]
 theory, with the Atiyah–Segal axioms as its skeleton. In the draft only the
 title and the B7 placeholder refer to it. [title, B7]
 
-**the question.** "Are there other physical principles that spacetime
-compatibility requires from any probabilistic theory?" [B3]. To be restated in
-B8 in a form that mirrors no-signalling.
+**the question.** "What does a probabilistic theory require in order to be
+distributed over space?" [B4, drafted 2026-09-11 on Pedro's instruction]. It
+replaces the earlier and broader "are there other physical principles that
+spacetime compatibility requires from any probabilistic theory?", which closed
+the approved B3 until 2026-09-11 and is kept commented in the draft. Still to
+be restated in B8 in a form that mirrors no-signalling. Open: "space" or
+"spacetime".
 
 **beat.** The unit the introduction is written in: one paragraph with one job,
 labelled `% B<n>` in the draft, drafted, then approved by Pedro on a recorded

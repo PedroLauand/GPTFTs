@@ -112,8 +112,17 @@ For Pedro. Not filled by the agent.
 
 **What would make us less uncertain?**
 
+## What has happened since (2026-09-11)
+
+The question this entry serves was restated, more precisely, as "what does a
+probabilistic theory require in order to be distributed over space?" [B4,
+drafted 2026-09-11]. The candidate formalisation below survived: the results
+are about symmetric monoidal functors Bord_d → (GPT, ⊗). The two conditions it
+turns on, dualizability and unitarity, now have their own entry,
+`spacetime-reading-of-the-axioms.md`, which asks what each means as physics.
+
 ## Sources
 
 - `paper/draft.tex`: B3 (approved 2026-09-01), new B4 opening (drafted
-  2026-09-01), retired B4 paragraph, title.
+  2026-09-01, question added 2026-09-11), retired B4 paragraph, title.
 - Nothing filed in `sources/` yet.

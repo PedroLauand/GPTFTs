@@ -196,3 +196,19 @@ they were filed (table above) and the toolbox cites them directly. None has
 entered the bib: a work enters the bib through distillation when a sentence
 needs it. REORG-PLAN's proposed bibliography additions are recorded as project
 result R16.
+
+## Wanted, not filed (added 2026-09-11)
+
+Named in `pipeline/spacetime-reading-of-the-axioms.md` and quoted there from
+abstracts only, marked NOT FILED in the text. Triage targets, in the order the
+entry needs them.
+
+| work | why it is wanted |
+|---|---|
+| Lurie, *On the classification of topological field theories* | the cobordism hypothesis: fully local ⇔ fully dualisable. Freed's summary is filed (T29); the statement itself must not be cited from memory |
+| Barnum–Duncan–Wilce, arXiv:1004.2920 | compact closure of categories of convex operational models ⇔ teleportation / remote evaluation; dagger compactness ⇔ a symmetric bipartite state whose conditioning map is an isomorphism. The closest thing in the literature to the project's Part 2 |
+| Wilce, arXiv:1206.2897 (*Conjugates, Filters and Quantum Mechanics*) | conjugate system plus correlator plus filters ⇒ homogeneous and self-dual; the "records in causally separated systems" gloss |
+| Barnum–Gaebler–Wilce, arXiv:0912.5532 | ensemble steering ⇒ homogeneity; weak self-duality |
+| Tull, arXiv:1907.05172 (*Deriving Dagger Compactness*) | states that dagger compactness "lacks a clear interpretation" and derives it from completely mixed states and purification; fixes what is new in a spacetime reading |
+| Atiyah 1988 | the original hermitian axiom, if the draft quotes the definition of a unitary TQFT rather than Sawin's |
+| Short–Barrett, arXiv:0909.2601 | already owed for Result 0.6 |

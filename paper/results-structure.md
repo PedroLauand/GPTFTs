@@ -213,7 +213,10 @@ tomography; Result 2 shows why (the rebit).
 
 1. Pedro: wording of the principle; review of Theorem B (0.7) and of the
    boxworld line; the unitarity DECISION; the process-definition DECISION when
-   local tomography fails (2.1) or effects are restricted (3.1).
+   local tomography fails (2.1) or effects are restricted (3.1). What
+   dualizability and unitarity mean in spacetime, and hence what the unitarity
+   DECISION is deciding, is worked up in
+   `pipeline/spacetime-reading-of-the-axioms.md` (2026-09-11).
 2. Filing: Short–Barrett 0909.2601; Schneider 1965 and its real analogue;
    Wootters 1990 / Hardy–Wootters 2012; the real C*-algebra classification.
 3. Proofs: hand proof of the LP step (3.4); the LP-in-T computation (3.9); the

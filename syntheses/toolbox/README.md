@@ -15,7 +15,7 @@ draft.
 | `gpt-examples.md` | classical, quantum, real, quaternionic, balls, Jordan algebras, boxworld, polygons, Spekkens toy, OST, Dmello–Gross families, density hypercubes, nearly quantum composites; a table of which axioms hold where | E1–E13 |
 | `example-ost.md` | oblate stabilizer theory in full: ambient space, cones, twisted Bell generators (eight, not sixteen), processes, effects as completely positive functionals, teleportation data, pure-state regions, admissible Frobenius forms | O1–O13 |
 | `conditions-catalogue.md` | the reconstruction axiom lists (Hardy, CDP, Masanes–Müller, Müller) and a checklist for a locality-of-action principle | A–E |
-| `tft-framework.md` | bordism categories, TFTs as functors, Atiyah–Segal data, 1d and 2d classifications, target change | T1–T10 |
+| `tft-framework.md` | bordism categories, TFTs as functors, Atiyah–Segal data, 1d and 2d classifications, target change; locality and unitarity as the sources state them | T1–T10, T27–T30 |
 | `tft-unitary-2d.md` | unitary TFTs, C*-Frobenius algebras, direct-sum decomposition, Durhuus–Jonsson classification, semisimple = functions on a finite set, orthonormal bases as Frobenius algebras, the bridge to GPT frames, unoriented variant | T11–T20 |
 | `tft-1d-readings.md` | what 1d TFTs describe: birth and death, the slice picture, gapped phases, SPT phases in one spatial dimension, reflection positivity, defects; dimension conventions | T21–T26 |
 | `spacetime-axioms.md` | the AQFT axioms against the two premises of standing assumption A6; commutation is not independence | — |

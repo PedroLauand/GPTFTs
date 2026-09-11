@@ -1,8 +1,11 @@
 ---
 status: draft
-last-reviewed: 2026-09-04
+last-reviewed: 2026-09-11
 sources:
   - sources/papers/170516 - introductory lectures on topological quantum field theory/paper.md
+  - sources/papers/950305 - higher-dimensional algebra and tqft/paper.md
+  - sources/papers/140627 - short-range entanglement and invertible field theories/paper.md
+  - sources/papers/160422 - reflection positivity and invertible topological phases/paper.md
   - paper/draft.tex
 machine-written: true
 ---
@@ -105,3 +108,54 @@ treated in CR. Not fixed for this project.
   orientation reversal. For a GPT target this becomes a constraint on the state
   cones, which is presumably where B9's results live. UNVERIFIED; the draft says
   nothing yet.
+
+## Locality and unitarity as the sources state them (added 2026-09-11)
+
+Continues the T-labels; these four are what
+`pipeline/spacetime-reading-of-the-axioms.md` rests on.
+
+**T27. Cutting and gluing is exactly the duality data** [CR Lemma 2.4]. Let Y
+assign a vector space Y(E) to each object of Bord_n, a linear map k → Y(E) to
+each bordism M : ∅ → E, and isomorphisms Y(E ⊔ F) ≅ Y(E) ⊗ Y(F). Then Y extends
+to a symmetric monoidal functor Bord_n → Vect_k if and only if (a)
+Y(E × [0,1]) ∈ Y(E) ⊗ Y(Ē) is a nondegenerate copairing, giving a unique dual
+pairing d_E : Y(Ē) ⊗ Y(E) → k, and (b) for U a closed oriented (n−1)-manifold
+embedded in M, with M′ : ∅ → E ⊔ U ⊔ Ū obtained by cutting M along U, Y(M) is
+Y(M′) followed by contraction with d_U (and a disjointness clause). CR's own
+remark [§2.2(v)]: the gluing law of a functor composes disjoint manifolds, while
+cutting a bordism need not produce disjoint pieces; the duality data repair the
+mismatch.
+
+**T28. Two levels of duality in nCob, conceptually independent** [BD §2].
+"In nCob each object x is an oriented (n−1)-manifold, and its dual x* is the
+same manifold with its orientation reversed. Second, each morphism f : x → y is
+an oriented n-manifold with boundary, and its dual f† : y → x is the same
+manifold with its orientation reversed." The adjoint f* : y* → x* is derived
+from duality on objects; the dual morphism f† is "conceptually independent". A
+unitary TQFT is a rigid symmetric monoidal functor to Hilb with Z(f†) = Z(f)†
+[BD §2; compare Sawin Def 2, T11]. So compactness and the dagger of Bord are
+two separate structures, matching the project's dimension-one and
+dimension-two conditions.
+
+**T29. Full locality and reconstruction from a point** [Freed §2.1, §5].
+"A theory which extends in this way is fully local, and it is natural to make
+this strong locality hypothesis for the effective topological theory which
+comes from a gapped physical theory." On the cobordism hypothesis: "the idea is
+that any n-manifold is glued together from balls, so that if the theory is
+fully local then its values can be reconstructed from those on a point." The
+classification of fully local theories by fully dualisable objects is Lurie's;
+Lurie is NOT FILED and must not be cited from memory.
+
+**T30. Reflection positivity: what is structure and what is condition**
+[FH §1]. "The twin pillars of quantum field theory are locality and unitarity.
+These fundamental properties persist after Wick rotation: locality manifests as
+factorization laws for correlation functions and unitarity manifests as
+reflection positivity. Locality is encoded in the Axiom System using composition
+of morphisms: gluing bordisms along codimension one submanifolds." And: "(i)
+'reflection' and 'positivity' are distinct; (ii) 'reflection' is a structure
+whereas 'positivity' is a condition"; a reflection structure is equivariance
+data for the orientation-reversal involution, it "induces a hermitian metric on
+the vector space of states attached to an (n−1)-manifold, and positivity is the
+condition that these hermitian structures be positive definite"; equivalently
+"the partition function of the double of a manifold with boundary must be
+positive". Extends T25.

@@ -210,6 +210,16 @@ Two things this does **not** say, and must not be written as saying:
   for OST forced to be a pole, Result 3.6]. Self-duality is a statement about
   the cones, not about normalisation.
 
+And one thing to say precisely (checked 2026-09-11). The identification is a
+**symmetric** order isomorphism of the state cone onto the **effect** cone. It
+is not an inner product — quantum theory's own 2d form is tr(XYᵀ), of signature
+(3, 1) for the qubit — and it is not "weak self-duality" in the glossary's
+sense either, which compares the state cone with its *dual*, larger than the
+effect cone when effects are restricted. Strong self-duality, a positive
+definite form, is what the 2d *positivity* forces, not what unitarity assumes.
+The three conditions and what turns on the difference:
+`pipeline/tsirelson-from-self-duality-and-swapping.md` §1.
+
 ### 2.4 It is what the results already compute with
 
 The reading is not decoration; it is what the two-dimensional results do.
@@ -218,8 +228,11 @@ The reading is not decoration; it is what the two-dimensional results do.
   state cone onto the effect cone" [Result 3, Lemma 2.1]. The form *is* the
   identification of states with effects, so the 2d test is a test of
   self-duality, and every theory that passes exhibits one.
-- Quantum theory passes, and the identification it exhibits is the familiar one,
-  the trace pairing on Hermitian matrices [Result 1.7].
+- Quantum theory passes, and the identification it exhibits is the trace
+  pairing twisted by transposition, β_Q(X, Y) = tr(XYᵀ) — symmetric, an
+  isomorphism of the cones, and **indefinite**, of signature (3, 1) for the
+  qubit [Result 1.7]. Not the Hilbert–Schmidt inner product, which is the
+  theory's own strong self-duality and a different form.
 - OST fails, and the reason is now a sentence of physics rather than a
   calculation: its states and its effects are the same shape, two octahedra, but
   **misaligned** — the effect cone is the state cone rotated. There is no
@@ -293,10 +306,12 @@ terms above before any formalism and each landing on a result:
   dynamics does not distinguish one degree of freedom from another, is close to
   what "the same law everywhere" means for a theory distributed over space.
   UNVERIFIED as an interpretation; the theorem is theirs.
-- Weak versus strong self-duality. Weak is an order isomorphism V_A ≅ V_A^*;
-  strong is that isomorphism given by an inner product [glossary]. §2.3 as
-  written gives the weak version; the results use the strong one [Result 3,
-  Lemma 4.1]. The gap has to be closed before the paragraph is written.
+- Weak versus strong self-duality: settled 2026-09-11 (§2.3 and
+  `tsirelson-from-self-duality-and-swapping.md` §1). Unitarity gives a
+  symmetric cone isomorphism; strong self-duality is what the 2d positivity
+  forces, proved only in the equatorial family [Result 3, Lemma 4.1]. Proving
+  it in general is the open step, and it is also what would give Tsirelson's
+  bound for theories stable under entanglement swapping.
 - §2.5's claim that cone positivity supplies the positivity the literature
   imposes. Stated, not checked.
 - Whether §1.2's three sentences are the right level of detail for the

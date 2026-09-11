@@ -252,4 +252,13 @@ both failing the copants LP by 0.3–1.3. Consistent with a no-go; not a proof.
    R⁴ with a negative weight is in scope.
 4. The Dmello–Gross families T_H(a): does the obstruction track the CHSH value
    above Tsirelson's bound, or the offset between the frames (Lemma 4.1)?
+   Answered in outline 2026-09-11,
+   `pipeline/tsirelson-from-self-duality-and-swapping.md`: they are the same
+   thing. In DG's normal form CHSH = 4a and the frame radius is r² = √2 a, so
+   Tsirelson is r = 1 and OST is r = 2^{1/4}, its own stretch; strong
+   self-duality forces r ≤ 1 in three lines, and Lemma 4.1 is the statement
+   that the pants forces strong self-duality. OST and quantum theory are the
+   same family (K₄, Pauli corrections) at a = 1 and a = 1/√2. Next
+   computation: run §5.1's LP on T_{K₄}(a) across a and find where the cut
+   sits.
 5. Interpretation: Pedro.

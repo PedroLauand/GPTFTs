@@ -59,9 +59,12 @@ sense of being compatible with special relativity"; formulated as "operations
 on separate systems commute"; guarantees that spacelike separated devices have
 correlations respecting relativistic causality; hence "the compatibility of
 relativistic causality with the operational theory". Ends on the programme's
-question, in Pedro's words of 2026-09-11: "This suggests a more precise
-question: what does a probabilistic theory require in order to be distributed
-over space?" It replaced "are there other physical principles that spacetime
+question: "This reasoning then suggests a natural question: what does a
+probabilistic theory require in order to be distributed over space?" The
+lead-in is the approved one of 2026-09-01 and only the question changed;
+"a more precise question" was tried and rejected (Pedro, 2026-09-11), because
+the new question is orthogonal to no-signalling rather than a refinement of it.
+It replaced "are there other physical principles that spacetime
 compatibility requires from any probabilistic theory?", which is kept commented
 above the block. The question was briefly placed at the end of B4 the same day
 and moved back here, so that it follows the compatibility sentence directly.

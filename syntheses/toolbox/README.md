@@ -10,7 +10,7 @@ draft.
 | file | what it holds | labels |
 |---|---|---|
 | `gpt-framework.md` | systems, effects, duality, channels, composites, min/max tensor cones, entangleability, no-broadcasting, the three standard examples, translation table | G1–G21 |
-| `categorical-gpts.md` | the category GPT, composites, terminality, cups and caps, dualisable objects, teleportation, dagger, purification, classical interface, Jordan-algebraic categories, entanglement-swapping theories, GPT versus Vec | C1–C14 |
+| `categorical-gpts.md` | the category GPT, composites, terminality, cups and caps, dualisable objects, teleportation, dagger, purification, classical interface, Jordan-algebraic categories, entanglement-swapping theories, GPT versus Vec; COMs with restricted effects, remote evaluation, weakly/symmetrically self-dual categories, canonical adjoint, isomorphism states and steering, conjugate systems, state daggers | C1–C21 |
 | `gpt-axioms.md` | the structural axioms of the GPT literature: self-duality (weak, strong), homogeneity, frames, spectrality, strong symmetry, bit symmetry, higher-order interference, the diagrammatic postulates, teleportation, entangleability; an implications list | X1–X22 |
 | `gpt-examples.md` | classical, quantum, real, quaternionic, balls, Jordan algebras, boxworld, polygons, Spekkens toy, OST, Dmello–Gross families, density hypercubes, nearly quantum composites; a table of which axioms hold where | E1–E13 |
 | `example-ost.md` | oblate stabilizer theory in full: ambient space, cones, twisted Bell generators (eight, not sixteen), processes, effects as completely positive functionals, teleportation data, pure-state regions, admissible Frobenius forms | O1–O13 |

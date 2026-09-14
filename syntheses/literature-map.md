@@ -1,6 +1,6 @@
 ---
 status: draft
-last-reviewed: 2026-09-07
+last-reviewed: 2026-09-14
 sources:
   - paper/draft.tex
   - paper/draft.bib
@@ -153,6 +153,10 @@ only when a sentence of the draft needs it.
 | Dmello, Gross, "Probabilistic theories stable under teleportation", 2603.21347 | teleportation stability; the T_H(a) families | `260322 - probabilistic theories stable under teleportation` |
 | Selinger, "Dagger compact closed categories and completely positive maps", ENTCS 170 (2007); filed as the QPL 2005 preliminary version | the CPM construction and doubling functor; categorical Choi | `050000 - dagger compact closed categories and completely positive maps` |
 | Coecke, Heunen, Kissinger, "Categories of quantum and classical channels", 1305.3821 | the CP* construction; †-Frobenius algebras in FHilb are C*-algebras | `130516 - categories of quantum and classical channels` |
+| Barnum, Duncan, Wilce, "Symmetry, compact closure and dagger compactness for categories of convex operational models", 1004.2920 (filed 2026-09-14) | compact closure ⇔ teleportation ⇔ remote evaluation (Prop 17); weakly self-dual categories are degenerate compact closed (Thm 21); dagger compactness ⇔ symmetric isomorphism state (Cor 28) | `100416 - symmetry compact closure and dagger compactness for categories of convex operational models` |
+| Wilce, "Conjugates, filters and quantum mechanics", 1206.2897 (filed 2026-09-14) | conjugate system ⇒ self-dualising inner product (Thm 1); with filters ⇒ EJA (Thm 2); no no-restriction hypothesis | `120613 - conjugates filters and quantum mechanics` |
+| Tull, "Deriving dagger compactness", 1907.05172 (filed 2026-09-14) | dagger compactness "lacks a clear interpretation"; state dagger (Prop 5); derived from completely mixed states and purification (Thm 9) | `190711 - deriving dagger compactness` |
+| Barnum, Gaebler, Wilce, "Ensemble steering, weak self-duality, and the structure of probabilistic theories", 0912.5532 (filed 2026-09-14) | isomorphism states are pure (Thm 3.3); homogeneity ⇔ interior states are marginals of isomorphism states (Thm 4.1); self-steering ⇒ homogeneous and weakly self-dual (Prop 5.8) | `091230 - ensemble steering weak self-duality and the structure of probabilistic theories` |
 
 The 1995 Popescu–Rohrlich paper is not to be cited in place of the 1994 one
 without Pedro deciding.
@@ -201,14 +205,13 @@ result R16.
 
 Named in `pipeline/spacetime-reading-of-the-axioms.md` and quoted there from
 abstracts only, marked NOT FILED in the text. Triage targets, in the order the
-entry needs them.
+entry needs them. Of the seven listed on 2026-09-11, Barnum–Duncan–Wilce,
+Wilce, Barnum–Gaebler–Wilce and Tull were filed on 2026-09-14 and moved to the
+table above; the pipeline entry's NOT FILED markers for them are cleared by
+distillation, not here.
 
 | work | why it is wanted |
 |---|---|
 | Lurie, *On the classification of topological field theories* | the cobordism hypothesis: fully local ⇔ fully dualisable. Freed's summary is filed (T29); the statement itself must not be cited from memory |
-| Barnum–Duncan–Wilce, arXiv:1004.2920 | compact closure of categories of convex operational models ⇔ teleportation / remote evaluation; dagger compactness ⇔ a symmetric bipartite state whose conditioning map is an isomorphism. The closest thing in the literature to the project's Part 2 |
-| Wilce, arXiv:1206.2897 (*Conjugates, Filters and Quantum Mechanics*) | conjugate system plus correlator plus filters ⇒ homogeneous and self-dual; the "records in causally separated systems" gloss |
-| Barnum–Gaebler–Wilce, arXiv:0912.5532 | ensemble steering ⇒ homogeneity; weak self-duality |
-| Tull, arXiv:1907.05172 (*Deriving Dagger Compactness*) | states that dagger compactness "lacks a clear interpretation" and derives it from completely mixed states and purification; fixes what is new in a spacetime reading |
 | Atiyah 1988 | the original hermitian axiom, if the draft quotes the definition of a unitary TQFT rather than Sawin's |
 | Short–Barrett, arXiv:0909.2601 | already owed for Result 0.6 |

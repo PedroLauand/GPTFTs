@@ -2,7 +2,7 @@
 status: workup           # entry | workup | proposed | project
 created: 2026-09-11
 entered-by: agent, on Pedro's instruction (session of 2026-09-11)
-last-reviewed: 2026-09-11
+last-reviewed: 2026-09-14
 feeds: B8, B9; results-ost-2dUTFT.md Owed 4
 machine-written: true
 ---
@@ -63,6 +63,17 @@ Two corrections to what is written elsewhere in the repository, both mine:
   DG's families and OST both have P ⊊ D\* (restricted effects). Where the
   no-restriction hypothesis holds the two coincide. This distinction matters
   here and is flagged in `standing-assumptions.md` as still undecided.
+
+**Published name (added 2026-09-14).** Condition (b) is what Barnum–Duncan–
+Wilce call a *symmetrically self-dual* system: an order isomorphism of the
+state space onto the effect space whose bilinear form is symmetric, with no
+condition on its sign [BDW Def 18, filed `100416`; toolbox C17]. Their Cor 28
+states that a weakly self-dual category of GPTs is dagger compact for the
+canonical adjoint exactly when it is symmetrically self-dual [C18], so the
+2d unitarity test asks for (b) and nothing stronger. They also call the
+inner-product case "strong self-duality" and leave "conditions equivalent to
+the strong self-duality of a probabilistic theory" as the open problem
+[BDW §6], the same gap as §4 below.
 
 **Strong self-duality is a conclusion, not a hypothesis.** What forces (c) is
 the *positivity of the algebra*, not the form: Lemma 4.1 of the OST file shows

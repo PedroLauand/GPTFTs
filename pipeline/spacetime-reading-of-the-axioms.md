@@ -2,7 +2,7 @@
 status: workup           # entry | workup | proposed | project
 created: 2026-09-11
 entered-by: agent, on Pedro's instruction (session of 2026-09-11)
-last-reviewed: 2026-09-11
+last-reviewed: 2026-09-14
 feeds: B3, B7, B8, B9
 machine-written: true
 ---
@@ -323,14 +323,18 @@ terms above before any formalism and each landing on a result:
    `syntheses/narratives/intro-narrative.md`, not in `draft.tex`.
 2. Check the CR and BD quotations against the PDFs before either enters the
    draft.
-3. Triage, in order of use: Barnum–Duncan–Wilce arXiv:1004.2920 (compact
-   closure ⇔ teleportation and remote evaluation, for §1.4; dagger compactness
-   ⇔ a symmetric bipartite state whose conditioning map is an isomorphism, for
-   §2.3), then Tull arXiv:1907.05172, which states that dagger compactness
-   "lacks a clear interpretation" and derives it from completely mixed states
-   and purification — it fixes what is new in the reading above. Both are
-   listed in `syntheses/literature-map.md`, quoted from abstracts only, NOT
-   FILED.
+3. Triage of Barnum–Duncan–Wilce arXiv:1004.2920 and Tull arXiv:1907.05172:
+   DONE 2026-09-14, filed as `100416` and `190711` together with Wilce
+   `120613` and Barnum–Gaebler–Wilce `091230`. What they say is now in the
+   toolbox (C15–C21) and in
+   `syntheses/narratives/qf-view-of-dualizability-and-dagger.md`. For §1.4:
+   compact closure ⇔ teleportation ⇔ remote evaluation [BDW Prop 17; C16]. For
+   §2.3: dagger compact for the canonical adjoint ⇔ the isomorphism state is a
+   *symmetric* bilinear form [BDW Cor 28; C18], which is the condition (b) of
+   the 2026-09-11 correction under a published name, "symmetrically
+   self-dual" [BDW Def 18; C17]. Tull confirms the dagger "lacks a clear
+   interpretation" and derives it only under purification [Tull Thm 13, Rem
+   14; C21]; none of the four gives either structure a spacetime reading.
 
 ## Open questions and disagreements
 
@@ -356,8 +360,11 @@ T27); `950305` Baez–Dolan (the two reversals, and their independence; T28);
 (bit symmetry ⇒ self-duality). Filed, kept out of the argument on purpose:
 `160422` Freed–Hopkins (T30), `140627` Freed (T29).
 
-Not filed, quoted from abstracts only and marked in the text: arXiv:1004.2920,
-arXiv:1206.2897, arXiv:0912.5532, arXiv:1907.05172, Lurie.
+Filed 2026-09-14, after this entry was written: `100416` Barnum–Duncan–Wilce
+(C15–C18), `091230` Barnum–Gaebler–Wilce (C19), `120613` Wilce (C20), `190711`
+Tull (C21); their statements are read against this entry in
+`syntheses/narratives/qf-view-of-dualizability-and-dagger.md` §6. Not filed:
+Lurie.
 
 Project: `paper/results-structure.md` (Results 0–3), `paper/draft.tex` (B3, B4),
 `syntheses/toolbox/` (T1, T2, T7, T21, T22, T27, T28, C8, R3),

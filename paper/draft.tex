@@ -1,0 +1,179 @@
+\documentclass[prl,aps,reprint,twocolumn,10pt,superscriptaddress,floatfix]{revtex4-2}
+\usepackage[LGR,T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm, mathtools, bbm, physics}
+\usepackage{dsfont}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true, pdfborder={0 0 0}]{hyperref}
+\definecolor{googleblue}{RGB}{34, 0, 204}
+\definecolor{panblue}{RGB}{0,24,150}
+\definecolor{carmine}{RGB}{150, 0, 24}
+\hypersetup{
+unicode=true,
+colorlinks=true,
+linkcolor=carmine,
+citecolor=googleblue,
+urlcolor=panblue,
+anchorcolor=OliveGreen}
+
+\newcommand{\tmp}[1]{\textcolor{red}{#1}}
+\newcommand{\pedro}[1]{{\color{purple} #1}}
+\newcommand{\bereket}[1]{{\color{blue} #1}}
+\newcommand{\elie}[1]{{\color{RawSienna} #1}}
+
+\usepackage{newtxtext}
+
+\begin{document}
+
+\title{\tmp{[Title: What does topological field theory require of probabilistic theories?]}}
+
+\author{Pedro Lauand}
+\affiliation{Perimeter Institute for Theoretical Physics, Waterloo, Ontario, Canada}
+
+\begin{abstract}
+\tmp{[Abstract.]}
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+% Narrative map: ../syntheses/narratives/intro-narrative.md (B1--B9). Literature: ../syntheses/literature-map.md.
+% Drafting beat by beat with Pedro; approved beats get uncommented here.
+
+% B1+B2 (one paragraph): operational stance; GPTs/OPTs as the framework.
+% (Approved 2026-08-31.)
+\textcolor{blue}{Quantum theory is one of the most empirically successful
+theories in science. It describes its experiments probabilistically: the
+theory assigns probabilities to the possible outcomes of the measurements one
+can perform upon physical systems. Every empirical claim of the theory
+therefore is described by collecting measurement statistics of repeated
+experimental runs. Despite its success, the foundational aspects of its
+mathematical formulation have remained elusive~\tmp{[cite]}. In its textbook
+presentation, quantum theory (QT) is expressed through complex vectors in a
+Hilbert space and self-adjoint operators---an abstract structure whose
+postulates arguably carry no direct physical motivation. Over the last
+decades, however, this description has been reformulated into an
+\emph{operational view}, i.e.\ to consider as its primitive notions
+``self-evident'' features of general laboratory situations and derive the
+abstract formalism from simple premises over these primitive notions. This
+shift to the operational perspective allows one not to refer to the specific
+mathematical framework of QT, but rather understand QT as a consequence of
+natural information-theoretic constraints over the mathematical framework of
+Generalized Probabilistic Theories (GPTs)~\cite{Barrett2007, Muller2021,
+Plavala2023} in which QT can be situated as one theory among many
+others~\cite{Hardy2001, CDP2011, MasanesMuller2011}.}
+
+% B2b: reconstructions; SR as role model. (Approved 2026-08-31; grammar-only
+% fixes: "also known as" clause moved next to its noun.)
+\textcolor{blue}{Based on these ideas, the next wave of axiomatizations of QT,
+also known as \emph{reconstructions} of QT, started. The most famous
+historical example that is often cited as a role model for reconstructions of
+QT is special relativity. In this example, Einstein showed that the Lorentz transformations
+can be derived from essentially two simple physical principles: the constancy
+of the speed of light and the relativity principle. This was an important
+step towards improving our conceptual understanding of the Lorentz
+transformations. Reconstructions of QT achieve a similar goal: by considering
+information-processing assumptions, such reconstructions try to make the
+abstract formalism of QT more physically motivated. The first reconstruction
+of this flavor was the seminal work of Hardy~\cite{Hardy2001}, which later
+inspired new solutions to the reconstruction
+problem~\cite{CDP2011, MasanesMuller2011}. Each of these reconstructions
+selects quantum theory out of the landscape of GPTs as the unique GPT that
+satisfies a set of simple principles.}
+
+% B3 (opening): NS as the most famous principle. (Approved 2026-09-01.)
+% 2026-09-11 (agent, on Pedro's instruction): B3's closing question replaced by
+% the sharper one, in Pedro's own words of 2026-09-11 ("what does a
+% probabilistic theory require to be distributed over space?"). Drafted,
+% awaiting approval; the rest of B3 is approved 2026-09-01 and untouched.
+% "Space" rather than "spacetime" is deliberate (Pedro, 2026-09-11):
+% distributed over space, then evolving in time. Old wording, approved
+% 2026-09-01, kept here for reversion:
+% This reasoning then suggests a natural question: are there other physical
+% principles that spacetime compatibility requires from any probabilistic
+% theory?
+% Not "a more precise question" (Pedro, 2026-09-11): the new question is not a
+% refinement of no-signalling's, it is orthogonal to that principle. The lead-in
+% is therefore the one already approved on 2026-09-01, "This reasoning then
+% suggests a natural question", with only the question itself changed.
+\textcolor{blue}{The most famous physical principle in GPTs is the
+\emph{no-signalling} principle~\cite{PopescuRohrlich1994}, which can be
+understood as the weakest condition any ``reasonable'' physical theory must
+satisfy, in the sense of being compatible with special
+relativity~\cite{Gisin2020}. The no-signalling principle can be formulated as
+the requirement that operations on separate systems
+commute~\cite{Barrett2007}. This condition guarantees that when two devices
+operate at spacelike separated locations, their correlations respect
+relativistic causality. In this sense, the no-signalling principle can be
+understood as the compatibility of relativistic causality with the operational
+theory. This reasoning then suggests a natural question: what does a
+probabilistic theory require in order to be distributed over space?}
+
+% New beginning (2026-09-01): NS = kinematical picture (points at spacelike
+% separation) vs locality in TFT. Draft, awaiting approval.
+% 2026-09-11 (agent, on Pedro's instruction): the question was moved from the
+% end of this block to the end of B3, where it follows the compatibility
+% sentence directly. This block now ends on the causal relation between a pair
+% of points.
+\textcolor{blue}{The no-signalling principle considers the kinematical
+picture of relativity: systems are embedded as points of spacetime, and
+points held at spacelike separation cannot instantaneously influence each
+other's measurement statistics. The only feature of spacetime this invokes
+is the causal relation between a pair of points.}
+
+% 2026-09-11 (agent, on Pedro's instruction): the locality-of-action sentence
+% removed from B4; the beat now ends on the question. Kept for salvage:
+% Another crucial feature of spacetime physics is the \emph{locality of
+% action}~\cite{Einstein1948}: between points that \emph{are} causally
+% connected, influences propagate locally through spacetime, by a dynamical
+% law.
+
+% RETIRED (kept for salvage): earlier B4 pivot — "modern view of spacetime
+% physics", RG genericity, AQFT premise (i)/(ii) logic. Superseded by the
+% new beginning above; RG/AQFT material may return in B7/B8.
+% \textcolor{blue}{Here, we shed light on this question by incorporating a
+% modern view of spacetime physics into the GPT framework. The no-signalling
+% principle borrows from special relativity only its causal structure:
+% spacetime enters as a record of which events may influence which, and
+% constrains the correlations of devices held at spacelike separation. Modern
+% spacetime physics, however, goes beyond this kinematic picture. Its degrees
+% of freedom are \emph{fields}---physical quantities distributed over spacetime
+% itself and governed by a local dynamical law~\cite{Einstein1948}. Moreover,
+% this description is generic rather than fundamental: provided that discrete
+% systems appear continuous at long distances, the renormalization group
+% implies that microscopic details wash out and low-energy physics flows to a
+% continuum field theory~\cite{WilsonKogut1974, Wilson1975, WeinbergEFT,
+% Polchinski1992}.}
+%
+% \textcolor{blue}{This shift changes what compatibility with spacetime demands
+% of a probabilistic theory. Once the degrees of freedom of a GPT are
+% distributed over spacetime, two independent premises arise, mirroring the
+% causal axioms of axiomatic quantum field
+% theory~\cite{StreaterWightman, HaagSchroer1962, FewsterRejzner2019}:
+% (i) degrees of freedom on spacelike separated regions are independent, so
+% that systems compose in \emph{parallel}; and (ii) a local dynamical law
+% propagates the degrees of freedom on a region to its causal development, so
+% that systems compose in \emph{sequence}. The no-signalling principle
+% implements premise (i) alone---indeed, the GPT tensor product is derived
+% precisely from the commutation of operations on separate
+% systems~\cite{Barrett2007}. Premise (ii), the locality of dynamics, has never
+% been imported into the GPT framework; it is the premise from which our
+% principles follow.}
+
+% B6: reconceptualization -- continuity/RG justifies FT description.
+\tmp{[B6]}
+
+\tmp{[Warning]}
+
+% B7: low-energy/gapped limit justifies TFT; Atiyah--Segal skeleton.
+\tmp{[B7]}
+
+% B8: the new question, mirroring NS.
+\tmp{[B8]}
+
+% B9: results.
+\tmp{[Declare results.]}
+
+\bibliography{draft}
+
+\end{document}

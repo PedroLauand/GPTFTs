@@ -1,0 +1,6 @@
+# Collapses the same person's git identities so that `git shortlog -sn` and
+# `git log` credit one name. Web-UI commits carry a GitHub noreply address.
+#
+# Format: Canonical Name <canonical@email> Alias Name <alias@email>
+
+Pedro Lauand <pedrolauand@icloud.com> Pedro N Lauand <44585703+PedroLauand@users.noreply.github.com>
